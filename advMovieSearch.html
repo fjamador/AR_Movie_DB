@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Arkansas Movie Database</title>
+    <meta name="description" content="Your Description">
+    <meta name="keywords" content="Your, Key, Words">
+    <meta name="author" content="Fernando J Amador">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="assets/style/arMovieDatabase.css">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu">
+	<link rel="shortcut icon" href="assets/images/arflag3favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+	<div id="container">
+	
+        <!-- Scroll back to top button -->
+        <button onclick="topFunction()" id="sbttBtn" title="Go to top">Go To <br> Top</button>
+
+        <!-- Begin Tab Buttons Section -->
+        <div class="tab">
+			<!-- openRedirect Button -->
+            <button class="tablinks" onclick="openRedirect('index.html')">Home</button> 
+			<button class="tablinks" onclick="openRedirect('browse_movies.html')">Browse Movies</button> 
+			<button class="tablinks" onclick="openRedirect('browse_celebrities.html')">Browse Celebrities</button>
+            <button class="tablinks" onclick="openRedirect('advMovieSearch.html')">Advanced Search Movies</button>
+            <button class="tablinks" onclick="openRedirect('advPersonSearch.html')">Advanced Search Celebrities</button>
+            <button class="tablinks" onclick="openRedirect('about.html')">About</button>
+            <button class="tablinks" id="CntcMdlBtn">Contact</button>
+        </div>
+		
+		<h2>Movie  Details  CreditsSearch</h2>
+		<p>Enter Movie: <input  id="moviename" type="text" placeholder="Enter Movie Name"></p>
+		
+		<!-- Run the MovieSearch function when the button is clicked - See https://www.w3schools.com/js/js_events.asp-->
+		<p><button id="SrchMovBtn" onclick="MovieSearch()">Search for Movie</button></p>
+		
+		<img class="" src="assets/images/timurock_under_construction_sign001_gr1.jpg" alt="" style="display:block;margin-left:auto;margin-right:auto;width:35%;">
+		
+		<div id="url1"></div><br>
+		<div id="title0"></div>
+		<div id="mid0"></div>
+		<img id="image0"><br><br> 
+		<div id="title1"></div>
+		<div id="mid1"></div>
+		<img id="image1"><br><br>
+		<div id="title2"></div>
+		<div id="mid2"></div>
+		<img id="image2"><br><br>
+		<div id="title3"></div>
+		<div id="mid3"></div>
+		<img id="image3"><br><br> 
+		<div id="title4"></div>
+		<div id="mid4"></div>
+		<img id="image4"><br><br> 
+		<div id="title5"></div>
+		<div id="mid5"></div>
+		<img id="image5"><br><br> 
+		<div id="title6"></div>
+		<div id="mid6"></div>
+		<img id="image6"><br><br> 
+		<div id="title7"></div>
+		<div id="mid7"></div>
+		<img id="image7"><br><br> 
+		<div id="title8"></div>
+		<div id="mid8"></div>
+		<img id="image8"><br><br> 
+		<div id="title9"></div>
+		<div id="mid9"></div>
+		<img id="image9"><br><br> 
+		<div id="title10"></div>
+		<div id="mid10"></div>
+		<img id="image10"><br><br> 
+		<div id="title11"></div>
+		<div id="mid11"></div>
+		<img id="image11"><br><br> 
+		<div id="title12"></div>
+		<div id="mid12"></div>
+		<img id="image12"><br><br> 
+		<div id="title13"></div>
+		<div id="mid13"></div>
+		<img id="image13"><br><br> 
+		<div id="title14"></div>
+		<div id="mid14"></div>
+		<img id="image14"><br><br> 
+		<div id="title15"></div>
+		<div id="mid15"></div>
+		<img id="image15"><br><br> 
+		<div id="title16"></div>
+		<div id="mid16"></div>
+		<img id="image16"><br><br> 
+		<div id="title17"></div>
+		<div id="mid17"></div>
+		<img id="image17"><br><br> 
+		<div id="title18"></div>
+		<div id="mid18"></div>
+		<img id="image18"><br><br> 
+		<div id="title19"></div>
+		<div id="mid19"></div>
+		<img id="image19"><br><br> 
+		<div id="title20"></div>
+		<div id="mid20"></div>
+		<img id="image20"><br><br> 
+		<div id="title21"></div>
+		<div id="mid21"></div>
+		<img id="image21"><br><br> 
+		<div id="title22"></div>
+		<div id="mid22"></div>
+		<img id="image22"><br><br> 
+		<div id="title23"></div>
+		<div id="mid23"></div>
+		<img id="image23"><br><br> 
+		<div id="title24"></div>
+		<div id="mid24"></div>
+		<img id="image24"><br><br> 
+		<div id="title25"></div>
+		<div id="mid25"></div>
+		<img id="image25"><br><br> 
+
+    </div>
+
+	<footer>
+		
+	</footer>
+
+	<script>
+		/* Trigger Button Click on Enter */
+		var input = document.getElementById("moviename");
+		input.addEventListener("keyup", function(event) {
+		  if (event.keyCode === 13) {
+		   event.preventDefault();
+		   document.getElementById("SrchMovBtn").click();
+		  }
+		});
+
+		 // event listener to grab click on movie poster and call fuction MovieIDSearch
+		document.getElementById("image0").addEventListener("click", function() {MovieIDSearch(0)});
+		document.getElementById("image1").addEventListener("click", function() {MovieIDSearch(1)});
+		document.getElementById("image2").addEventListener("click", function() {MovieIDSearch(2)});
+		document.getElementById("image3").addEventListener("click", function() {MovieIDSearch(3)});
+		document.getElementById("image4").addEventListener("click", function() {MovieIDSearch(4)});
+		document.getElementById("image5").addEventListener("click", function() {MovieIDSearch(5)});
+		document.getElementById("image6").addEventListener("click", function() {MovieIDSearch(6)});
+		document.getElementById("image7").addEventListener("click", function() {MovieIDSearch(7)});
+		document.getElementById("image8").addEventListener("click", function() {MovieIDSearch(8)});
+		document.getElementById("image9").addEventListener("click", function() {MovieIDSearch(9)});
+		document.getElementById("image10").addEventListener("click", function() {MovieIDSearch(10)});
+		document.getElementById("image11").addEventListener("click", function() {MovieIDSearch(11)});
+		document.getElementById("image12").addEventListener("click", function() {MovieIDSearch(12)});
+		document.getElementById("image13").addEventListener("click", function() {MovieIDSearch(13)});
+		document.getElementById("image14").addEventListener("click", function() {MovieIDSearch(14)});
+		document.getElementById("image15").addEventListener("click", function() {MovieIDSearch(15)});
+		document.getElementById("image16").addEventListener("click", function() {MovieIDSearch(16)});
+		document.getElementById("image17").addEventListener("click", function() {MovieIDSearch(17)});
+		document.getElementById("image18").addEventListener("click", function() {MovieIDSearch(18)});
+		document.getElementById("image19").addEventListener("click", function() {MovieIDSearch(19)});
+		document.getElementById("image20").addEventListener("click", function() {MovieIDSearch(20)});
+		document.getElementById("image21").addEventListener("click", function() {MovieIDSearch(21)});
+		document.getElementById("image22").addEventListener("click", function() {MovieIDSearch(22)});
+		document.getElementById("image23").addEventListener("click", function() {MovieIDSearch(23)});
+		document.getElementById("image24").addEventListener("click", function() {MovieIDSearch(24)});
+
+
+		// fuction MovieIDSearch will pull the movie id and opens a new window that calls function MovieDtlCrdSearch on load to display the movie details
+		function MovieIDSearch(imageNbr) {
+		var MovIdIndex = imageNbr
+			/* Get the movie name for the form */
+			var moviename = document.getElementById("moviename").value;
+				/* Build up the parameters for the URL */
+			var api_key = "e5e088b9fdaef1249c47887b5e5eef39";//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+			var language = "en-US";
+			var page = "1";
+			var include_adult = "false";
+			var query = encodeURI(moviename);  /* encode the Moviename since it might have blanks */  
+			var myURL = "https://api.themoviedb.org/3/search/movie?api_key=" + api_key + "&language=" + language + "&query=" + query + "&page="  + page + "&include_adult=" + include_adult;
+				/* Display the URL */
+			document.getElementById("url1").innerHTML = myURL;
+				/* AJAX Method - Use GET since the parameters are in the URL */
+			var myMethod = "GET";
+				/* Make sure the document is ready */
+			$(document).ready(function() { 
+				/* Perform AJAX call - Pass to it the Method (GET) and the URL*/
+			$.ajax({
+			  method: myMethod,
+			  url: myURL
+			})
+				/* AJAX complete - result is in msg */
+			.done(function(msg) {
+				//Movie the movie id to variable onloadMovieId
+			var onloadMovieId = msg.results[MovIdIndex].id;	
+				//localStorage object stores data with no expiration date. 
+				//The data will not be deleted when the browser is closed, and will be available the next day, week, or year
+			localStorage.setItem("movieIdPass", onloadMovieId);
+				//The open() method opens a new browser window, or a new tab
+			window.open("advMovieSearchDetailsCredits.html", "_self");
+				});
+			});
+		}
+	</script>
+	<!-- Include JQuery to simplify AJAX call  -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="assets/scripts/index.js"></script>
+</body>
+</html>
+  

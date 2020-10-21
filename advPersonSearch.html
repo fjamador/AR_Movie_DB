@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Arkansas Movie Database</title>
+    <meta name="description" content="Your Description">
+    <meta name="keywords" content="Your, Key, Words">
+    <meta name="author" content="Fernando J Amador">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="assets/style/arMovieDatabase.css">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu">
+	<link rel="shortcut icon" href="assets/images/arflag3favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+	<div id="container">
+	    <!-- Scroll back to top button -->
+        <button onclick="topFunction()" id="sbttBtn" title="Go to top">Go To <br> Top</button>
+         
+        <!-- Begin Tab Buttons Section -->
+        <div class="tab">
+			<!-- openRedirect Button -->
+            <button class="tablinks" onclick="openRedirect('index.html')">Home</button> 
+			<button class="tablinks" onclick="openRedirect('browse_movies.html')">Browse Movies</button> 
+			<button class="tablinks" onclick="openRedirect('browse_celebrities.html')">Browse Celebrities</button>
+            <button class="tablinks" onclick="openRedirect('advMovieSearch.html')">Advanced Search Movies</button>
+            <button class="tablinks" onclick="openRedirect('advPersonSearch.html')">Advanced Search Celebrities</button>
+            <button class="tablinks" onclick="openRedirect('about.html')">About</button>
+            <button class="tablinks" id="CntcMdlBtn">Contact</button>
+        </div>
+		
+		<h2>Person  Details  Credits Search</h2>
+		<p>Enter Person Name: <input id="personname" type="text" placeholder="Enter Person Name"></p>
+		<!-- Run the MovieSearch function when the button is clicked -->
+		<p><button id="SrchPerBtn" onclick="PersonSearch()">Search for Person</button></p>
+		
+		<img class="" src="assets/images/timurock_under_construction_sign001_gr1.jpg" alt="" style="display:block;margin-left:auto;margin-right:auto;width:35%;">
+		 
+		<div id="url1"></div><br>
+		<div id="person0"></div>
+		<div id="pid0"></div>
+		<img id="profilepth0"><br>
+		<div id="person1"></div>
+		<div id="pid1"></div>
+		<img id="profilepth1"><br>
+		<div id="person2"></div>
+		<div id="pid2"></div>
+		<img id="profilepth2"><br>
+		<div id="person3"></div>
+		<div id="pid3"></div>
+		<img id="profilepth3"><br>
+		<div id="person4"></div>
+		<div id="pid4"></div>
+		<img id="profilepth4"><br>
+		<div id="person5"></div>
+		<div id="pid5"></div>
+		<img id="profilepth5"><br>
+		<div id="person6"></div>
+		<div id="pid6"></div>
+		<img id="profilepth6"><br>
+		<div id="person7"></div>
+		<div id="pid7"></div>
+		<img id="profilepth7"><br>
+		<div id="person8"></div>
+		<div id="pid8"></div>
+		<img id="profilepth8"><br>
+		<div id="person9"></div>
+		<div id="pid9"></div>
+		<img id="profilepth9"><br>
+		<div id="person10"></div>
+		<div id="pid10"></div>
+		<img id="profilepth10"><br>
+		<div id="person11"></div>
+		<div id="pid11"></div>
+		<img id="profilepth11"><br>
+		<div id="person12"></div>
+		<div id="pid12"></div>
+		<img id="profilepth12"><br>
+		<div id="person13"></div>
+		<div id="pid13"></div>
+		<img id="profilepth13"><br>
+		<div id="person14"></div>
+		<div id="pid14"></div>
+		<img id="profilepth14"><br>
+		<div id="person15"></div>
+		<div id="pid15"></div>
+		<img id="profilepth15"><br>
+		<div id="person16"></div>
+		<div id="pid16"></div>
+		<img id="profilepth16"><br>
+		<div id="person17"></div>
+		<div id="pid17"></div>
+		<img id="profilepth17"><br>
+		<div id="person18"></div>
+		<div id="pid18"></div>
+		<img id="profilepth18"><br>
+		<div id="person19"></div>
+		<div id="pid19"></div>
+		<img id="profilepth19"><br>
+		<div id="person20"></div>
+		<div id="pid20"></div>
+		<img id="profilepth20"><br>
+		<div id="person21"></div>
+		<div id="pid21"></div>
+		<img id="profilepth21"><br>
+		<div id="person22"></div>
+		<div id="pid22"></div>
+		<img id="profilepth22"><br>
+		<div id="person23"></div>
+		<div id="pid23"></div>
+		<img id="profilepth23"><br>
+		<div id="person24"></div>
+		<div id="pid24"></div>
+		<img id="profilepth24"><br>
+		<div id="person25"></div>
+		<div id="pid25"></div>
+		<img id="profilepth25"><br>
+
+	<script>
+
+		/* Trigger Button Click on Enter */
+		var input = document.getElementById("personname");
+		input.addEventListener("keyup", function(event) {
+		  if (event.keyCode === 13) {
+		   event.preventDefault();
+		   document.getElementById("SrchPerBtn").click();
+		  }
+		});
+
+
+		//++++++++++++++++++ delete <div id="profile25"></div>  +++++++++++++++++++++
+		 // event listener to grab click on movie poster and call fuction MovieIDSearch
+		document.getElementById("profilepth0").addEventListener("click", function() {PersonIDSearch(0)});
+		document.getElementById("profilepth1").addEventListener("click", function() {PersonIDSearch(1)});
+		document.getElementById("profilepth2").addEventListener("click", function() {PersonIDSearch(2)});
+		document.getElementById("profilepth3").addEventListener("click", function() {PersonIDSearch(3)});
+		document.getElementById("profilepth4").addEventListener("click", function() {PersonIDSearch(4)});
+		document.getElementById("profilepth5").addEventListener("click", function() {PersonIDSearch(5)});
+		document.getElementById("profilepth6").addEventListener("click", function() {PersonIDSearch(6)});
+		document.getElementById("profilepth7").addEventListener("click", function() {PersonIDSearch(7)});
+		document.getElementById("profilepth8").addEventListener("click", function() {PersonIDSearch(8)});
+		document.getElementById("profilepth9").addEventListener("click", function() {PersonIDSearch(9)});
+		document.getElementById("profilepth10").addEventListener("click", function() {PersonIDSearch(10)});
+		document.getElementById("profilepth11").addEventListener("click", function() {PersonIDSearch(11)});
+		document.getElementById("profilepth12").addEventListener("click", function() {PersonIDSearch(12)});
+		document.getElementById("profilepth13").addEventListener("click", function() {PersonIDSearch(13)});
+		document.getElementById("profilepth14").addEventListener("click", function() {PersonIDSearch(14)});
+		document.getElementById("profilepth15").addEventListener("click", function() {PersonIDSearch(15)});
+		document.getElementById("profilepth16").addEventListener("click", function() {PersonIDSearch(16)});
+		document.getElementById("profilepth17").addEventListener("click", function() {PersonIDSearch(17)});
+		document.getElementById("profilepth18").addEventListener("click", function() {PersonIDSearch(18)});
+		document.getElementById("profilepth19").addEventListener("click", function() {PersonIDSearch(19)});
+		document.getElementById("profilepth20").addEventListener("click", function() {PersonIDSearch(20)});
+		document.getElementById("profilepth21").addEventListener("click", function() {PersonIDSearch(21)});
+		document.getElementById("profilepth22").addEventListener("click", function() {PersonIDSearch(22)});
+		document.getElementById("profilepth23").addEventListener("click", function() {PersonIDSearch(23)});
+		document.getElementById("profilepth24").addEventListener("click", function() {PersonIDSearch(24)});
+
+
+		// fuction PersonIDSearch will pull the 
+		//person id and opens a new window that calls function PersonDtlCrdSearch on load to display the person details
+		function PersonIDSearch(profilepthNbr) {
+			var PrsnIdIndex = profilepthNbr;
+			/* Get the person name for the form */
+			var personname = document.getElementById("personname").value;
+				/* Build up the parameters for the URL */
+			var api_key = "e5e088b9fdaef1249c47887b5e5eef39";//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+			var language = "en-US";
+			var page = "1";
+			var include_adult = "false";
+			var query = encodeURI(personname);  /* encode the Moviename since it might have blanks */  
+			var myURL = "https://api.themoviedb.org/3/search/person?api_key=" + api_key + "&language=" + language + "&query=" + query + "&page="  + page + "&include_adult=" + include_adult;
+				/* Display the URL */
+			document.getElementById("url1").innerHTML = myURL;
+				/* AJAX Method - Use GET since the parameters are in the URL */
+			var myMethod = "GET";
+				/* Make sure the document is ready */
+			$(document).ready(function() { 
+				/* Perform AJAX call - Pass to it the Method (GET) and the URL*/
+			$.ajax({
+			  method: myMethod,
+			  url: myURL
+			})
+				/* AJAX complete - result is in msg */
+			.done(function(msg) {
+				//Movie the person id to variable onloadPersonId
+			var onloadPersonId = msg.results[PrsnIdIndex].id;	
+				//localStorage object stores data with no expiration date. 
+				//The data will not be deleted when the browser is closed, and will be available the next day, week, or year
+			localStorage.setItem("personIdPass", onloadPersonId);
+				//The open() method opens a new browser window, or a new tab
+			window.open("advPersonSearchDetailsCredits.html", "_self");
+				});
+			});
+		}
+
+	</script>
+	<!-- Include JQuery to simplify AJAX call  -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="assets/scripts/index.js"></script>
+</body>
+</html>

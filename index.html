@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Arkansas Movie Database</title>
+    <meta name="description" content="Your Description">
+    <meta name="keywords" content="Your, Key, Words">
+    <meta name="author" content="Fernando J Amador">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="assets/style/arMovieDatabase.css">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu">
+	<link rel="shortcut icon" href="assets/images/arflag3favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div id="container">
+        <!-- Scroll back to top button -->
+        <button onclick="topFunction()" id="sbttBtn" title="Go to top">Go To <br> Top</button>
+        <!-- Begin Tab Buttons Section -->
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'Home')" id="defaultOpen">Home</button>
+            <button class="tablinks" onclick="openRedirect('browse_movies.html')">Browse Movies</button> 
+			<button class="tablinks" onclick="openRedirect('browse_celebrities.html')">Browse Celebrities</button>
+            <button class="tablinks" onclick="openRedirect('advMovieSearch.html')">Advanced Search Movies</button>
+            <button class="tablinks" onclick="openRedirect('advPersonSearch.html')">Advanced Search Celebrities</button>
+            <button class="tablinks" onclick="openRedirect('about.html')">About</button>
+            <button class="tablinks" id="CntcMdlBtn">Contact</button>
+        </div>
+
+        <!-- Begin Home Section -->
+        <div id="Home" class="tabcontent">
+            <h2>HOME</h2>
+            <img class="" src="assets/images/timurock_under_construction_sign001_gr1.jpg" alt="" style="display:block;margin-left:auto;margin-right:auto;width:35%;">
+			<p></p>
+        </div>
+
+        <!-- Begin Browse Movies Section -->
+        <div id="BrowseMovies" class="tabcontent">
+            <h2>
+                Browse Movies
+            </h2>
+			<img class=" " src="assets/images/timurock_under_construction_sign001_gr1.jpg" alt="" style="display:block;margin-left:auto;margin-right:auto;width:35%;">           
+        </div>
+        
+        <!-- Begin Browse Celebrities Section -->
+        <div id="BrowseCelebrities" class="tabcontent">
+            <h2>
+                Browse Celebrities
+            </h2>
+            <img class=" " src="assets/images/timurock_under_construction_sign001_gr1.jpg" alt="" style="display:block;margin-left:auto;margin-right:auto;width:35%;">
+        </div>
+
+       <!-- Begin Contact Section -->
+        <!-- Modal box for contact info -->
+        <!-- The Modal -->
+        <div id="CntcModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Contact</h2>
+                <p>
+                    XXXXX
+                </p>
+            </div>
+        </div>       
+    </div>
+
+    <footer>
+
+    </footer>
+    
+	<script src="assets/scripts/index.js"></script>
+</body>
+</html>

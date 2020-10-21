@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Arkansas Movie Database</title>
+    <meta name="description" content="Your Description">
+    <meta name="keywords" content="Your, Key, Words">
+    <meta name="author" content="Fernando J Amador">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="assets/style/arMovieDatabase.css">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu">
+	<link rel="shortcut icon" href="assets/images/arflag3favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- JQuery to simplify AJAX call -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+	<!-- Execute a JavaScript immediately after a page has been loaded -->
+	<!-- passing the value of the variable onloadMovieId  from the localStorage object-->
+	<body onload="PersonDtlCrdSearch()">
+    <!-- Scroll back to top button -->
+	<button onclick="topFunction()" id="sbttBtn" title="Go to top">Go To <br> Top</button>
+    <!-- Begin Tab Buttons Section -->
+    <div class="tab">
+		<!-- openRedirect Button -->
+        <button class="tablinks" onclick="openRedirect('index.html')">Home</button> 
+		<button class="tablinks" onclick="openRedirect('browse_movies.html')">Browse Movies</button> 
+		<button class="tablinks" onclick="openRedirect('browse_celebrities.html')">Browse Celebrities</button>
+        <button class="tablinks" onclick="openRedirect('advMovieSearch.html')">Advanced Search Movies</button>
+        <button class="tablinks" onclick="openRedirect('advPersonSearch.html')">Advanced Search Celebrities</button>
+        <button class="tablinks" onclick="openRedirect('about.html')">About</button>
+        <button class="tablinks" id="CntcMdlBtn">Contact</button>
+    </div>
+
+	<h2>Person Details and Credits</h2>   
+	
+	<!--
+	<p>Enter Person ID: <input type="text" id="personid"></p>
+    <!--Run the MovieSearch function when the button is clicked-->
+	<!--<p><button id="myBtn" onclick="PersonDtlCrdSearch()">Search for Person Details</button></p>
+	-->
+ 
+    <div id="url1"></div><br>
+	<div id="person0"></div>
+	<div id="known_for0"></div>
+	<div id="bday0"></div>
+	<div id="deathday0"></div>
+	<div id="birth_place0"></div>
+	<div id="imdb0"></div><br>
+	<div id="bio0"></div><br>
+	<img id="profilepth0">
+
+
+	<div id="charName0"></div>
+    <div id="title0"></div>
+    <div id="release0"></div>
+    <div id="genre0"></div><br>
+    <div id="overview0"></div><br>
+    <img id="posterpath0"><br><br>
+    <div id="charName1"></div>
+    <div id="title1"></div>
+    <div id="release1"></div>
+    <div id="genre1"></div><br>
+    <div id="overview1"></div><br>
+    <img id="posterpath1"><br><br>
+    <div id="charName2"></div>
+    <div id="title2"></div>
+    <div id="release2"></div>
+    <div id="genre2"></div><br>
+    <div id="overview2"></div><br>
+    <img id="posterpath2"><br><br>
+    <div id="charName3"></div>
+    <div id="title3"></div>
+    <div id="release3"></div>
+    <div id="genre3"></div><br>
+    <div id="overview3"></div><br>
+    <img id="posterpath3"><br><br>
+    <div id="charName4"></div>
+    <div id="title4"></div>
+    <div id="release4"></div>
+    <div id="genre4"></div><br>
+    <div id="overview4"></div><br>
+    <img id="posterpath4"><br><br>
+    <div id="charName5"></div>
+    <div id="title5"></div>
+    <div id="release5"></div>
+    <div id="genre5"></div><br>
+    <div id="overview5"></div><br>
+    <img id="posterpath5"><br><br>
+    <div id="charName6"></div>
+    <div id="title6"></div>
+    <div id="release6"></div>
+    <div id="genre6"></div><br>
+    <div id="overview6"></div><br>
+    <img id="posterpath6"><br><br>
+
+	<script>
+		/* Trigger Button Click on Enter */
+		var input = document.getElementById("personid");
+		input.addEventListener("keyup", function(event) {
+		  if (event.keyCode === 13) {
+		   event.preventDefault();
+		   document.getElementById("myBtn").click();
+		  }
+		});
+	</script>
+	<script src="assets/scripts/index.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

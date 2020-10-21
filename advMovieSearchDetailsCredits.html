@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Arkansas Movie Database</title>
+    <meta name="description" content="Your Description">
+    <meta name="keywords" content="Your, Key, Words">
+    <meta name="author" content="Fernando J Amador">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="assets/style/arMovieDatabase.css">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu">
+	<link rel="shortcut icon" href="assets/images/arflag3favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Include JQuery to simplify AJAX call -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+	<!-- Execute a JavaScript immediately after a page has been loaded -->
+	<!-- passing the value of the variable onloadMovieId  from the localStorage object-->
+	<body onload="MovieDtlCrdSearch()">
+
+        <!-- Scroll back to top button -->
+        <button onclick="topFunction()" id="sbttBtn" title="Go to top">Go To <br> Top</button>
+
+        <!-- Begin Tab Buttons Section -->
+        <div class="tab">
+			<!-- openRedirect Button -->
+            <button class="tablinks" onclick="openRedirect('index.html')">Home</button> 
+			<button class="tablinks" onclick="openRedirect('browse_movies.html')">Browse Movies</button> 
+			<button class="tablinks" onclick="openRedirect('browse_celebrities.html')">Browse Celebrities</button>
+            <button class="tablinks" onclick="openRedirect('advMovieSearch.html')">Advanced Search Movies</button>
+            <button class="tablinks" onclick="openRedirect('advPersonSearch.html')">Advanced Search Celebrities</button>
+            <button class="tablinks" onclick="openRedirect('about.html')">About</button>
+            <button class="tablinks" id="CntcMdlBtn">Contact</button>
+        </div>
+		
+	<h2>Search Movie Details & Credits</h2>
+    
+	<!--
+	<p>Enter Movie ID: <input type="text" id="movieid"></p>
+    
+    -- Run the MovieSearch function when the button is clicked - See https://www.w3schools.com/js/js_events.asp--
+    <p><button id="myBtn" onclick="MovieDtlCrdSearch()">Search for Movie Details & Credits</button></p>
+	-->
+    
+    <div id="url1"></div><br>
+	<div id="title"></div>
+    <div id="budget"></div>
+    <div id="genres"></div>
+    <div id="release"></div>
+    <div id="revenue"></div>
+    <div id="imdb_id"></div>
+	<div id="overview"></div><br>
+    <img id="posterpath"><br>
+		 
+	<div id="name0"></div>
+    <div id="character0"></div>
+    <div id="creditid0"></div>
+    <img id="profilepath0">
+	<div id="name1"></div>
+    <div id="character1"></div>
+    <div id="creditid1"></div>
+    <img id="profilepath1">    
+    <div id="name2"></div>
+    <div id="character2"></div>
+    <div id="creditid2"></div>
+    <img id="profilepath2">    
+    <div id="name3"></div>
+    <div id="character3"></div>
+    <div id="creditid3"></div>
+    <img id="profilepath3">     
+    <div id="name4"></div>
+    <div id="character4"></div>
+    <div id="creditid4"></div>
+    <img id="profilepath4">     
+
+	<script>  
+		/* Trigger Button Click on Enter */
+		var input = document.getElementById("movieid");
+		input.addEventListener("keyup", function(event) {
+		  if (event.keyCode === 13) {
+		   event.preventDefault();
+		   document.getElementById("myBtn").click();
+		  }
+		});
+	</script>
+	<script src="assets/scripts/index.js"></script>
+</body>
+</html>
