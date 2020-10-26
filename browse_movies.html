@@ -42,7 +42,7 @@
 				<ul id="listTwo" class="demoTwo demo">
 					<!-- <li><a href="#" onclick="someFunction(); return false;">LINK</a></li> -->
 					<li><a href="#" onclick="movieSomeFunction(7)">Rambo</a>	
-					<li><a href="#" onclick="movieSomeFunction(5)">Chrystal</a></li>
+					<li><a href="#" onclick="MovieIDSearch(33403)">Chrystal</a></li>
 					<li><a href="#" onclick="movieSomeFunction(3)">Impossible - Fallout</a></li>
  				</ul>
 				
@@ -59,9 +59,19 @@
 	<!-- Specify the URL of external script files -->
 	<script src="assets/scripts/index.js"></script>
 	<script src="assets/scripts/jquery-listnav.js"></script>
-	<!-- <script src="js/vendor.js"></script> -->
-	<script src="assets/scripts/movieAnchor_someFunction.js"></script>
+
 	<script>
+	// fuction MovieIDSearch will pull the movie id and opens a new window that calls function MovieDtlCrdSearch on load to display the movie details
+		function MovieIDSearch(idNbr) {
+				//Movie the movie id to variable onloadMovieId
+			var onloadMovieId = idNbr;	
+				//localStorage object stores data with no expiration date. 
+				//The data will not be deleted when the browser is closed, and will be available the next day, week, or year
+			localStorage.setItem("movieIdPass", onloadMovieId);
+				//The open() method opens a new browser window, or a new tab
+			window.open("advMovieSearchDetailsCredits.html", "_self");
+			}	
+		
 	//custom message for letters with no matching results
 		$(function(){
 			$('.demoTwo').listnav({
