@@ -40,9 +40,9 @@
 	 
 				<ul id="listTwo" class="demoTwo demo">
 					<!-- <li><a href="#" onclick="someFunction(); return false;">LINK</a></li> -->
-					<li><a href="#" onclick="celebSomeFunction(2)">Billy Bob Thornton</a>	
-					<li><a href="#" onclick="celebSomeFunction(4)">Fu Manchu</a></li>
-					<li><a href="#" onclick="celebSomeFunction(6)">Reymond Reddington</a></li>
+					<li><a href="#" onclick="browseCelebId(879)">Billy Bob Thornton</a>	
+					<li><a href="#" onclick="browseCelebId(1383395)">Fu Manchu</a></li>
+					<li><a href="#" onclick="browseCelebId(3198)">Rodney Dangerfield</a></li>
  				</ul>
 				
 			<p id="demo"></p>
@@ -59,9 +59,17 @@
 	<!-- Specify the URL of external script files -->
 	<script src="assets/scripts/index.js"></script>
 	<script src="assets/scripts/jquery-listnav.js"></script>
-	<!-- <script src="js/vendor.js"></script> -->
-	<script src="assets/scripts/celebAnchor_someFunction.js"></script>
 	<script>
+			// fuction PersonIDSearch will pull the 
+		//person id and opens a new window that calls function PersonDtlCrdSearch on load to display the person details
+		function browseCelebId(idNbr) {
+			var onloadPersonId = idNbr;	
+				//localStorage object stores data with no expiration date. 
+				//The data will not be deleted when the browser is closed, and will be available the next day, week, or year
+			localStorage.setItem("personIdPass", onloadPersonId);
+				//The open() method opens a new browser window, or a new tab
+			window.open("advPersonSearchDetailsCredits.html", "_self");
+			}
 		//custom message for letters with no matching results
 		$(function(){
 			$('.demoTwo').listnav({
