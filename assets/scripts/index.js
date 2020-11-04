@@ -1,22 +1,6 @@
 
 
-document.getElementById("defaultOpen").click();
-
-// Open Tab Function
-function openTab(evt, btnName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(btnName).style.display = "block";
-    evt.currentTarget.className += " active";
-}
-
+ 
 
 // Open Redirect Function
 function openRedirect(url) {
@@ -57,6 +41,42 @@ window.onclick = function(event) {
   }
 }
 
+/* ***************************** Create A Responsive Topnav with Dropdown  ****************************** */
+/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+
+
+/**********************************************
+***				Automatic Slideshow			***
+***********************************************/
+
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
+
 
 
 /*
@@ -77,7 +97,7 @@ function MovieSearch() {
     /* Get the movie name for the form */
     var moviename = document.getElementById("moviename").value;
     /* Build up the parameters for the URL */
-    var api_key = "e5e088b9fdaef1249c47887b5e5eef39";//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    var api_key = "e5e088b9fdaef1249c47887b5e5eef39";
     var language = "en-US";
     var page = "1";
     var include_adult = "false";
@@ -99,48 +119,93 @@ function MovieSearch() {
       url: myURL
     })
 
-        /* AJAX complete - result is in msg */
+        // AJAX complete - result is in msg  
         .done(function(msg) {
 
-        /* Your code to process the result goes here */          
-
-        /* Loop through the first 25 results */
-            for (i = 0; i < 25; i++) {
+			// Your code to process the result goes here 
+			// Loop through the first 25 results  
+            for (i = 0; i < 24; i++) {
                 
-                /* Display the result */
+                // Display the result  
                 if (i < msg.results.length) {
+				document.getElementById("title" + i).style.display = "block";
+                document.getElementById("title" + i).innerHTML = i + ". Movie title:" + msg.results[i].title;
+				
+				document.getElementById("overview" + i).style.display = "block";
+                document.getElementById("overview" + i).innerHTML = i + ". Movie overview:" + msg.results[i].overview;
+				
+				document.getElementById("release_date" + i).style.display = "block";
+                document.getElementById("release_date" + i).innerHTML = i + ". Movie release date:" + msg.results[i].release_date;
+				
+				// Some movies don't have a poster - null is returned 
+                if (msg.results[i].poster_path != null) {
+                    document.getElementById("poster_path" + i).style.display = "block";
+                    document.getElementById("poster_path" + i).src = "https://image.tmdb.org/t/p/w300" + msg.results[i].poster_path;}
+				// null move poster - don't display an empty value 
+                else	{
+                    document.getElementById("poster_path" + i).src = "";       
+                    document.getElementById("poster_path" + i).style.display = "none";}
+				
+				// Some movies don't have a backdrop_path - null is returned 
+                if (msg.results[i].backdrop_path != null) {
+                    document.getElementById("backdrop_path" + i).style.display = "block";
+                    document.getElementById("backdrop_path" + i).src = "https://image.tmdb.org/t/p/w780" + msg.results[i].backdrop_path;}
+				// null move poster - don't display an empty value 
+                else	{
+                    document.getElementById("backdrop_path" + i).src = "";       
+                    document.getElementById("backdrop_path" + i).style.display = "none";}
+				
 
-                    /* Set the Title to Visible and set title to value in database */
-                    document.getElementById("title" + i).style.display = "block";
-                    document.getElementById("title" + i).innerHTML = i + ". Movie title:" + msg.results[i].original_title;
-                    
-                    document.getElementById("mid" + i).style.display = "block";
-                    document.getElementById("mid" + i).innerHTML = i + ". Movie ID:" + msg.results[i].id;
+				
+				document.getElementById("popularity" + i).style.display = "none";
+                document.getElementById("popularity" + i).innerHTML = i + ". Movie popularity:" + msg.results[i].popularity;
 
-                    /* Some movies don't have a poster - null is returned */
-                    if (msg.results[i].poster_path != null) {
-                        document.getElementById("image" + i).style.display = "block";
-                        document.getElementById("image" + i).src = "https://image.tmdb.org/t/p/w300" + msg.results[i].poster_path;
-                    }
-                    else
+				document.getElementById("movie_id" + i).style.display = "none";
+                document.getElementById("movie_id" + i).innerHTML = i + ". Movie id:" + msg.results[i].id;
+				
+				document.getElementById("adult_content" + i).style.display = "none";
+                document.getElementById("adult_content" + i).innerHTML = i + ". Movie adult content:" + msg.results[i].adult;
+				
+				document.getElementById("original_language" + i).style.display = "none";
+                document.getElementById("original_language" + i).innerHTML = i + ". Movie original_language:" + msg.results[i].original_language;
 
-                    /* null move poster - don't display a empty value */
-                    {
-                        document.getElementById("image" + i).src = "";       
-                        document.getElementById("image" + i).style.display = "none";
-                    }
-                }
+				
+
+
+				}
                 else
                 {
-                    /* Less that 25 movies returned - blank out the rest of the values */
-                    document.getElementById("title" + i).innerHTML = "";
-                    document.getElementById("title" + i).style.display = "none";
-                    document.getElementById("mid" + i).innerHTML = "";
-                    document.getElementById("mid" + i).style.display = "none";
-                    document.getElementById("image" + i).src = "";
-                    document.getElementById("image" + i).style.display = "none";
+                // Less that 25 movies returned - blank out the rest of the values
+				
+				document.getElementById("poster_path" + i).src = "";       
+                document.getElementById("poster_path" + i).style.display = "none";
+				
+				document.getElementById("backdrop_path" + i).src = "";       
+                document.getElementById("backdrop_path" + i).style.display = "none";
+				
+				document.getElementById("title" + i).innerHTML =  "";
+				document.getElementById("title" + i).style.display = "none";
+				
+				document.getElementById("overview" + i).innerHTML =  "";
+				document.getElementById("overview" + i).style.display = "none";
+				
+				document.getElementById("release_date" + i).innerHTML =  "";
+				document.getElementById("release_date" + i).style.display = "none";
+				
+				document.getElementById("popularity" + i).innerHTML =  "";
+                document.getElementById("popularity" + i).style.display = "none";	
+				
+                document.getElementById("movie_id" + i).innerHTML =  "";
+				document.getElementById("movie_id" + i).style.display = "none";
+				
+				document.getElementById("adult_content" + i).innerHTML =  "";
+				document.getElementById("adult_content" + i).style.display = "none";
+				
+				document.getElementById("original_language" + i).innerHTML =  "";
+				document.getElementById("original_language" + i).style.display = "none";
+
                 }
-            }
+			}
         });
     });
 }
@@ -154,7 +219,7 @@ function MovieDtlCrdSearch() {
     var movieid = localStorage.getItem("movieIdPass");
     /* Build up the parameters for the URL */
     var txt
-    var api_key = "e5e088b9fdaef1249c47887b5e5eef39";//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    var api_key = "e5e088b9fdaef1249c47887b5e5eef39";
     var language = "en-US";
     var page = "1";
     var include_adult = "false";
@@ -172,77 +237,148 @@ function MovieDtlCrdSearch() {
     /* Perform AJAX call - Pass to it the Method (GET) and the URL*/
     $.ajax({
       method: myMethod,
-      url: myURL
-    })
+      url: myURL})
 
         /* AJAX complete - result is in msg */
         .done(function(msg) {
+			
+			/* Your code to process the result goes here */          
+			if (msg.homepage != "") {
+				document.getElementById("homepage").style.display = "none";
+				document.getElementById("homepage").innerHTML ="Movie homepage: " + msg.homepage;}
+			// don't display an empty value
+			else {
+				document.getElementById("homepage").src = "";       
+				document.getElementById("homepage").style.display = "none";}
+	
+			document.getElementById("movieid").style.display = "none";
+			document.getElementById("movieid").innerHTML ="Movie release date: " + msg.id;
+			
+			document.getElementById("budget").style.display = "block";
+			document.getElementById("budget").innerHTML ="Movie budget:: " + msg.budget;
+			
+			document.getElementById("imdb_id").style.display = "none";
+			document.getElementById("imdb_id").innerHTML ="Movie imdb id: " + msg.imdb_id;
+			
+			document.getElementById("original_language").style.display = "none";
+			document.getElementById("original_language").innerHTML ="Movie original language: " + msg.original_language;
+			
+			document.getElementById("original_title").style.display = "none";
+			document.getElementById("original_title").innerHTML ="Movie original title: " + msg.original_title;
+			
+			document.getElementById("overview").style.display = "block";
+			document.getElementById("overview").innerHTML ="Movie overview: " + msg.overview;
+			
+			document.getElementById("popularity").style.display = "none";
+			document.getElementById("popularity").innerHTML ="Movie popularity: " + msg.popularity;
+			
+			document.getElementById("poster_path").style.display = "none";
+			document.getElementById("poster_path").innerHTML ="Movie poster path: " + msg.poster_path; 
+			
+			document.getElementById("release_date").style.display = "block";
+			document.getElementById("release_date").innerHTML ="Movie release date: " + msg.release_date;
+			
+			document.getElementById("revenue").style.display = "block";
+			document.getElementById("revenue").innerHTML ="Movie revenue: " + msg.revenue;
+			
+			document.getElementById("runtime").style.display = "block";
+			document.getElementById("runtime").innerHTML ="Movie runtime: " + msg.runtime; 
+			
+			document.getElementById("status").style.display = "none";
+			document.getElementById("status").innerHTML ="Movie status: " + msg.status;
+			
+			document.getElementById("tagline").style.display = "none";
+			document.getElementById("tagline").innerHTML ="Movie tagline: " + msg.tagline;
+			
+			document.getElementById("title").style.display = "block";
+			document.getElementById("title").innerHTML ="Movie title: " + msg.title;
+			
+							 
+					  
+			for (i = 0; i < 7; i++) {
+			
+				/* Display the result */
+				if (i < msg.genres.length) {
+					/* Set the Title to Visible and set title to value in database */
+					document.getElementById("genres" + i).style.display = "block";
+				document.getElementById("genres" + i).innerHTML = i + "Movie genres:: " + msg.genres[i].name;
+				}
+			else {
+					/* Less that 5 movies returned - blank out the rest of the values */
+					document.getElementById("genres" + i).innerHTML = "";
+			document.getElementById("genres" + i).style.display = "none";
+			}
+			}
+			
+			
+			
+			// Some movies don't have a poster - null is returned  
+			if (msg.poster_path != null) {
+				document.getElementById("poster_path").style.display = "block";
+				document.getElementById("poster_path").src = "https://image.tmdb.org/t/p/w185" + msg.poster_path;}
+			// null movie poster - don't display an empty value
+			else {
+				document.getElementById("poster_path").src = "";       
+				document.getElementById("poster_path").style.display = "none";}
 
-        /* Your code to process the result goes here */          
-
-        document.getElementById("title").innerHTML ="Movie Title: " + msg.original_title;
-		document.getElementById("budget").innerHTML ="Movie budget:: " + msg.budget;
-        
-       
-        document.getElementById("release").innerHTML ="Movie release date:: " + msg.release_date;
-        document.getElementById("revenue").innerHTML ="Movie revenue:: " + msg.revenue;
-        document.getElementById("overview").innerHTML ="Movie overview:: " + msg.overview;
-        document.getElementById("imdb_id").innerHTML ="Movie imdb id:: " + msg.imdb_id;
-                    
-        /* Some movies don't have a poster - null is returned */
-        if (msg.poster_path != null) {
-        document.getElementById("posterpath").style.display = "block";
-        document.getElementById("posterpath").src = "https://image.tmdb.org/t/p/w185" + msg.poster_path;
-        }
-        
-        else
-        /* null movie poster - don't display a empty value */
-        {
-        document.getElementById("posterpath").src = "";       
-        document.getElementById("posterpath").style.display = "none";
-        }        
-         
-
-
-		/* Get Movie Credits */
-            for (i = 0; i < 5; i++) {
-           
-                /* Display the result */
-                if (i < msg.credits.cast.length) {
-
-                    /* Set the Title to Visible and set title to value in database */
-                    document.getElementById("name" + i).style.display = "block";
-                    document.getElementById("name" + i).innerHTML = i + "Person Name:: " + msg.credits.cast[i].name;
+			// Get Movie Credits  
+			for (i = 0; i < 5; i++) {
+			
+				/* Display the result */
+				if (i < msg.credits.cast.length) {
+					/* Set the Title to Visible and set title to value in database */
+					document.getElementById("name" + i).style.display = "block";
+					document.getElementById("name" + i).innerHTML = i + "Person Name:: " + msg.credits.cast[i].name;
+					
 					document.getElementById("character" + i).style.display = "block";
-                    document.getElementById("character" + i).innerHTML = i + "Character Name: " + msg.credits.cast[i].character;
-					document.getElementById("creditid" + i).style.display = "block";
-                    document.getElementById("creditid" + i).innerHTML = i + "Credit details ID:: " + msg.credits.cast[i].credit_id;
-                    
-                    /* Some movies don't have a profile path - null is returned - use loop */
+					document.getElementById("character" + i).innerHTML = i + "Character Name: " + msg.credits.cast[i].character;
+					
+					/* Some movies don't have a profile path - null is returned - use loop */
 					/* example url for profilr image https://image.tmdb.org/t/p/w300/vgLTcq1nYcNmIr3yLxS7sk84sav.jpg */
-                    if (msg.credits.cast[i].profile_path != null) {
-                        document.getElementById("profilepath" + i).style.display = "block";
-                        document.getElementById("profilepath" + i).src = "https://image.tmdb.org/t/p/w185" + msg.credits.cast[i].profile_path;
-                    }
-                    else
-                    /* null movie poster - don't display a empty value */
-                    {
-                        document.getElementById("profilepath" + i).src = "";       
-                        document.getElementById("profilepath" + i).style.display = "none";
-                    }
-                }
-                else {
-                    /* Less that 5 movies returned - blank out the rest of the values */
-                    document.getElementById("name" + i).innerHTML = "";
-                    document.getElementById("name" + i).style.display = "none";
+					if (msg.credits.cast[i].profile_path != null) {
+						document.getElementById("profilepath" + i).style.display = "block";
+						document.getElementById("profilepath" + i).src = "https://image.tmdb.org/t/p/w185" + msg.credits.cast[i].profile_path;}
+					/* null movie poster - don't display an empty value */
+					else {
+						document.getElementById("profilepath" + i).src = "";       
+						document.getElementById("profilepath" + i).style.display = "none";}
+						
+					document.getElementById("cast_id" + i).style.display = "none";
+					document.getElementById("cast_id" + i).innerHTML = i + "Person id: " + msg.credits.cast[i].cast_id; 
+					
+					document.getElementById("order" + i).style.display = "none";
+					document.getElementById("order" + i).innerHTML = i + "Person order: " + msg.credits.cast[i].order;
+					
+					document.getElementById("credit_id" + i).style.display = "none";
+					document.getElementById("credit_id" + i).innerHTML = i + "Person Name: " + msg.credits.cast[i].credit_id;
+					
+					document.getElementById("gender" + i).style.display = "none";
+					document.getElementById("gender" + i).innerHTML = i + "Person gender: " + msg.credits.cast[i].gender;
+				}
+				else {
+					/* Less that 5 movies returned - blank out the rest of the values */
+					document.getElementById("name" + i).innerHTML = "";
+					document.getElementById("name" + i).style.display = "none";
+					
 					document.getElementById("character" + i).innerHTML = "";
-                    document.getElementById("character" + i).style.display = "none";
-                    document.getElementById("creditid" + i).innerHTML = "";
-                    document.getElementById("creditid" + i).style.display = "none";
-                    document.getElementById("profilepath" + i).src = "";
-                    document.getElementById("profilepath" + i).style.display = "none";
-                }
-            }	 
+					document.getElementById("character" + i).style.display = "none";
+					
+					document.getElementById("profilepath" + i).src = "";
+					document.getElementById("profilepath" + i).style.display = "none";
+					
+					document.getElementById("cast_id" + i).innerHTML = "";
+					document.getElementById("cast_id" + i).style.display = "none";
+					
+					document.getElementById("order" + i).innerHTML = "";
+					document.getElementById("order" + i).style.display = "none";
+					
+					document.getElementById("credit_id" + i).innerHTML = "";
+					document.getElementById("credit_id" + i).style.display = "none";
+					
+					document.getElementById("gender" + i).innerHTML = "";
+					document.getElementById("gender" + i).style.display = "none";
+				}
+			}	 
         });
     }); 
 }
@@ -284,34 +420,59 @@ function PersonSearch() {
                 if (i < msg.results.length) {
 
                     /* Set the Title to Visible and set title to value in database */
-                    document.getElementById("person" + i).style.display = "block";
-                    document.getElementById("person" + i).innerHTML =i + ". Person Name: " + msg.results[i].name;
-                     
-                    document.getElementById("pid" + i).style.display = "block";
-                    document.getElementById("pid" + i).innerHTML = i + ". Person ID: " + msg.results[i].id;
+                    document.getElementById("name" + i).style.display = "block";
+                    document.getElementById("name" + i).innerHTML =i + ". Person Name: " + msg.results[i].name;
+
                     
-                    /* Some persons don't have a profile path - null is returned */
+                    // Some persons don't have a profile path - null is returned  
                     if (msg.results[i].profile_path != null) {
                         document.getElementById("profilepth" + i).style.display = "block";
-                        document.getElementById("profilepth" + i).src = "https://image.tmdb.org/t/p/w45" + msg.results[i].profile_path;
-                    }
+                        document.getElementById("profilepth" + i).src = "https://image.tmdb.org/t/p/w45" + msg.results[i].profile_path;}
+					// null profile - don't display an empty value  
                     else
-
-                    /* null profile - don't display a empty value */
+                    // null profile - don't display an empty value  
                     {
                         document.getElementById("profilepth" + i).src = "";       
-                        document.getElementById("profilepth" + i).style.display = "none";
-                    }
+                        document.getElementById("profilepth" + i).style.display = "none";}
+					
+					document.getElementById("popularity" + i).style.display = "none";
+					document.getElementById("popularity" + i).innerHTML =i + ". Person popularity: " + msg.results[i].popularity;
+					
+					document.getElementById("known_for_department" + i).style.display = "block";
+					document.getElementById("known_for_department" + i).innerHTML =i + ". Person known_for_department: " + msg.results[i].known_for_department;
+					
+					document.getElementById("gender" + i).style.display = "none";
+					document.getElementById("gender" + i).innerHTML =i + ". Person gender: " + msg.results[i].gender;
+					
+					document.getElementById("id" + i).style.display = "none";
+					document.getElementById("id" + i).innerHTML =i + ". Person id: " + msg.results[i].id;
+					
+					document.getElementById("adult" + i).style.display = "none";
+					document.getElementById("adult" + i).innerHTML =i + ". Person adult content: " + msg.results[i].adult;
                 }
                 else
                 {
                     /* Less that 25 movies returned - blank out the rest of the values */
-                    document.getElementById("person" + i).innerHTML = "";
-                    document.getElementById("person" + i).style.display = "none";
-                    document.getElementById("pid" + i).innerHTML = "";
-                    document.getElementById("pid" + i).style.display = "none";
-                    document.getElementById("profilepth" + i).innerHTML = "";
-                    document.getElementById("profilepth" + i).style.display = "none";
+                    document.getElementById("name" + i).innerHTML = "";
+                    document.getElementById("name" + i).style.display = "none";
+					
+					document.getElementById("profilepth" + i).src = "";       
+					document.getElementById("profilepth" + i).style.display = "none";
+					
+					document.getElementById("popularity" + i).style.display = "none";
+					document.getElementById("popularity" + i).innerHTML = "";
+					
+					document.getElementById("known_for_department" + i).style.display = "none";
+					document.getElementById("known_for_department" + i).innerHTML = "";
+					
+					document.getElementById("gender" + i).style.display = "none";
+					document.getElementById("gender" + i).innerHTML = "";
+					
+					document.getElementById("id" + i).style.display = "none";
+					document.getElementById("id" + i).innerHTML = "";
+					
+					document.getElementById("adult" + i).style.display = "none";
+					document.getElementById("adult" + i).innerHTML = "";
                 }
             }
         });
@@ -335,101 +496,153 @@ function PersonDtlCrdSearch() {
     var include_adult = "false";
     var query = personid;  /* encode the movie name to eliminate possible blank spaces */  
     var myURL = "https://api.themoviedb.org/3/person/" + query + "?api_key=" + api_key + "&language=" + language + "&append_to_response=images,movie_credits";
-
-
-
-    /* Display the URL */
+	/* Display the URL */
     document.getElementById("url1").innerHTML = myURL;
-  
-    
     /* AJAX Get Method */
     var myMethod = "GET";
-
     /* Make sure the document is ready */
     $(document).ready(function() { 
-
     /* Perform AJAX call and pass to it the Method (GET) and the URL */
     $.ajax({
       method: myMethod,
-      url: myURL
-    })
-
+      url: myURL})
         /* AJAX complete - result is in msg variable */
         .done(function(msg) {
+		
+		document.getElementById("name").innerHTML = "Person Name: " + msg.name;
+		
+		
+		document.getElementById("known_for_department").innerHTML = "Known for: " + msg.known_for_department;
 
-        /* Code to process the result */          
-        document.getElementById("bday0").innerHTML = "Birth day: " + msg.birthday;
-        document.getElementById("known_for0").innerHTML = "Known for: " + msg.known_for_department;
-        document.getElementById("deathday0").innerHTML = "Death day: " + msg.deathday;
-        document.getElementById("person0").innerHTML = "Person Name: " + msg.name;
-        document.getElementById("bio0").innerHTML = "Biography: " + msg.biography;
-        document.getElementById("birth_place0").innerHTML = "Birth place: " + msg.place_of_birth;
-        document.getElementById("imdb0").innerHTML = "IMDB ID: " + msg.imdb_id;
+		
+        document.getElementById("birthday").innerHTML = "Birth day: " + msg.birthday;
+		
+        // Some persons don't have a deathday - null is returned  
+        if (msg.profile_path != "") {
+            document.getElementById("deathday").style.display = "block";
+            document.getElementById("deathday").src = "https://image.tmdb.org/t/p/w300" + msg.deathday;
+			}
+        else
+        // null - don't display an empty value  
+        {
+        document.getElementById("deathday").src = "";       
+        document.getElementById("deathday").style.display = "none";
+		} 
+		
+				
+        document.getElementById("id").style.display = "none";
+        document.getElementById("id").innerHTML = "Death day: " + msg.id;
+		
+        document.getElementById("popularity").style.display = "none";
+        document.getElementById("popularity").innerHTML = "Biography: " + msg.popularity;
+		
+		document.getElementById("place_of_birth").style.display = "block";
+        document.getElementById("place_of_birth").innerHTML = "Birth place: " + msg.place_of_birth;
+		
+        document.getElementById("gender").style.display = "none";
+        document.getElementById("gender").innerHTML = "gender: " + msg.gender;
+		
+		document.getElementById("imdb_id").style.display = "none";
+        document.getElementById("imdb_id").innerHTML = "IMDB ID: " + msg.imdb_id;
+
+        document.getElementById("biography").style.display = "block";
+        document.getElementById("biography").innerHTML = "Biography: " + msg.biography;		
         
         /* Some persons don't have a profile path - null is returned */
         if (msg.profile_path != null) {
-            document.getElementById("profilepth0").style.display = "block";
-            document.getElementById("profilepth0").src = "https://image.tmdb.org/t/p/w300" + msg.profile_path;
+            document.getElementById("profile_path").style.display = "block";
+            document.getElementById("profile_path").src = "https://image.tmdb.org/t/p/w300" + msg.profile_path;
         }
         else
         /* null profile path - don't display an empty value */
         {
-        document.getElementById("profilepth0").src = "";       
-        document.getElementById("profilepth0").style.display = "none";
-        }        
+        document.getElementById("profile_path").src = "";       
+        document.getElementById("profile_path").style.display = "none";
+        }  
 
         // Get person credits          
 
-       /* Loop through the first 6 results */
+       // Loop through the first 6 results //
             for (i = 0; i < 6; i++) {
            
-                /* Display the result */
+                // Display the result //
                 if (i < msg.movie_credits.cast.length) {
 
-                    /* Set the Title to Visible and set title to value in database */
-                    document.getElementById("charName" + i).style.display = "block";
-                    document.getElementById("charName" + i).innerHTML = i + "Character Name: " + msg.movie_credits.cast[i].character;
+                    // Set the Title to Visible and set title to value in database //
+                    document.getElementById("character" + i).style.display = "block";
+                    document.getElementById("character" + i).innerHTML = i + "Character Name: " + msg.movie_credits.cast[i].character;
 					
                     document.getElementById("title" + i).style.display = "block";
-                    document.getElementById("title" + i).innerHTML = i + "Movie Title:: " + msg.movie_credits.cast[i].original_title;
-                  
-                    document.getElementById("release" + i).style.display = "block";
-                    document.getElementById("release" + i).innerHTML = i + "Movie release date:: " + msg.movie_credits.cast[i].release_date;
-                    
+                    document.getElementById("title" + i).innerHTML = i + "Movie Title:: " + msg.movie_credits.cast[i].title;
+					
+					document.getElementById("popularity" + i).style.display = "block";
+                    document.getElementById("popularity" + i).innerHTML = i + "Movie popularity:: " + msg.movie_credits.cast[i].popularity;
+					
+										
+                    document.getElementById("release_date" + i).style.display = "block";
+                    document.getElementById("release_date" + i).innerHTML = i + "Movie release date:: " + msg.movie_credits.cast[i].release_date;
+					
+                    document.getElementById("adult" + i).style.display = "none";
+                    document.getElementById("adult" + i).innerHTML = i + "Movie adult content:: " + msg.movie_credits.cast[i].original_title;
+					
+					document.getElementById("id" + i).style.display = "none";
+                    document.getElementById("id" + i).innerHTML = i + "Movie id:: " + msg.movie_credits.cast[i].id;
+					
                     document.getElementById("overview" + i).style.display = "block";
                     document.getElementById("overview" + i).innerHTML = i + "Movie overview:: " + msg.movie_credits.cast[i].overview;
                     
-                    document.getElementById("genre" + i).style.display = "block";
-                    document.getElementById("genre" + i).innerHTML = i + "Movie genre:: " + msg.movie_credits.cast[i].genre_ids;
                     
-                    /* Some movies don't have a poster - null is returned */
+                    
+                    // Some don't have a poster - null is returned //
                     if (msg.movie_credits.cast[i].poster_path != null) {
-                        document.getElementById("posterpath" + i).style.display = "block";
-                        document.getElementById("posterpath" + i).src = "https://image.tmdb.org/t/p/w185" + msg.movie_credits.cast[i].poster_path;
-                    }
-                    else
-
-                    /* null movie poster - don't display a empty value */
-                    {
-                        document.getElementById("posterpath" + i).src = "";       
-                        document.getElementById("posterpath" + i).style.display = "none";
-                    }
-                }
+                        document.getElementById("poster_path" + i).style.display = "block";
+                        document.getElementById("poster_path" + i).src = "https://image.tmdb.org/t/p/w185" + msg.movie_credits.cast[i].poster_path;}
+                    // null movie poster - don't display an empty value //
+					else {
+                        document.getElementById("poster_path" + i).src = "";       
+                        document.getElementById("poster_path" + i).style.display = "none";}
+					
+					
+					// Some don't have a backdrop  - null is returned //
+                    if (msg.movie_credits.cast[i].poster_path != null) {
+                        document.getElementById("backdrop_path" + i).style.display = "block";
+                        document.getElementById("backdrop_path" + i).src = "https://image.tmdb.org/t/p/w185" + msg.movie_credits.cast[i].backdrop_path;}
+                    // null movie backdrop  - don't display an empty value //
+					else {
+						document.getElementById("backdrop_path" + i).src = "";       
+						document.getElementById("backdrop_path" + i).style.display = "none";}
+					
+				
+				}
                 else
                 {
-                    /* Less that 25 movies returned - blank out the rest of the values */
-                    document.getElementById("charName" + i).innerHTML = "";
-                    document.getElementById("charName" + i).style.display = "none";
+                    // Less that 25 movies returned - blank out the rest of the values //
+                    document.getElementById("character" + i).innerHTML = "";
+                    document.getElementById("character" + i).style.display = "none";
 					document.getElementById("title" + i).innerHTML = "";
                     document.getElementById("title" + i).style.display = "none";
-                    document.getElementById("release" + i).innerHTML = "";
-                    document.getElementById("release" + i).style.display = "none";
+					document.getElementById("popularity" + i).innerHTML = "";
+                    document.getElementById("popularity" + i).style.display = "none";
+					
+
+                    document.getElementById("adult" + i).style.display = "none";
+                    document.getElementById("adult" + i).innerHTML = "";
+					
+					document.getElementById("id" + i).style.display = "none";
+                    document.getElementById("id" + i).innerHTML = "";
+
+                    document.getElementById("release_date" + i).innerHTML = "";
+                    document.getElementById("release_date" + i).style.display = "none";
+					
                     document.getElementById("overview" + i).innerHTML = "";
                     document.getElementById("overview" + i).style.display = "none";
-                    document.getElementById("genre" + i).innerHTML = "";
-                    document.getElementById("genre" + i).style.display = "none";
+					
                     document.getElementById("posterpath" + i).src = "";
                     document.getElementById("posterpath" + i).style.display = "none";
+					
+					document.getElementById("backdrop_path" + i).src = "";       
+					document.getElementById("backdrop_path" + i).style.display = "none"
+					
                 }
             }
         });

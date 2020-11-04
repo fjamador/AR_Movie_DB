@@ -21,18 +21,43 @@
 	<body onload="PersonDtlCrdSearch()">
     <!-- Scroll back to top button -->
 	<button onclick="topFunction()" id="sbttBtn" title="Go to top">Go To <br> Top</button>
-    <!-- Begin Tab Buttons Section -->
-    <div class="tab">
-		<!-- openRedirect Button -->
-        <button class="tablinks" onclick="openRedirect('index.html')">Home</button> 
-		<button class="tablinks" onclick="openRedirect('browse_movies.html')">Browse Movies</button> 
-		<button class="tablinks" onclick="openRedirect('browse_celebrities.html')">Browse Celebrities</button>
-        <button class="tablinks" onclick="openRedirect('advMovieSearch.html')">Advanced Search Movies</button>
-        <button class="tablinks" onclick="openRedirect('advPersonSearch.html')">Advanced Search Celebrities</button>
-        <button class="tablinks" onclick="openRedirect('about.html')">About</button>
-        <button class="tablinks" id="CntcMdlBtn">Contact</button>
-    </div>
 
+		<ul class="breadcrumb">
+		  <li><a href="#" onclick="openRedirect('index.html')">Home</a></li>
+		  <li><a href="#" onclick="openRedirect('advPersonSearch.html')">Advanced Search Celebrities</a></li>
+		  <li><a href="#">Advanced Search Celebrities Details & Credits</a></li>
+		</ul>
+		 
+		<!-- Begin Tab Buttons Section -->
+        <!-- Responsive TopNav -->
+		<!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+		<!-- SubNavBar Dropdown Menu -->
+		<!-- Create A Responsive Topnav with Dropdown -->
+		<div class="topnav" id="myTopnav">
+			<a href="#home" onclick="openRedirect('index.html')">Home</a>
+			<div class="dropdown">
+				<button class="dropbtn">Movies
+				  <i class="fa fa-caret-down"></i>
+				</button>
+				<div class="dropdown-content">
+				  <a href="#" onclick="openRedirect('browse_movies.html')">Browse Movies</a>
+				  <a href="#" onclick="openRedirect('advMovieSearch.html')">Advanced Search Movies</a>
+				</div>
+			</div>
+			<div class="dropdown">
+				<button class="dropbtn">Celebrities
+				  <i class="fa fa-caret-down"></i>
+				</button>
+				<div class="dropdown-content">
+				  <a href="#" onclick="openRedirect('browse_celebrities.html')">Browse Celebrities</a>
+				  <a href="#" class="active" onclick="openRedirect('advPersonSearch.html')">Advanced Search Celebrities</a>
+				</div>
+			 </div>
+		  <a href="#about" id="AboutBtn" onclick="openRedirect('about.html')">About</a>
+		  <a href="#contact" id="CntcMdlBtn">Contact</a>
+		  <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+		</div>
+		<br>
 	<h2>Person Details and Credits</h2>   
 	
 	<!--
@@ -40,70 +65,146 @@
     <!--Run the MovieSearch function when the button is clicked-->
 	<!--<p><button id="myBtn" onclick="PersonDtlCrdSearch()">Search for Person Details</button></p>
 	-->
- 
-    <div id="url1"></div><br>
-	<div id="person0"></div>
-	<div id="known_for0"></div>
-	<div id="bday0"></div>
-	<div id="deathday0"></div>
-	<div id="birth_place0"></div>
-	<div id="imdb0"></div><br>
-	<div id="bio0"></div><br>
-	<img id="profilepth0">
+	
+	<div id="url1"></div><br>
+	
+	
+  
+<div id="name"></div>
+<div id="known_for_department"></div>
+<div id="birthday"></div>
+<div id="deathday"></div>
+<div id="id"></div>
+<div id="popularity"></div>
+<div id="place_of_birth"></div>
+<div id="gender"></div>
+<div id="imdb_id"></div>
+<div id="biography"></div>
+<img id="profile_path">
+
+<div id="character0"></div>
+<div id="title0"></div>
+<div id="popularity0"></div>
+<div id="adult0"></div>
+<div id="id0"></div>
+<div id="release_date0"></div>
+<div id="overview0"></div>
+<img id="poster_path0">
+<img id="backdrop_path0">
+
+<div id="character1"></div>
+<div id="title1"></div>
+<div id="popularity1"></div>
+<div id="release_date1"></div>
+<div id="adult1"></div>
+<div id="id1"></div>
+<div id="overview1"></div>
+<img id="poster_path1">
+<img id="backdrop_path1">
+<div id="character2"></div>
+<div id="title2"></div>
+<div id="popularity2"></div>
+<div id="release_date2"></div>
+<div id="adult2"></div>
+<div id="id2"></div>
+<div id="overview2"></div>
+<img id="poster_path2">
+<img id="backdrop_path2">
+<div id="character3"></div>
+<div id="title3"></div>
+<div id="popularity3"></div>
+<div id="release_date3"></div>
+<div id="adult3"></div>
+<div id="id3"></div>
+<div id="overview3"></div>
+<img id="poster_path3">
+<img id="backdrop_path3">
+<div id="character4"></div>
+<div id="title4"></div>
+<div id="popularity4"></div>
+<div id="release_date4"></div>
+<div id="adult4"></div>
+<div id="id4"></div>
+<div id="overview4"></div>
+<img id="poster_path4">
+<img id="backdrop_path4">
+<div id="character5"></div>
+<div id="title5"></div>
+<div id="popularity5"></div>
+<div id="release_date5"></div>
+<div id="adult5"></div>
+<div id="id5"></div>
+<div id="overview5"></div>
+<img id="poster_path5">
+<img id="backdrop_path5">
+<div id="character6"></div>
+<div id="title6"></div>
+<div id="popularity6"></div>
+<div id="release_date6"></div>
+<div id="adult6"></div>
+<div id="id6"></div>
+<div id="overview6"></div>
+<img id="poster_path6">
+<img id="backdrop_path6">
 
 
-	<div id="charName0"></div>
-    <div id="title0"></div>
-    <div id="release0"></div>
-    <div id="genre0"></div><br>
-    <div id="overview0"></div><br>
-    <img id="posterpath0"><br><br>
-    <div id="charName1"></div>
-    <div id="title1"></div>
-    <div id="release1"></div>
-    <div id="genre1"></div><br>
-    <div id="overview1"></div><br>
-    <img id="posterpath1"><br><br>
-    <div id="charName2"></div>
-    <div id="title2"></div>
-    <div id="release2"></div>
-    <div id="genre2"></div><br>
-    <div id="overview2"></div><br>
-    <img id="posterpath2"><br><br>
-    <div id="charName3"></div>
-    <div id="title3"></div>
-    <div id="release3"></div>
-    <div id="genre3"></div><br>
-    <div id="overview3"></div><br>
-    <img id="posterpath3"><br><br>
-    <div id="charName4"></div>
-    <div id="title4"></div>
-    <div id="release4"></div>
-    <div id="genre4"></div><br>
-    <div id="overview4"></div><br>
-    <img id="posterpath4"><br><br>
-    <div id="charName5"></div>
-    <div id="title5"></div>
-    <div id="release5"></div>
-    <div id="genre5"></div><br>
-    <div id="overview5"></div><br>
-    <img id="posterpath5"><br><br>
-    <div id="charName6"></div>
-    <div id="title6"></div>
-    <div id="release6"></div>
-    <div id="genre6"></div><br>
-    <div id="overview6"></div><br>
-    <img id="posterpath6"><br><br>
 
+
+	
+	
 	<script>
-		/* Trigger Button Click on Enter */
-		var input = document.getElementById("personid");
-		input.addEventListener("keyup", function(event) {
-		  if (event.keyCode === 13) {
-		   event.preventDefault();
-		   document.getElementById("myBtn").click();
-		  }
-		});
+
+	 // event listener to grab click on movie poster and call fuction MovieIDSearch
+	document.getElementById("poster_path0").addEventListener("click", function() {MovieIDSearch(0)});
+	document.getElementById("backdrop_path0").addEventListener("click", function() {MovieIDSearch(0)});
+	document.getElementById("poster_path1").addEventListener("click", function() {MovieIDSearch(1)});
+	document.getElementById("backdrop_path1").addEventListener("click", function() {MovieIDSearch(1)});
+	document.getElementById("poster_path2").addEventListener("click", function() {MovieIDSearch(2)});
+	document.getElementById("backdrop_path2").addEventListener("click", function() {MovieIDSearch(2)});
+	document.getElementById("poster_path3").addEventListener("click", function() {MovieIDSearch(3)});
+	document.getElementById("backdrop_path3").addEventListener("click", function() {MovieIDSearch(3)});
+	document.getElementById("poster_path4").addEventListener("click", function() {MovieIDSearch(4)});
+	document.getElementById("backdrop_path4").addEventListener("click", function() {MovieIDSearch(4)});
+	document.getElementById("poster_path5").addEventListener("click", function() {MovieIDSearch(5)});
+	document.getElementById("backdrop_path5").addEventListener("click", function() {MovieIDSearch(5)});
+	document.getElementById("poster_path6").addEventListener("click", function() {MovieIDSearch(6)});
+	document.getElementById("backdrop_path6").addEventListener("click", function() {MovieIDSearch(6)});	
+
+	function MovieIDSearch(posterpathNbr) {
+		var MovIdIndex = posterpathNbr
+		/* Build up the parameters for the URL */
+		//Grab the value from local storage for the personid variable
+    var personid = localStorage.getItem("personIdPass");
+    /* Build up the parameters for the URL */
+    var txt
+    var api_key = "e5e088b9fdaef1249c47887b5e5eef39";
+    var language = "en-US";
+    var page = "1";
+    var include_adult = "false";
+    var query = personid;  /* encode the movie name to eliminate possible blank spaces */  
+    var myURL = "https://api.themoviedb.org/3/person/" + query + "?api_key=" + api_key + "&language=" + language + "&append_to_response=images,movie_credits";
+    /* AJAX Get Method */
+    var myMethod = "GET";
+    /* Make sure the document is ready */
+    $(document).ready(function() { 
+    /* Perform AJAX call and pass to it the Method (GET) and the URL */
+    $.ajax({
+      method: myMethod,
+      url: myURL
+    })
+    /* AJAX complete - result is in msg variable */
+    .done(function(msg) {
+			//Move the movie id from person credits to variable onloadMovieId
+			var onloadMovieId = msg.movie_credits.cast[MovIdIndex].id;	
+				//localStorage object stores data with no expiration date. 
+				//The data will not be deleted when the browser is closed, and will be available the next day, week, or year
+			localStorage.setItem("movieIdPass", onloadMovieId);
+				//The open() method opens a new browser window, or a new tab
+			window.open("advMovieSearchDetailsCredits.html", "_self");
+				});
+			});
+		}
+
 	</script>
 	<script src="assets/scripts/index.js"></script>
 </body>

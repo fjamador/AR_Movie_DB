@@ -18,17 +18,43 @@
     <div id="container">
 		<!-- Scroll back to top button -->
         <button onclick="topFunction()" id="sbttBtn" title="Go to top">Go To <br> Top</button>
-        <!-- Begin Tab Buttons Section -->
-        <div class="tab">
-			<!-- openRedirect Button -->
-            <button class="tablinks" onclick="openRedirect('index.html')">Home</button> 
-			<button class="tablinks" onclick="openRedirect('browse_movies.html')">Browse Movies</button> 
-			<button class="tablinks" onclick="openRedirect('browse_celebrities.html')">Browse Celebrities</button>
-            <button class="tablinks" onclick="openRedirect('advMovieSearch.html')">Advanced Search Movies</button>
-            <button class="tablinks" onclick="openRedirect('advPersonSearch.html')">Advanced Search Celebrities</button>
-            <button class="tablinks" onclick="openRedirect('about.html')">About</button>
-            <button class="tablinks" id="CntcMdlBtn">Contact</button>
-        </div>	 
+         
+		<ul class="breadcrumb">
+		  <li><a href="#" onclick="openRedirect('index.html')">Home</a></li>
+		  <li><a href="#">About</a></li>
+		</ul>
+		
+
+		<!-- Begin Tab Buttons Section -->
+        <!-- Responsive TopNav -->
+		<!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+		<!-- SubNavBar Dropdown Menu -->
+		<!-- Create A Responsive Topnav with Dropdown -->
+		<div class="topnav" id="myTopnav">
+			<a href="#home" onclick="openRedirect('index.html')">Home</a>
+			<div class="dropdown">
+				<button class="dropbtn">Movies
+				  <i class="fa fa-caret-down"></i>
+				</button>
+				<div class="dropdown-content">
+				  <a href="#" onclick="openRedirect('browse_movies.html')">Browse Movies</a>
+				  <a href="#" onclick="openRedirect('advMovieSearch.html')">Advanced Search Movies</a>
+				</div>
+			</div>
+			<div class="dropdown">
+				<button class="dropbtn">Celebrities
+				  <i class="fa fa-caret-down"></i>
+				</button>
+				<div class="dropdown-content">
+				  <a href="#" onclick="openRedirect('browse_celebrities.html')">Browse Celebrities</a>
+				  <a href="#" onclick="openRedirect('advPersonSearch.html')">Advanced Search Celebrities</a>
+				</div>
+			 </div>
+		  <a href="#about" class="active" id="AboutBtn" onclick="openRedirect('about.html')">About</a>
+		  <a href="#contact" id="CntcMdlBtn">Contact</a>
+		  <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+		</div>
+		<br>
         <h1>About Page</h1>
 
         <!-- Begin Tab Button Section -->
@@ -76,7 +102,7 @@
         </div>
 		
 		
-        <img class="" src="assets/images/timurock_under_construction_sign001_gr1.jpg" alt="" style="display:block;margin-left:auto;margin-right:auto;width:35%;">
+        <img class="" src="assets/images/timurock_under_construction_sign001_gr1.jpg" alt="" style="display:block;margin-left:auto;margin-right:auto;width:15%;">
 	
 	<footer>
          

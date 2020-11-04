@@ -19,21 +19,47 @@
         <!-- Scroll back to top button -->
         <button onclick="topFunction()" id="sbttBtn" title="Go to top">Go To <br> Top</button>
         <!-- Begin Tab Buttons Section -->
-        <div class="tab">
-			<!-- openRedirect Button -->
-            <button class="tablinks" onclick="openRedirect('index.html')">Home</button> 
-			<button class="tablinks" onclick="openRedirect('browse_movies.html')">Browse Movies</button> 
-			<button class="tablinks" onclick="openRedirect('browse_celebrities.html')">Browse Celebrities</button>
-            <button class="tablinks" onclick="openRedirect('advMovieSearch.html')">Advanced Search Movies</button>
-            <button class="tablinks" onclick="openRedirect('advPersonSearch.html')">Advanced Search Celebrities</button>
-            <button class="tablinks" onclick="openRedirect('about.html')">About</button>
-            <button class="tablinks" id="CntcMdlBtn">Contact</button>
-        </div>
+        
+		<ul class="breadcrumb">
+		  <li><a href="#" onclick="openRedirect('index.html')">Home</a></li>
+		  <li><a href="#">Browse Movies</a></li>
+		</ul>	
 		
+ 
+		<!-- Begin Tab Buttons Section -->
+        <!-- Responsive TopNav -->
+		<!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+		<!-- SubNavBar Dropdown Menu -->
+		<!-- Create A Responsive Topnav with Dropdown -->
+		<div class="topnav" id="myTopnav">
+			<a href="#home" onclick="openRedirect('index.html')">Home</a>
+			<div class="dropdown">
+				<button class="dropbtn">Movies
+				  <i class="fa fa-caret-down"></i>
+				</button>
+				<div class="dropdown-content">
+				  <a href="#"  class="active" onclick="openRedirect('browse_movies.html')">Browse Movies</a>
+				  <a href="#" onclick="openRedirect('advMovieSearch.html')">Advanced Search Movies</a>
+				</div>
+			</div>
+			<div class="dropdown">
+				<button class="dropbtn">Celebrities
+				  <i class="fa fa-caret-down"></i>
+				</button>
+				<div class="dropdown-content">
+				  <a href="#" onclick="openRedirect('browse_celebrities.html')">Browse Celebrities</a>
+				  <a href="#" onclick="openRedirect('advPersonSearch.html')">Advanced Search Celebrities</a>
+				</div>
+			 </div>
+		  <a href="#about" id="AboutBtn" onclick="openRedirect('about.html')">About</a>
+		  <a href="#contact" id="CntcMdlBtn">Contact</a>
+		  <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+		</div>
+		<br>
 		<h2>
 			Browse Movies
 		</h2>
-		<img class="" src="assets/images/timurock_under_construction_sign001_gr1.jpg" alt="" style="display:block;margin-left:auto;margin-right:auto;width:35%;"> 
+		<img class="" src="assets/images/timurock_under_construction_sign001_gr1.jpg" alt="" style="display:block;margin-left:auto;margin-right:auto;width:15%;"> 
     </div>
 	 
 	<div id="main_content_wrap" class="outer">
@@ -41,10 +67,9 @@
 	 
 				<ul id="listTwo" class="demoTwo demo">
 					<!-- <li><a href="#" onclick="someFunction(); return false;">LINK</a></li> -->
-					<li><a href="#" onclick="MovieIDSearch(7555)">Rambo</a>	
-					<li><a href="#" onclick="MovieIDSearch(33403)">Chrystal</a></li>
-					<li><a href="#" onclick="MovieIDSearch(353081)">Mission: Impossible - Fallout</a></li>
-					<li><a href="#" onclick="MovieIDSearch(11713)">Fist of Fury</a></li>
+					<li><a href="#" onclick="browseMovieId(7555)">Rambo</a>	
+					<li><a href="#" onclick="browseMovieId(33403)">Chrystal</a></li>
+					<li><a href="#" onclick="browseMovieId(353081)">Mission: Impossible - Fallout</a></li>
  				</ul>
 				
 			<p id="demo"></p>
@@ -60,19 +85,17 @@
 	<!-- Specify the URL of external script files -->
 	<script src="assets/scripts/index.js"></script>
 	<script src="assets/scripts/jquery-listnav.js"></script>
-
-	<script>
+ 	<script>
 	// fuction MovieIDSearch will pull the movie id and opens a new window that calls function MovieDtlCrdSearch on load to display the movie details
-		function MovieIDSearch(idNbr) {
-				//Movie the movie id to variable onloadMovieId
+		function browseMovieId(idNbr) {
+				//Move the movie id to variable onloadMovieId
 			var onloadMovieId = idNbr;	
 				//localStorage object stores data with no expiration date. 
 				//The data will not be deleted when the browser is closed, and will be available the next day, week, or year
 			localStorage.setItem("movieIdPass", onloadMovieId);
 				//The open() method opens a new browser window, or a new tab
 			window.open("advMovieSearchDetailsCredits.html", "_self");
-			}	
-		
+			}
 	//custom message for letters with no matching results
 		$(function(){
 			$('.demoTwo').listnav({

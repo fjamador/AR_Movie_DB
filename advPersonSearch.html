@@ -19,104 +19,229 @@
 	    <!-- Scroll back to top button -->
         <button onclick="topFunction()" id="sbttBtn" title="Go to top">Go To <br> Top</button>
          
-        <!-- Begin Tab Buttons Section -->
-        <div class="tab">
-			<!-- openRedirect Button -->
-            <button class="tablinks" onclick="openRedirect('index.html')">Home</button> 
-			<button class="tablinks" onclick="openRedirect('browse_movies.html')">Browse Movies</button> 
-			<button class="tablinks" onclick="openRedirect('browse_celebrities.html')">Browse Celebrities</button>
-            <button class="tablinks" onclick="openRedirect('advMovieSearch.html')">Advanced Search Movies</button>
-            <button class="tablinks" onclick="openRedirect('advPersonSearch.html')">Advanced Search Celebrities</button>
-            <button class="tablinks" onclick="openRedirect('about.html')">About</button>
-            <button class="tablinks" id="CntcMdlBtn">Contact</button>
-        </div>
+		<ul class="breadcrumb">
+		  <li><a href="#" onclick="openRedirect('index.html')">Home</a></li>
+		  <li><a href="#">Advanced Search Celebrities</a></li>
+		</ul>
 		
+		<!-- Begin Tab Buttons Section -->
+        <!-- Responsive TopNav -->
+		<!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+		<!-- SubNavBar Dropdown Menu -->
+		<!-- Create A Responsive Topnav with Dropdown -->
+		<div class="topnav" id="myTopnav">
+			<a href="#home" onclick="openRedirect('index.html')">Home</a>
+			<div class="dropdown">
+				<button class="dropbtn">Movies
+				  <i class="fa fa-caret-down"></i>
+				</button>
+				<div class="dropdown-content">
+				  <a href="#" onclick="openRedirect('browse_movies.html')">Browse Movies</a>
+				  <a href="#" onclick="openRedirect('advMovieSearch.html')">Advanced Search Movies</a>
+				</div>
+			</div>
+			<div class="dropdown">
+				<button class="dropbtn">Celebrities
+				  <i class="fa fa-caret-down"></i>
+				</button>
+				<div class="dropdown-content">
+				  <a href="#" onclick="openRedirect('browse_celebrities.html')">Browse Celebrities</a>
+				  <a href="#" class="active" onclick="openRedirect('advPersonSearch.html')">Advanced Search Celebrities</a>
+				</div>
+			 </div>
+		  <a href="#about" id="AboutBtn" onclick="openRedirect('about.html')">About</a>
+		  <a href="#contact" id="CntcMdlBtn">Contact</a>
+		  <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+		</div>
+		<br>
 		<h2>Person  Details  Credits Search</h2>
 		<p>Enter Person Name: <input id="personname" type="text" placeholder="Enter Person Name"></p>
 		<!-- Run the MovieSearch function when the button is clicked -->
 		<p><button id="SrchPerBtn" onclick="PersonSearch()">Search for Person</button></p>
 		
-		<img class="" src="assets/images/timurock_under_construction_sign001_gr1.jpg" alt="" style="display:block;margin-left:auto;margin-right:auto;width:35%;">
+		<img class="" src="assets/images/timurock_under_construction_sign001_gr1.jpg" alt="" style="display:block;margin-left:auto;margin-right:auto;width:15%;">
 		 
 		<div id="url1"></div><br>
-		<div id="person0"></div>
-		<div id="pid0"></div>
-		<img id="profilepth0"><br>
-		<div id="person1"></div>
-		<div id="pid1"></div>
-		<img id="profilepth1"><br>
-		<div id="person2"></div>
-		<div id="pid2"></div>
-		<img id="profilepth2"><br>
-		<div id="person3"></div>
-		<div id="pid3"></div>
-		<img id="profilepth3"><br>
-		<div id="person4"></div>
-		<div id="pid4"></div>
-		<img id="profilepth4"><br>
-		<div id="person5"></div>
-		<div id="pid5"></div>
-		<img id="profilepth5"><br>
-		<div id="person6"></div>
-		<div id="pid6"></div>
-		<img id="profilepth6"><br>
-		<div id="person7"></div>
-		<div id="pid7"></div>
-		<img id="profilepth7"><br>
-		<div id="person8"></div>
-		<div id="pid8"></div>
-		<img id="profilepth8"><br>
-		<div id="person9"></div>
-		<div id="pid9"></div>
-		<img id="profilepth9"><br>
-		<div id="person10"></div>
-		<div id="pid10"></div>
-		<img id="profilepth10"><br>
-		<div id="person11"></div>
-		<div id="pid11"></div>
-		<img id="profilepth11"><br>
-		<div id="person12"></div>
-		<div id="pid12"></div>
-		<img id="profilepth12"><br>
-		<div id="person13"></div>
-		<div id="pid13"></div>
-		<img id="profilepth13"><br>
-		<div id="person14"></div>
-		<div id="pid14"></div>
-		<img id="profilepth14"><br>
-		<div id="person15"></div>
-		<div id="pid15"></div>
-		<img id="profilepth15"><br>
-		<div id="person16"></div>
-		<div id="pid16"></div>
-		<img id="profilepth16"><br>
-		<div id="person17"></div>
-		<div id="pid17"></div>
-		<img id="profilepth17"><br>
-		<div id="person18"></div>
-		<div id="pid18"></div>
-		<img id="profilepth18"><br>
-		<div id="person19"></div>
-		<div id="pid19"></div>
-		<img id="profilepth19"><br>
-		<div id="person20"></div>
-		<div id="pid20"></div>
-		<img id="profilepth20"><br>
-		<div id="person21"></div>
-		<div id="pid21"></div>
-		<img id="profilepth21"><br>
-		<div id="person22"></div>
-		<div id="pid22"></div>
-		<img id="profilepth22"><br>
-		<div id="person23"></div>
-		<div id="pid23"></div>
-		<img id="profilepth23"><br>
-		<div id="person24"></div>
-		<div id="pid24"></div>
-		<img id="profilepth24"><br>
-		<div id="person25"></div>
-		<div id="pid25"></div>
-		<img id="profilepth25"><br>
+		
+<div id="name0"></div>
+<div id="popularity0"></div>
+<div id="known_for_department0"></div>
+<div id="gender0"></div>
+<div id="id0"></div>
+<div id="adult0"></div>
+<img id="profilepth0">
+<div id="name1"></div>
+<div id="popularity1"></div>
+<div id="known_for_department1"></div>
+<div id="gender1"></div>
+<div id="id1"></div>
+<div id="adult1"></div>
+<img id="profilepth1">
+<div id="name2"></div>
+<div id="popularity2"></div>
+<div id="known_for_department2"></div>
+<div id="gender2"></div>
+<div id="id2"></div>
+<div id="adult2"></div>
+<img id="profilepth2">
+<div id="name3"></div>
+<div id="popularity3"></div>
+<div id="known_for_department3"></div>
+<div id="gender3"></div>
+<div id="id3"></div>
+<div id="adult3"></div>
+<img id="profilepth3">
+<div id="name4"></div>
+<div id="popularity4"></div>
+<div id="known_for_department4"></div>
+<div id="gender4"></div>
+<div id="id4"></div>
+<div id="adult4"></div>
+<img id="profilepth4">
+<div id="name5"></div>
+<div id="popularity5"></div>
+<div id="known_for_department5"></div>
+<div id="gender5"></div>
+<div id="id5"></div>
+<div id="adult5"></div>
+<img id="profilepth5">
+<div id="name6"></div>
+<div id="popularity6"></div>
+<div id="known_for_department6"></div>
+<div id="gender6"></div>
+<div id="id6"></div>
+<div id="adult6"></div>
+<img id="profilepth6">
+<div id="name7"></div>
+<div id="popularity7"></div>
+<div id="known_for_department7"></div>
+<div id="gender7"></div>
+<div id="id7"></div>
+<div id="adult7"></div>
+<img id="profilepth7">
+<div id="name8"></div>
+<div id="popularity8"></div>
+<div id="known_for_department8"></div>
+<div id="gender8"></div>
+<div id="id8"></div>
+<div id="adult8"></div>
+<img id="profilepth8">
+<div id="name9"></div>
+<div id="popularity9"></div>
+<div id="known_for_department9"></div>
+<div id="gender9"></div>
+<div id="id9"></div>
+<div id="adult9"></div>
+<img id="profilepth9">
+<div id="name10"></div>
+<div id="popularity10"></div>
+<div id="known_for_department10"></div>
+<div id="gender10"></div>
+<div id="id10"></div>
+<div id="adult10"></div>
+<img id="profilepth10">
+<div id="name11"></div>
+<div id="popularity11"></div>
+<div id="known_for_department11"></div>
+<div id="gender11"></div>
+<div id="id11"></div>
+<div id="adult11"></div>
+<img id="profilepth11">
+<div id="name12"></div>
+<div id="popularity12"></div>
+<div id="known_for_department12"></div>
+<div id="gender12"></div>
+<div id="id12"></div>
+<div id="adult12"></div>
+<img id="profilepth12">
+<div id="name13"></div>
+<div id="popularity13"></div>
+<div id="known_for_department13"></div>
+<div id="gender13"></div>
+<div id="id13"></div>
+<div id="adult13"></div>
+<img id="profilepth13">
+<div id="name14"></div>
+<div id="popularity14"></div>
+<div id="known_for_department14"></div>
+<div id="gender14"></div>
+<div id="id14"></div>
+<div id="adult14"></div>
+<img id="profilepth14">
+<div id="name15"></div>
+<div id="popularity15"></div>
+<div id="known_for_department15"></div>
+<div id="gender15"></div>
+<div id="id15"></div>
+<div id="adult15"></div>
+<img id="profilepth15">
+<div id="name16"></div>
+<div id="popularity16"></div>
+<div id="known_for_department16"></div>
+<div id="gender16"></div>
+<div id="id16"></div>
+<div id="adult16"></div>
+<img id="profilepth16">
+<div id="name17"></div>
+<div id="popularity17"></div>
+<div id="known_for_department17"></div>
+<div id="gender17"></div>
+<div id="id17"></div>
+<div id="adult17"></div>
+<img id="profilepth17">
+<div id="name18"></div>
+<div id="popularity18"></div>
+<div id="known_for_department18"></div>
+<div id="gender18"></div>
+<div id="id18"></div>
+<div id="adult18"></div>
+<img id="profilepth18">
+<div id="name19"></div>
+<div id="popularity19"></div>
+<div id="known_for_department19"></div>
+<div id="gender19"></div>
+<div id="id19"></div>
+<div id="adult19"></div>
+<img id="profilepth19">
+<div id="name20"></div>
+<div id="popularity20"></div>
+<div id="known_for_department20"></div>
+<div id="gender20"></div>
+<div id="id20"></div>
+<div id="adult20"></div>
+<img id="profilepth20">
+<div id="name21"></div>
+<div id="popularity21"></div>
+<div id="known_for_department21"></div>
+<div id="gender21"></div>
+<div id="id21"></div>
+<div id="adult21"></div>
+<img id="profilepth21">
+<div id="name22"></div>
+<div id="popularity22"></div>
+<div id="known_for_department22"></div>
+<div id="gender22"></div>
+<div id="id22"></div>
+<div id="adult22"></div>
+<img id="profilepth22">
+<div id="name23"></div>
+<div id="popularity23"></div>
+<div id="known_for_department23"></div>
+<div id="gender23"></div>
+<div id="id23"></div>
+<div id="adult23"></div>
+<img id="profilepth23">
+<div id="name24"></div>
+<div id="popularity24"></div>
+<div id="known_for_department24"></div>
+<div id="gender24"></div>
+<div id="id24"></div>
+<div id="adult24"></div>
+<img id="profilepth24">
+
+
+
+
 
 	<script>
 
@@ -166,7 +291,7 @@
 			/* Get the person name for the form */
 			var personname = document.getElementById("personname").value;
 				/* Build up the parameters for the URL */
-			var api_key = "e5e088b9fdaef1249c47887b5e5eef39";//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+			var api_key = "e5e088b9fdaef1249c47887b5e5eef39";
 			var language = "en-US";
 			var page = "1";
 			var include_adult = "false";
@@ -185,7 +310,7 @@
 			})
 				/* AJAX complete - result is in msg */
 			.done(function(msg) {
-				//Movie the person id to variable onloadPersonId
+				//Move the person id to variable onloadPersonId
 			var onloadPersonId = msg.results[PrsnIdIndex].id;	
 				//localStorage object stores data with no expiration date. 
 				//The data will not be deleted when the browser is closed, and will be available the next day, week, or year
