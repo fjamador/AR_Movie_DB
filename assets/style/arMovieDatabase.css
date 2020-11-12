@@ -1,825 +1,583 @@
 /*  body */
-
 body {
-	text-align: justify;
-    text-justify: inter-word;
-	box-sizing: border-box;
-	color: #373737;
-	font-size: 22px;
-	font-family: Ubuntu, Helvetica, Arial, sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+text-align: justify;
+text-justify: inter-word;
+box-sizing: border-box;
+color: #373737;
+font-size: 22px;
+font-family: Ubuntu, Helvetica, Arial, sans-serif;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
 }
-
-
 #container {
-    max-width: 1000px;/* will improve the browser's handling of small windows, won't add a horizontal scrollbar to the page. */
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 0px;
-    margin-bottom: 50px;
+max-width: 1000px;/* will improve the browser's handling of small windows, won't add a horizontal scrollbar to the page. */
+margin-right: auto;
+margin-left: auto;
+margin-top: 0px;
+margin-bottom: 50px;
 }
-
 p {
-    margin-bottom: 20px;
+margin-bottom: 20px;
 }
-
+#pagetitle {text-align: center;
+padding: 10px;
+margin: auto;
+}
 .listmargin  {
-    margin-bottom: 20px;
-}	
-
+margin-bottom: 20px;
+}
 .img-style-1 {
-    float: left;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    padding: 5px;
-    border: 1px solid #ccc;
-}	
-
-/* Thumbnail Image as Link */ 
+float: left;
+margin-right: 10px;
+margin-bottom: 10px;
+padding: 5px;
+border: 1px solid #ccc;
+}
+/* Thumbnail Image as Link */
 .img-style-2 {
-  border-radius: 4px;
-  padding: 5px;
-  width: 100px;
+border-radius: 4px;
+padding: 5px;
+width: 100px;
 }
-
 .img-style-2:hover {
-  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 }
-
-/* tutorial styles */
-
-/* tabs 
-Add cursor: pointer cursor: pointer and button like outline on web links
-*/
-
 /* Style the tab */
 .tab {
-    overflow: hidden;
-    /*border: 1px solid #ccc;*/
-    background-color: #C0C0C0;
-
+overflow: hidden;
+background-color: #C0C0C0;
 }
-
 /* Style the buttons inside the tab */
 .tab button {
-    background-color: inherit;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
-    font-size: 16px;
-    cursor: pointer; /* Add a pointer cursor on hover */
+background-color: inherit;
+float: left;
+border: none;
+outline: none;
+padding: 14px 16px;
+transition: 0.3s;
+font-size: 16px;
+cursor: pointer; /* Add a pointer cursor on hover */
 }
-
 /* Change background color of buttons on hover */
 .tab button:hover {
-    background-color: #A9A9A9;
+background-color: #A9A9A9;
 }
-
 /* Create an active/current tablink class */
 .tab button.active {
-    background-color: #A9A9A9;
-    transform: translateY(4px);/*"pressed" effect on click*/
+background-color: #A9A9A9;
+transform: translateY(4px);/*"pressed" effect on click*/
 }
- 
 /* Style the tab content */
 .tabcontent {
-    display: none;
-    padding: 6px 12px;
-    /*border: 1px solid #ccc;*/
-    border-top: none;
-    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+display: none;
+padding: 6px 12px;
+/*border: 1px solid #ccc;*/
+border-top: none;
+animation: fadeEffect 1s; /* Fading effect takes 1 second */
 }
-
 /* Go from zero to full opacity */
 @keyframes fadeEffect {
-    from {opacity: 0;}
-    to {opacity: 1;}
+from {opacity: 0;}
+to {opacity: 1;}
 }
-
-/* Create section Scroll Indicator */
-.scroll-heading {
-  position: fixed;
-  top: 0;
-  z-index: 1;
-  width: 100%;
-  background-color: #f1f1f1;
-}
-
-/* The progress container (grey background) */
-.progress-container {
-  max-width: 1000px;
-  height: 8px;
-  background: #ccc;
-}
-
-/* The progress bar (scroll indicator) */
-.progress-bar {
-  height: 8px;
-  background: #4caf50;
-  width: 0%;
-} 
-
-
-/* Scroll back to top button */
-#sbttBtn {
-  display: none; /* Hidden by default */
-  position: fixed; /* Fixed/sticky position */
-  bottom: 20px; /* Place the button at the bottom of the page */
-  right: 30px; /* Place the button 30px from the right */
-  z-index: 99; /* Make sure it does not overlap */
-  border: none; /* Remove borders */
-  outline: none; /* Remove outline */
-  background-color: red; /* Set a background color */
-  color: white; /* Text color */
-  cursor: pointer; /* Add a mouse pointer on hover */
-  padding: 15px; /* Some padding */
-  border-radius: 10px; /* Rounded corners */
-  font-size: 18px; /* Increase font size */
-}
-
-/* Change background color of scroll back to top button on hover */
-#sbttBtn:hover {
-  background-color: #555; /* Add a dark-grey background on hover */
-}
-
-
+/***********************
+***  	The Modal    ***
+/**********************/
 /* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+.cntc-modal {
+display: none; /* Hidden by default */
+position: fixed; /* Stay in place */
+z-index: 1; /* Sit on top */
+padding-top: 100px; /* Location of the box */
+left: 0;
+top: 0;
+width: 100%; /* Full width */
+height: 100%; /* Full height */
+overflow: auto; /* Enable scroll if needed */
+background-color: rgb(0,0,0); /* Fallback color */
+background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
-
-/* Modal Content - Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+/* Modal Content/Box */
+.cntc-modal-content {
+background-color: #fefefe;
+margin: 15% auto; /* 15% from the top and centered */
+padding: 20px;
+border: 1px solid #888;
+width: 80%; /* Could be more or less, depending on screen size */
 }
-
 /* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+.modal-close {
+color: #aaa;
+float: right;
+font-size: 28px;
+font-weight: bold;
 }
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+.modal-close:hover,
+.modal-close:focus {
+color: black;
+text-decoration: none;
+cursor: pointer;
 }
-
-
-
+/*******************************
+**	Scroll To Top Button	  **
+********************************/
+#topBtn {
+display: none; /* Hidden by default */
+position: fixed; /* Fixed/sticky position */
+bottom: 20px; /* Place the button at the bottom of the page */
+right: 30px; /* Place the button 30px from the right */
+z-index: 99; /* Make sure it does not overlap */
+border: none; /* Remove borders */
+outline: none; /* Remove outline */
+background-color: red; /* Set a background color */
+color: white; /* Text color */
+cursor: pointer; /* Add a mouse pointer on hover */
+padding: 15px; /* Some padding */
+border-radius: 10px; /* Rounded corners */
+font-size: 18px; /* Increase font size */
+}
+#topBtn:hover {
+background-color: #555; /* Add a dark-grey background on hover */
+}
 /*******************************
 **    Breadcrumb Pagination   **
 ********************************/
 /* Style the list */
 ul.breadcrumb {
-  padding: 1px 16px;
-  list-style: none;
-  /*background-color: #eee;*/
+padding: 6px 150px;
+margin: auto;
+list-style: none;
+font-size: 12px;
+color: white;
+font-family: inherit;
+background-color: #333;
 }
-
 /* Display list items side by side */
 ul.breadcrumb li {
-  display: inline;
-  font-size: 14px;
+display: inline;
+font-size: 12px;
 }
-
 /* Add a slash symbol (/) before/behind each list item */
 ul.breadcrumb li+li:before {
-  padding: 8px;
-  color: #000000;
-  content: "/\00a0";
+padding: 8px;
+color: white;
+content: "/\00a0";
 }
-
 /* Add a color to all links inside the list */
 ul.breadcrumb li a {
-  color: #000000;
-  text-decoration: none;
+color: white;
+text-decoration: none;
 }
-
 /* Add a color on mouse-over */
 ul.breadcrumb li a:hover {
-  color: #017e7a;
-  text-decoration: underline;
+color: #017e7a;
+text-decoration: underline;
 }
-
-/*
-<div class="results-content">
-		
-		<div id="title0"></div>
-		<div id="release_date0"></div>
-		<div id="overview0"></div>
-		<img class="poster" id="poster_path0"></img>
-		<img id="backdrop_path0"></img>
-*/
-
-/*
-.results-content {
-	 border: 3px solid #73AD21;
+/*******************************
+**    Visits Counter    **
+********************************/
+.VisitCounter {
+float: right;
+font-size: 17px;
+color: white;
+font-family: inherit;
+background-color: #333;
 }
-*/
-
-.result {
-	 
- height: 50%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  /*border: 1px solid black;*/
-  margin-top: 100px;
-  margin-bottom: 100px;
-    margin-right: auto;
-    margin-left: auto;
-  /*background-color: lightblue;*/
-}
-/*
-.backdrop {
-	position: relative;
-      top: 0;
-      left: 0;
-}*/
-.result .poster {
+/*******************************
+**    Website Logo		      **
+********************************/
+img.websiteLogo4 {
 float: left;
-
+margin: auto;
+width: 105px;
+background-color: #333;
 }
-.result .absolute {
-  margin-bottom: 100px;
-    margin-right: auto;
-    margin-left: auto;
-  top: 60px;
-  left: 300px;
-
-  color: black;
-}
-
-
-/****************************
-***   Responsive TopNav   ***
-****************************/
-
+/**************************************
+*** Responsive TopNav with Dropdown ***
+**************************************/
 /*******************************
 **    SubNav Dropdown Menu    **
 ********************************/
-Create A Responsive Topnav with Dropdown
-
-/* Add a black background color to the top navigation */
+/* Add a dark background color to the top navigation */
 .topnav {
-  background-color: #C0C0C0;
-  overflow: hidden;
+overflow: hidden;
+background-color: #333;
 }
-
 /* Style the links inside the navigation bar */
 .topnav a {
-  float: left;
-  display: block;
-  color: black;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-  background-color: #C0C0C0;
+float: left;
+display: block;
+color: #f2f2f2;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+font-size: 17px;
 }
-
 /* Add an active class to highlight the current page */
-.topnav .active {
-  background-color: #4CAF50;
-  color: white;
+.topnav a.active {
+background-color: #4CAF50;
+color: white;
 }
-
 /* Hide the link that should open and close the topnav on small screens */
 .topnav .icon {
-  display: none;
+display: none;
 }
-
 /* Dropdown container - needed to position the dropdown content */
 .dropdown {
-  float: left;
-  overflow: hidden;
+float: left;
+overflow: hidden;
 }
-
 /* Style the dropdown button to fit inside the topnav */
 .dropdown .dropbtn {
-  font-size: 17px;
-  border: none;
-  outline: none;
-  color: black;
-  padding: 14px 16px;
-  background-color: #C0C0C0;
-  font-family: inherit;
-  margin: 0;
+font-size: 17px;
+border: none;
+outline: none;
+color: white;
+padding: 14px 16px;
+background-color: inherit;
+font-family: inherit;
+margin: 0;
 }
-
 /* Style the dropdown content (hidden by default) */
 .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #C0C0C0;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+display: none;
+position: absolute;
+background-color: #f9f9f9;
+min-width: 160px;
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+z-index: 1;
 }
-
 /* Style the links inside the dropdown */
 .dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
+float: none;
+color: black;
+padding: 12px 16px;
+text-decoration: none;
+display: block;
+text-align: left;
 }
-
 /* Add a dark background on topnav links and the dropdown button on hover */
 .topnav a:hover, .dropdown:hover .dropbtn {
-  background-color: #555;
-  color: white;
+background-color: #555;
+color: white;
 }
-
 /* Add a grey background to dropdown links on hover */
 .dropdown-content a:hover {
-  background-color: #ddd;
-  color: black;
+background-color: #ddd;
+color: white;
 }
-
-/* Show the dropdown menu when the 
+/* Show the dropdown menu when the
 user moves the mouse over the dropdown button */
 .dropdown:hover .dropdown-content {
-  display: block;
+display: block;
 }
-
-/* When the screen is less than 600 pixels wide, 
-hide all links, except for the first one ("Home"). 
-Show the link that contains should open and 
+/* When the screen is less than 600 pixels wide,
+hide all links, except for the first one ("Home").
+Show the link that contains should open and
 close the topnav (.icon) */
 @media screen and (max-width: 600px) {
-  .topnav a:not(:first-child), .dropdown .dropbtn {
-    display: none;
-  }
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
+.topnav a:not(:first-child), .dropdown .dropbtn {
+display: none;
 }
-
-/* The "responsive" class is added to the topnav with 
-JavaScript when the user clicks on the icon. This class 
-makes the topnav look good on small screens (display 
+.topnav a.icon {
+float: right;
+display: block;
+}
+}
+/* The "responsive" class is added to the topnav with
+JavaScript when the user clicks on the icon. This class
+makes the topnav look good on small screens (display
 the links vertically instead of horizontally) */
 @media screen and (max-width: 600px) {
-  .topnav.responsive {position: relative;}
-  .topnav.responsive a.icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-  .topnav.responsive .dropdown {float: none;}
-  .topnav.responsive .dropdown-content {position: relative;}
-  .topnav.responsive .dropdown .dropbtn {
-    display: block;
-    width: 100%;
-    text-align: left;
-  }
+.topnav.responsive {position: relative;}
+.topnav.responsive a.icon {
+position: absolute;
+right: 0;
+top: 0;
 }
-
-
-/**********************************************
-***				Automatic Slideshow			***
-***********************************************/
-
-* {box-sizing:border-box}
-
-/* Slideshow container */
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
+.topnav.responsive a {
+float: none;
+display: block;
+text-align: left;
 }
-
+.topnav.responsive .dropdown {float: none;}
+.topnav.responsive .dropdown-content {position: relative;}
+.topnav.responsive .dropdown .dropbtn {
+display: block;
+width: 100%;
+text-align: left;
+}
+}
+/* Right-aligned link */
+.topnav a.rightTMDBlogo {
+float: right;
+}
+/* *********************************************
+***				Slideshow Gallery			***
+********************************************** */
+/* Position the image container (needed to position the left and right arrows) */
+.slideshowcontainer {
+position: relative;
+}
 /* Hide the images by default */
 .mySlides {
-  display: none;
+display: none;
 }
-
+/* Add a pointer when hovering over the thumbnail images */
+.thumbnailcursor {
+cursor: pointer;
+}
 /* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
+.prev,
+.next {
+cursor: pointer;
+position: absolute;
+top: 40%;
+width: auto;
+padding: 16px;
+margin-top: -50px;
+color: white;
+font-weight: bold;
+font-size: 20px;
+border-radius: 0 3px 3px 0;
+user-select: none;
+-webkit-user-select: none;
 }
-
 /* Position the "next button" to the right */
 .next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
+right: 0;
+border-radius: 3px 0 0 3px;
 }
-
 /* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+.prev:hover,
+.next:hover {
+background-color: rgba(0, 0, 0, 0.8);
 }
-
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
-
 /* Number text (1/3 etc) */
 .numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
+color: #f2f2f2;
+font-size: 12px;
+padding: 8px 12px;
+position: absolute;
+top: 0;
 }
-
-/* The dots/bullets/indicators */
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
+/* Container for image text */
+.caption-container {
+text-align: center;
+background-color: #222;
+padding: 2px 16px;
+color: white;
 }
-
-.active, .dot:hover {
-  background-color: #717171;
+.row:after {
+content: "";
+display: table;
+clear: both;
 }
-
-/* Fading animation */
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
+/* Six columns side by side */
+.column {
+float: left;
+width: 16.66%;
 }
-
-@-webkit-keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+/* Add a transparency effect for thumnbail images */
+.thumnbailtransparency {
+opacity: 0.6;
 }
-
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+.active,
+.thumnbailtransparency:hover {
+opacity: 1;
 }
-
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
-}
-
-
-
-/* Style the hyperlink */
-/* unvisited link */
-
 /******************************************
-This is affecting the listnav letter color making it black overriding the listnav css
 *******************************************/
-/*a:link {
-  color: red;
-}*/
-/******************************************/
-
 /******************************************
-This is affecting the Responsive TopNav letter color making it black overriding the listnav css
+Search Bar
 *******************************************/
-/* visited link */
-/*a:visited {
-  color: red;
-  text-decoration: none;
-}*/
-/******************************************/
-
-/* mouse over link */
-/*a:hover {
-  color: blue;
-  text-decoration: underline;
-}*/
-/* selected link */
-/*a:active {
-  color: red;
-  text-decoration: underline;
-}*/
-
-/* Style the Work Examples container hyperlink */
-/*
-#container.workExamples a {
-  background-color: #e9e9e9;
-  border: solid 1px;
-  color: black;
-  padding: 3px 4px;
-    
-  text-decoration: none;
-  cursor: pointer;
-  border-radius: 6px;
+.SearchBar {
+overflow: hidden;
+margin: auto;
+width: 28%;
+padding: 5px;
 }
-#container.workExamples a:hover {
-  background-color: #c3c3c3;
+.SearchBar a {
+float: left;
+display: block;
+color: white;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+font-size: 17px;
 }
-#container.workExamples a:active {
-  box-shadow: none;
-  top: 5px;
+.SearchBar a:hover {
+background-color: #ddd;
+color: white;
 }
-
-#profilelink {
-  text-align: center;
-    
-  background-color: tomato;
-  border: solid 1px;
-  color: black;
-  padding: 3px 4px;
-    
-  text-decoration: none;
-  cursor: pointer;
-  border-radius: 6px;
+.SearchBar a.active {
+background-color: #2196F3;
+color: white;
 }
-*/
-
-/* Click to show or hide code button */
-#panel, #flip {
-  padding: 5px;
-  text-align: center;
-  background-color: #dddddd;
-  border: solid 1px #c3c3c3;
-    border-radius: 6px;
+.SearchBar .search-container {
+float: left;
 }
-#panel {
-  padding: 50px;
-  display: none;
+.SearchBar input[type=text] {
+padding: 6px;
+font-size: 17px;
+border: none;
+background-color: #e9e9e9
 }
-
-
-
-
+.SearchBar .search-container button {
+float: right;
+padding: 6px 10px;
+background: #4CAF50;
+font-size: 17px;
+border: none;
+cursor: pointer;
+}
+.SearchBar .search-container button:hover {
+background: #ccc;
+}
+@media screen and (max-width: 600px) {
+.SearchBar .search-container {
+float: none;
+}
+.SearchBar a, .SearchBar input[type=text], .SearchBar .search-container button {
+float: none;
+display: block;
+text-align: left;
+width: 100%;
+margin: 0;
+padding: 14px;
+}
+.SearchBar input[type=text] {
+border: 1px solid #ccc;
+}
+}
+/******************************************
+*******************************************/
 footer {
-    max-width: 1000px;
-    margin-right: auto;
-    margin-left: auto;
+max-width: 1000px;
+margin-right: auto;
+margin-left: auto;
 }
 /* Style footer w3 logo */
 footer img {
-    float:right;
-    padding: 5px;
-    border:0;
-    width: 88px;
-    height: 31px;
+float:right;
+padding: 5px;
+border:0;
+width: 88px;
+height: 31px;
 }
-
-
-
-
 /****************************************************************************
 *			ListNav Styles													*
 *****************************************************************************/
-
-
- .outer {
-  width: 100%;
+.outer {
+width: 100%;
 }
-
 .inner {
-  position: relative;
-  max-width: 800px;
-  padding: 20px 10px;
-  margin: 0 auto;
+position: relative;
+max-width: 800px;
+padding: 20px 10px;
+margin: 0 auto;
 }
-/* 
-#header_wrap .inner {
-  padding: 10px;
-}
-
-#project_title {
-  margin: 0;
-  color: #fff;
-  font-size: 42px;
-  font-weight: 700;
-  text-shadow: #111 0px 0px 10px;
-}
-
-#project_tagline {
-  color: #fff;
-  font-size: 24px;
-  font-weight: 300;
-  background: none;
-  text-shadow: #111 0px 0px 10px;
-}
-*/
- 
 p {
-  margin: 10px 0 15px 0;
+margin: 10px 0 15px 0;
 }
-
 footer p {
-  color: #43adff;
+color: #43adff;
 }
-
 /*******************************************/
 /* anchor styling includes listnav letters */
 /*******************************************/
 a {
-  text-decoration: none;
-  color: #373737;
-  text-shadow: none;
+text-decoration: none;
+color: #373737;
+text-shadow: none;
 }
-
 /* section id="main_content" listnav on hover */
 #main_content a:hover {
-  color: #000000;
+color: #000000;
 }
-/*
-footer a:hover {
-  color: red;
-}
- */
 ul, ol, dl {
-  margin-bottom: 15px;
+margin-bottom: 15px;
 }
-
 ul li {
-  list-style-type: none;
+list-style-type: none;
 }
-
 ol li {
-  list-style-type: none;
-  padding-left: 20px;
+list-style-type: none;
+padding-left: 20px;
 }
-
 dl dt {
-  font-weight: bold;
+font-weight: bold;
 }
-
 dl dd {
-  padding-left: 20px;
-  font-style: italic;
+padding-left: 20px;
+font-style: italic;
 }
-
 dl p {
-  padding-left: 20px;
-  font-style: italic;
+padding-left: 20px;
+font-style: italic;
 }
- 
-/**** List Nav Style ****/
-/*
-#main_content_wrap {
-  background: #fff;
-  border-top: 1px solid #111;
-  border-bottom: 1px solid #111;
-}
-
-#main_content {
-  padding-top: 40px;
-}
-
-#footer_wrap {
-  background: #212121;
-}
-*/
-/*******************
-Top Demo Nav Bar
-*******************/
-/*
-nav {
-  background: #eee;
-}
-
-nav ul {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  list-style: none;
-}
-
-nav li {
-  list-style-type: none;
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: auto;
-}
-
-nav a {
-  border-top: 5px solid #eee;
-  border-bottom: 5px solid #eee;
-  padding: 1.25rem 0.5rem;
-  font-size: 16px;
-  max-width: 140px;
-  font-weight: 400;
-  text-decoration: none;
-  display: flex;
-  align-items: flex-start;
-  color: #222;
-  text-align: center;
-}
-
-nav a:hover, nav a:focus {
-  color: black;
-  border-top: 5px solid #CCC;
-  border-bottom: 5px solid #CCC;
-}
-*/
-
 /******************************
-	STYLE FOR JQUERY LISTNAV
+STYLE FOR JQUERY LISTNAV
 ******************************/
-
 .listNav,
 .ln-letters {
-  overflow: hidden;
+overflow: hidden;
 }
-
 .listNavHide {
-  position: absolute;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  width: 1px;
-  margin: -1px;
-  padding: 0;
-  border: 0;
+position: absolute;
+overflow: hidden;
+clip: rect(0 0 0 0);
+height: 1px;
+width: 1px;
+margin: -1px;
+padding: 0;
+border: 0;
 }
-
 .letterCountShow {
-  display: block;
+display: block;
 }
-
 .ln-letters a {
-  /*border: 1px solid silver;*/
-  /*border-right: none;*/
-  display: block;
-  float: left;
-  font-size: 1.5em;
-  padding: 2px 6px;
-  text-decoration: none;
+/*border: 1px solid silver;*/
+/*border-right: none;*/
+display: block;
+float: left;
+font-size: 1.5em;
+padding: 2px 6px;
+text-decoration: none;
 }
-/*
-.ln-letters .ln-last {
-  border-right: 1px solid black;
-}
-*/
 .ln-letters a:hover,
 .ln-letters .ln-selected {
-  background-color: #eaeaea;
+background-color: #eaeaea;
 }
-
 .ln-letters .ln-disabled {
-  color: #ccc;
+color: #ccc;
 }
-
 .ln-letter-count {
-  color: #336699;
-  font-size: .8em;
-  left: 0;
-  line-height: 1.35;
-  position: absolute;
-  text-align: center;
-  top: 0;
-  width: 20px;
+color: #336699;
+font-size: .8em;
+left: 0;
+line-height: 1.35;
+position: absolute;
+text-align: center;
+top: 0;
+width: 20px;
 }
-
 /****************************************************************************
 *																			*
 *****************************************************************************/
+/****************************************************************************
+*		Style the search results											*
+*****************************************************************************/
+.search_result {
+/*border: 5px solid blue;*/
+overflow: hidden;
+padding: 20px;
+}
+.movie_result, .credits_results, .person_result {
+overflow: auto;
+display: flex;
+align-items:center;
+}
+.movie_details, .celebrity_details {
+padding: 10px;
+}

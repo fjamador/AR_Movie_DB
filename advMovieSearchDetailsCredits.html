@@ -20,47 +20,45 @@
 	<!-- Execute a JavaScript immediately after a page has been loaded -->
 	<!-- passing the value of the variable onloadMovieId  from the localStorage object-->
 	<body onload="MovieDtlCrdSearch()">
-
+	<div id="container">	
+		<!-- Breadcrumb Pagination -->
 		<ul class="breadcrumb">
 		  <li><a href="#" onclick="openRedirect('index.html')">Home</a></li>
 		  <li><a href="#" onclick="openRedirect('advMovieSearch.html')">Advanced Search Movies</a></li>
-		  <li><a href="#">Advanced Search Movies Details & Credits</a></li>
+		  <li><a href="#">Movies Details & Credits</a></li>
 		</ul>
 		
-        <!-- Scroll back to top button -->
-        <button onclick="topFunction()" id="sbttBtn" title="Go to top">Go To <br> Top</button>
-
 		<!-- Begin Tab Buttons Section -->
         <!-- Responsive TopNav -->
 		<!-- Load an icon library to show a hamburger menu (bars) on small screens -->
 		<!-- SubNavBar Dropdown Menu -->
 		<!-- Create A Responsive Topnav with Dropdown -->
 		<div class="topnav" id="myTopnav">
-			<a href="#home" onclick="openRedirect('index.html')">Home</a>
+			<a href="#"><img class="websiteLogo4" src="assets/images/websiteLogo4.png" alt="Arkansas Movie Database"></a>
+			<a href="#home" onclick="openRedirect('index.html')"><i class="fa fa-home"></i> Home</a>
 			<div class="dropdown">
-				<button class="dropbtn">Movies
-				  <i class="fa fa-caret-down"></i>
-				</button>
+				<button class="dropbtn">Browse by Name<i class="fa fa-caret-down"></i></button>
 				<div class="dropdown-content">
 				  <a href="#" onclick="openRedirect('browse_movies.html')">Browse Movies</a>
-				  <a href="#" class="active" onclick="openRedirect('advMovieSearch.html')">Advanced Search Movies</a>
+				  <a href="#" onclick="openRedirect('browse_celebrities_men.html')">Browse Celebrities Men</a>
+				  <a href="#" onclick="openRedirect('browse_celebrities_women.html')">Browse Celebrities Women</a>
+				  
 				</div>
 			</div>
 			<div class="dropdown">
-				<button class="dropbtn">Celebrities
-				  <i class="fa fa-caret-down"></i>
-				</button>
+				<button class="dropbtn">Search<i class="fa fa-caret-down"></i></button>
 				<div class="dropdown-content">
-				  <a href="#" onclick="openRedirect('browse_celebrities.html')">Browse Celebrities</a>
+				  <a href="#" onclick="openRedirect('advMovieSearch.html')">Advanced Search Movies</a>
 				  <a href="#" onclick="openRedirect('advPersonSearch.html')">Advanced Search Celebrities</a>
 				</div>
 			 </div>
 		  <a href="#about" id="AboutBtn" onclick="openRedirect('about.html')">About</a>
 		  <a href="#contact" id="CntcMdlBtn">Contact</a>
+		  <a href="https://www.themoviedb.org/" class="rightTMDBlogo">powered by <img src="assets/images/blue_short-TMDB_logo.svg" alt="The Movie Database" style="width:90px"></a>
 		  <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
 		</div>
 		<br>
-	<h2>Search Movie Details & Credits</h2>
+	<h2 id="pagetitle">Movie Details & Credits</h2>
     
 	<!--
 	<p>Enter Movie ID: <input type="text" id="movieid"></p>
@@ -70,83 +68,110 @@
 	-->
     
     <div id="url1"></div><br>
+
+<div class="results_content">
+	<div class="movie_result">
+		<img  id="poster_path">	
+		<div class="movie_details">	
+			<div id="homepage"></div>
+			<div id="title"></div>
+			<div id="overview"></div>
+			<div id="movieid"></div>
+			<div id="homepage"></div>
+			<div id="title"></div>
+			<div id="imdb_id"></div>
+			<div id="original_language"></div>
+			<div id="original_title"></div>
+			<div id="popularity"></div>
+			<div id="release_date"></div>
+			<div id="budget"></div>
+			<div id="revenue"></div>
+			<div id="runtime"></div>
+			<div id="genres0"></div>
+			<div id="genres1"></div>
+			<div id="genres2"></div>
+			<div id="genres3"></div>
+			<div id="genres4"></div>
+			<div id="genres5"></div>
+			<div id="genres6"></div>
+			<div id="status"></div>
+			<div id="tagline"></div>
+			<div id="vote_average"></div>
+			<div id="vote_count"></div>
+			<div id="video"></div>
+		</div>
+	</div>
 	
-<div id="genres0"></div>
-<div id="genres1"></div>
-<div id="genres2"></div>
-<div id="genres3"></div>
-<div id="genres4"></div>
-<div id="genres5"></div>
-<div id="genres6"></div>
-	
-	<div id="homepage"></div>
-<div id="title"></div>
-<div id="movieid"></div>
-<div id="budget"></div>
-<div id="imdb_id"></div>
-<div id="original_language"></div>
-<div id="original_title"></div>
-<div id="overview"></div>
-<div id="popularity"></div>
-<div id="release_date"></div>
-<div id="revenue"></div>
-<div id="runtime"></div>
-<div id="status"></div>
-<div id="tagline"></div>
-<div id="vote_average"></div>
-<div id="vote_count"></div>
-<img class="poster" id="poster_path"></img>
-<div id="video"></div>
+	<div class="credits_results">
+		<img id="profilepath0">	
+		<div class="celebrity_details">		
+			<div id="name0"></div>		 
+			<div id="character0"></div>
+			<div id="cast_id0"></div>
+			<div id="order0"></div>
+			<div id="credit_id0"></div>
+			<div id="gender0"></div>
+		</div>
+	</div>
+	<div class="credits_results">
+		<img id="profilepath1">
+		<div class="celebrity_details">		
+			<div id="name1"></div>
+			<div id="character1"></div>
+			<div id="cast_id1"></div>
+			<div id="order1"></div>
+			<div id="credit_id1"></div>
+			<div id="gender1"></div>
+		</div>
+	</div>
+	<div class="credits_results">
+		<img id="profilepath2">
+		<div class="celebrity_details">
+			<div id="name2"></div>
+			<div id="character2"></div>
+			<div id="cast_id2"></div>
+			<div id="order2"></div>
+			<div id="credit_id2"></div>
+			<div id="gender2"></div>
+		</div>
+	</div>
+	<div class="credits_results">
+		<img id="profilepath3">
+		<div class="celebrity_details">
+			<div id="name3"></div>
+			<div id="character3"></div>
+			<div id="cast_id3"></div>
+			<div id="order3"></div>
+			<div id="credit_id3"></div>
+			<div id="gender3"></div>
+		</div>
+	</div>
+	<div class="credits_results">
+		<img id="profilepath4">
+		<div class="celebrity_details">
+			<div id="name4"></div>
+			<div id="character4"></div>
+			<div id="cast_id4"></div>
+			<div id="order4"></div>
+			<div id="credit_id4"></div>
+			<div id="gender4"></div>
+		</div>
+	</div>
+</div>
 
-	
-<div id="name0"></div>		 
-<div id="character0"></div>
-<div id="cast_id0"></div>
-<div id="order0"></div>
-<div id="credit_id0"></div>
-<div id="gender0"></div>
-<img id="profilepath0"></div>
-<div id="name1"></div>
-<div id="character1"></div>
-<div id="cast_id1"></div>
-<div id="order1"></div>
-<div id="credit_id1"></div>
-<div id="gender1"></div>
-<img id="profilepath1"></div>
-<div id="name2"></div>
-<div id="character2"></div>
-<div id="cast_id2"></div>
-<div id="order2"></div>
-<div id="credit_id2"></div>
-<div id="gender2"></div>
-<img id="profilepath2"></div>
-<div id="name3"></div>
-<div id="character3"></div>
-<div id="cast_id3"></div>
-<div id="order3"></div>
-<div id="credit_id3"></div>
-<div id="gender3"></div>
-<img id="profilepath3"></div>
-<div id="name4"></div>
-<div id="character4"></div>
-<div id="cast_id4"></div>
-<div id="order4"></div>
-<div id="credit_id4"></div>
-<div id="gender4"></div>
-<img id="profilepath4"></div>
-
-
-
-
-
-
-
+        <div id="CntcModal" class="cntc-modal">
+            
+			<!-- Modal content -->
+            <div class="cntc-modal-content">
+                <span class="modal-close">&times;</span>
+                <h2>Contact</h2>
+                <p>
+                    XXXXX
+                </p>
+            </div>
+        </div> 
  
-
-<h1 id="test"><h1>  
-<br>
-<h1 id="url2"><h1>  
-
+</div>
 	<script>  
  
 	 // event listener to grab click on movie poster and call fuction MovieIDSearch

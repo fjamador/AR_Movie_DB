@@ -8,24 +8,16 @@ function openRedirect(url) {
 }
 
 
-                              
-//Scroll Back To Top Button
-sbttbutton = document.getElementById("sbttBtn");
-
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-}
-
-// Modal box for contact info
+/* ***************************** 
+Create A Modal box for contact info  
+****************************** */
 
 // Get the modal
 var modal = document.getElementById("CntcModal");
 // Get the button that opens the modal
 var btn = document.getElementById("CntcMdlBtn");
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+var span = document.getElementsByClassName("modal-close")[0];
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
   modal.style.display = "block";
@@ -41,7 +33,36 @@ window.onclick = function(event) {
   }
 }
 
-/* ***************************** Create A Responsive Topnav with Dropdown  ****************************** */
+
+/* *************************************** 
+  Create A Responsive Topnav with Dropdown  
+**************************************** */
+
+//Get the button:
+mybutton = document.getElementById("topBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
+
+/* *************************************** 
+  Create A Responsive Topnav with Dropdown  
+**************************************** */
+
 /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
 function myFunction() {
   var x = document.getElementById("myTopnav");
@@ -53,30 +74,41 @@ function myFunction() {
 }
 
 
-/**********************************************
-***				Automatic Slideshow			***
-***********************************************/
 
-var slideIndex = 0;
-showSlides();
+/* *********************************************
+***				Slideshow Gallery			***
+********************************************** */
 
-function showSlides() {
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
   var i;
   var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
+  var dots = document.getElementsByClassName("thumnbailtransparency");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
   for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
+    slides[i].style.display = "none";
   }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}    
   for (i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(" active", "");
   }
-  slides[slideIndex-1].style.display = "block";  
+  slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
-  setTimeout(showSlides, 2000); // Change image every 2 seconds
+  captionText.innerHTML = dots[slideIndex-1].alt;
 }
-
 
 
 /*
@@ -105,6 +137,7 @@ function MovieSearch() {
     var myURL = "https://api.themoviedb.org/3/search/movie?api_key=" + api_key + "&language=" + language + "&query=" + query + "&page="  + page + "&include_adult=" + include_adult;
 
     /* Display the URL */
+	document.getElementById("url1").style.display = "block";
     document.getElementById("url1").innerHTML = myURL;
  
     /* AJAX Method - Use GET since the parameters are in the URL */
@@ -129,13 +162,13 @@ function MovieSearch() {
                 // Display the result  
                 if (i < msg.results.length) {
 				document.getElementById("title" + i).style.display = "block";
-                document.getElementById("title" + i).innerHTML = i + ". Movie title:" + msg.results[i].title;
+                document.getElementById("title" + i).innerHTML = "Movie title:" + msg.results[i].title;
 				
 				document.getElementById("overview" + i).style.display = "block";
-                document.getElementById("overview" + i).innerHTML = i + ". Movie overview:" + msg.results[i].overview;
+                document.getElementById("overview" + i).innerHTML ="Movie overview:" + msg.results[i].overview;
 				
 				document.getElementById("release_date" + i).style.display = "block";
-                document.getElementById("release_date" + i).innerHTML = i + ". Movie release date:" + msg.results[i].release_date;
+                document.getElementById("release_date" + i).innerHTML ="Movie release date:" + msg.results[i].release_date;
 				
 				// Some movies don't have a poster - null is returned 
                 if (msg.results[i].poster_path != null) {
@@ -158,16 +191,16 @@ function MovieSearch() {
 
 				
 				document.getElementById("popularity" + i).style.display = "none";
-                document.getElementById("popularity" + i).innerHTML = i + ". Movie popularity:" + msg.results[i].popularity;
+                document.getElementById("popularity" + i).innerHTML ="Movie popularity:" + msg.results[i].popularity;
 
-				document.getElementById("movie_id" + i).style.display = "none";
-                document.getElementById("movie_id" + i).innerHTML = i + ". Movie id:" + msg.results[i].id;
+				document.getElementById("movie_id" + i).style.display = "block";
+                document.getElementById("movie_id" + i).innerHTML ="Movie id:" + msg.results[i].id;
 				
 				document.getElementById("adult_content" + i).style.display = "none";
-                document.getElementById("adult_content" + i).innerHTML = i + ". Movie adult content:" + msg.results[i].adult;
+                document.getElementById("adult_content" + i).innerHTML ="Movie adult content:" + msg.results[i].adult;
 				
 				document.getElementById("original_language" + i).style.display = "none";
-                document.getElementById("original_language" + i).innerHTML = i + ". Movie original_language:" + msg.results[i].original_language;
+                document.getElementById("original_language" + i).innerHTML ="Movie original_language:" + msg.results[i].original_language;
 
 				
 
@@ -227,6 +260,7 @@ function MovieDtlCrdSearch() {
     var myURL = "https://api.themoviedb.org/3/movie/" + query + "?api_key=" + api_key + "&language=" + language + "&append_to_response=credits";
 
     /* Display the URL */
+	document.getElementById("url1").style.display = "none";
     document.getElementById("url1").innerHTML = myURL;
    /* AJAX Method - Use GET since the parameters are in the URL */
     var myMethod = "GET";
@@ -255,7 +289,7 @@ function MovieDtlCrdSearch() {
 			document.getElementById("movieid").innerHTML ="Movie release date: " + msg.id;
 			
 			document.getElementById("budget").style.display = "block";
-			document.getElementById("budget").innerHTML ="Movie budget:: " + msg.budget;
+			document.getElementById("budget").innerHTML ="Budget: " + msg.budget;
 			
 			document.getElementById("imdb_id").style.display = "none";
 			document.getElementById("imdb_id").innerHTML ="Movie imdb id: " + msg.imdb_id;
@@ -267,22 +301,20 @@ function MovieDtlCrdSearch() {
 			document.getElementById("original_title").innerHTML ="Movie original title: " + msg.original_title;
 			
 			document.getElementById("overview").style.display = "block";
-			document.getElementById("overview").innerHTML ="Movie overview: " + msg.overview;
+			document.getElementById("overview").innerHTML ="Overview: " + msg.overview;
 			
 			document.getElementById("popularity").style.display = "none";
 			document.getElementById("popularity").innerHTML ="Movie popularity: " + msg.popularity;
 			
-			document.getElementById("poster_path").style.display = "none";
-			document.getElementById("poster_path").innerHTML ="Movie poster path: " + msg.poster_path; 
 			
 			document.getElementById("release_date").style.display = "block";
-			document.getElementById("release_date").innerHTML ="Movie release date: " + msg.release_date;
+			document.getElementById("release_date").innerHTML ="Release date: " + msg.release_date;
 			
 			document.getElementById("revenue").style.display = "block";
-			document.getElementById("revenue").innerHTML ="Movie revenue: " + msg.revenue;
+			document.getElementById("revenue").innerHTML ="Revenue: " + msg.revenue;
 			
 			document.getElementById("runtime").style.display = "block";
-			document.getElementById("runtime").innerHTML ="Movie runtime: " + msg.runtime; 
+			document.getElementById("runtime").innerHTML ="Runtime: " + msg.runtime; 
 			
 			document.getElementById("status").style.display = "none";
 			document.getElementById("status").innerHTML ="Movie status: " + msg.status;
@@ -291,7 +323,7 @@ function MovieDtlCrdSearch() {
 			document.getElementById("tagline").innerHTML ="Movie tagline: " + msg.tagline;
 			
 			document.getElementById("title").style.display = "block";
-			document.getElementById("title").innerHTML ="Movie title: " + msg.title;
+			document.getElementById("title").innerHTML ="Title: " + msg.title;
 			
 							 
 					  
@@ -301,7 +333,7 @@ function MovieDtlCrdSearch() {
 				if (i < msg.genres.length) {
 					/* Set the Title to Visible and set title to value in database */
 					document.getElementById("genres" + i).style.display = "block";
-				document.getElementById("genres" + i).innerHTML = i + "Movie genres:: " + msg.genres[i].name;
+				document.getElementById("genres" + i).innerHTML ="Genres: " + msg.genres[i].name;
 				}
 			else {
 					/* Less that 5 movies returned - blank out the rest of the values */
@@ -315,7 +347,7 @@ function MovieDtlCrdSearch() {
 			// Some movies don't have a poster - null is returned  
 			if (msg.poster_path != null) {
 				document.getElementById("poster_path").style.display = "block";
-				document.getElementById("poster_path").src = "https://image.tmdb.org/t/p/w185" + msg.poster_path;}
+				document.getElementById("poster_path").src = "https://image.tmdb.org/t/p/w500" + msg.poster_path;}
 			// null movie poster - don't display an empty value
 			else {
 				document.getElementById("poster_path").src = "";       
@@ -328,10 +360,10 @@ function MovieDtlCrdSearch() {
 				if (i < msg.credits.cast.length) {
 					/* Set the Title to Visible and set title to value in database */
 					document.getElementById("name" + i).style.display = "block";
-					document.getElementById("name" + i).innerHTML = i + "Person Name:: " + msg.credits.cast[i].name;
+					document.getElementById("name" + i).innerHTML ="Name: " + msg.credits.cast[i].name;
 					
 					document.getElementById("character" + i).style.display = "block";
-					document.getElementById("character" + i).innerHTML = i + "Character Name: " + msg.credits.cast[i].character;
+					document.getElementById("character" + i).innerHTML ="Character Name: " + msg.credits.cast[i].character;
 					
 					/* Some movies don't have a profile path - null is returned - use loop */
 					/* example url for profilr image https://image.tmdb.org/t/p/w300/vgLTcq1nYcNmIr3yLxS7sk84sav.jpg */
@@ -344,16 +376,16 @@ function MovieDtlCrdSearch() {
 						document.getElementById("profilepath" + i).style.display = "none";}
 						
 					document.getElementById("cast_id" + i).style.display = "none";
-					document.getElementById("cast_id" + i).innerHTML = i + "Person id: " + msg.credits.cast[i].cast_id; 
+					document.getElementById("cast_id" + i).innerHTML ="Person id: " + msg.credits.cast[i].cast_id; 
 					
 					document.getElementById("order" + i).style.display = "none";
-					document.getElementById("order" + i).innerHTML = i + "Person order: " + msg.credits.cast[i].order;
+					document.getElementById("order" + i).innerHTML ="Person order: " + msg.credits.cast[i].order;
 					
 					document.getElementById("credit_id" + i).style.display = "none";
-					document.getElementById("credit_id" + i).innerHTML = i + "Person Name: " + msg.credits.cast[i].credit_id;
+					document.getElementById("credit_id" + i).innerHTML ="Person Name: " + msg.credits.cast[i].credit_id;
 					
 					document.getElementById("gender" + i).style.display = "none";
-					document.getElementById("gender" + i).innerHTML = i + "Person gender: " + msg.credits.cast[i].gender;
+					document.getElementById("gender" + i).innerHTML ="Person gender: " + msg.credits.cast[i].gender;
 				}
 				else {
 					/* Less that 5 movies returned - blank out the rest of the values */
@@ -400,6 +432,7 @@ function PersonSearch() {
     var query = encodeURI(personname);  /* encode the movename since it might have blanks */  
     var myURL = "https://api.themoviedb.org/3/search/person?api_key=" + api_key + "&language=" + language + "&query=" + query + "&page="  + page + "&include_adult=" + include_adult;
     /* Display the URL */
+	document.getElementById("url1").style.display = "none";
     document.getElementById("url1").innerHTML = myURL;
     /* AJAX Method - Use GET since the parameters are in the URL */
     var myMethod = "GET";
@@ -426,14 +459,14 @@ function PersonSearch() {
                     
                     // Some persons don't have a profile path - null is returned  
                     if (msg.results[i].profile_path != null) {
-                        document.getElementById("profilepth" + i).style.display = "block";
-                        document.getElementById("profilepth" + i).src = "https://image.tmdb.org/t/p/w45" + msg.results[i].profile_path;}
+                        document.getElementById("profile_path" + i).style.display = "block";
+                        document.getElementById("profile_path" + i).src = "https://image.tmdb.org/t/p/w185" + msg.results[i].profile_path;}
 					// null profile - don't display an empty value  
                     else
                     // null profile - don't display an empty value  
                     {
-                        document.getElementById("profilepth" + i).src = "";       
-                        document.getElementById("profilepth" + i).style.display = "none";}
+                        document.getElementById("profile_path" + i).src = "";       
+                        document.getElementById("profile_path" + i).style.display = "none";}
 					
 					document.getElementById("popularity" + i).style.display = "none";
 					document.getElementById("popularity" + i).innerHTML =i + ". Person popularity: " + msg.results[i].popularity;
@@ -444,7 +477,7 @@ function PersonSearch() {
 					document.getElementById("gender" + i).style.display = "none";
 					document.getElementById("gender" + i).innerHTML =i + ". Person gender: " + msg.results[i].gender;
 					
-					document.getElementById("id" + i).style.display = "none";
+					document.getElementById("id" + i).style.display = "block";
 					document.getElementById("id" + i).innerHTML =i + ". Person id: " + msg.results[i].id;
 					
 					document.getElementById("adult" + i).style.display = "none";
@@ -456,8 +489,8 @@ function PersonSearch() {
                     document.getElementById("name" + i).innerHTML = "";
                     document.getElementById("name" + i).style.display = "none";
 					
-					document.getElementById("profilepth" + i).src = "";       
-					document.getElementById("profilepth" + i).style.display = "none";
+					document.getElementById("profile_path" + i).src = "";       
+					document.getElementById("profile_path" + i).style.display = "none";
 					
 					document.getElementById("popularity" + i).style.display = "none";
 					document.getElementById("popularity" + i).innerHTML = "";
@@ -497,6 +530,7 @@ function PersonDtlCrdSearch() {
     var query = personid;  /* encode the movie name to eliminate possible blank spaces */  
     var myURL = "https://api.themoviedb.org/3/person/" + query + "?api_key=" + api_key + "&language=" + language + "&append_to_response=images,movie_credits";
 	/* Display the URL */
+	document.getElementById("url1").style.display = "none";
     document.getElementById("url1").innerHTML = myURL;
     /* AJAX Get Method */
     var myMethod = "GET";
@@ -509,7 +543,7 @@ function PersonDtlCrdSearch() {
         /* AJAX complete - result is in msg variable */
         .done(function(msg) {
 		
-		document.getElementById("name").innerHTML = "Person Name: " + msg.name;
+		document.getElementById("name").innerHTML = "Name: " + msg.name;
 		
 		
 		document.getElementById("known_for_department").innerHTML = "Known for: " + msg.known_for_department;
@@ -551,7 +585,7 @@ function PersonDtlCrdSearch() {
         /* Some persons don't have a profile path - null is returned */
         if (msg.profile_path != null) {
             document.getElementById("profile_path").style.display = "block";
-            document.getElementById("profile_path").src = "https://image.tmdb.org/t/p/w300" + msg.profile_path;
+            document.getElementById("profile_path").src = "https://image.tmdb.org/t/p/h632" + msg.profile_path;
         }
         else
         /* null profile path - don't display an empty value */
@@ -570,26 +604,26 @@ function PersonDtlCrdSearch() {
 
                     // Set the Title to Visible and set title to value in database //
                     document.getElementById("character" + i).style.display = "block";
-                    document.getElementById("character" + i).innerHTML = i + "Character Name: " + msg.movie_credits.cast[i].character;
+                    document.getElementById("character" + i).innerHTML ="Character Name: " + msg.movie_credits.cast[i].character;
 					
                     document.getElementById("title" + i).style.display = "block";
-                    document.getElementById("title" + i).innerHTML = i + "Movie Title:: " + msg.movie_credits.cast[i].title;
+                    document.getElementById("title" + i).innerHTML ="Movie Title: " + msg.movie_credits.cast[i].title;
 					
 					document.getElementById("popularity" + i).style.display = "block";
-                    document.getElementById("popularity" + i).innerHTML = i + "Movie popularity:: " + msg.movie_credits.cast[i].popularity;
+                    document.getElementById("popularity" + i).innerHTML ="Movie popularity: " + msg.movie_credits.cast[i].popularity;
 					
 										
                     document.getElementById("release_date" + i).style.display = "block";
-                    document.getElementById("release_date" + i).innerHTML = i + "Movie release date:: " + msg.movie_credits.cast[i].release_date;
+                    document.getElementById("release_date" + i).innerHTML ="Movie release date:" + msg.movie_credits.cast[i].release_date;
 					
                     document.getElementById("adult" + i).style.display = "none";
-                    document.getElementById("adult" + i).innerHTML = i + "Movie adult content:: " + msg.movie_credits.cast[i].original_title;
+                    document.getElementById("adult" + i).innerHTML ="Movie adult content: " + msg.movie_credits.cast[i].original_title;
 					
 					document.getElementById("id" + i).style.display = "none";
-                    document.getElementById("id" + i).innerHTML = i + "Movie id:: " + msg.movie_credits.cast[i].id;
+                    document.getElementById("id" + i).innerHTML ="Movie id:" + msg.movie_credits.cast[i].id;
 					
                     document.getElementById("overview" + i).style.display = "block";
-                    document.getElementById("overview" + i).innerHTML = i + "Movie overview:: " + msg.movie_credits.cast[i].overview;
+                    document.getElementById("overview" + i).innerHTML ="Movie overview:" + msg.movie_credits.cast[i].overview;
                     
                     
                     
@@ -605,7 +639,7 @@ function PersonDtlCrdSearch() {
 					
 					// Some don't have a backdrop  - null is returned //
                     if (msg.movie_credits.cast[i].poster_path != null) {
-                        document.getElementById("backdrop_path" + i).style.display = "block";
+                        document.getElementById("backdrop_path" + i).style.display = "none";
                         document.getElementById("backdrop_path" + i).src = "https://image.tmdb.org/t/p/w185" + msg.movie_credits.cast[i].backdrop_path;}
                     // null movie backdrop  - don't display an empty value //
 					else {
