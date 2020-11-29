@@ -65,7 +65,7 @@ function topFunction() {
 
 /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
 function myFunction() {
-  var x = document.getElementById("myTopnav");
+  var x = document.getElementById("dbTopnav");
   if (x.className === "topnav") {
     x.className += " responsive";
   } else {
@@ -257,9 +257,9 @@ document.getElementById("original_language" + i).style.display = "none";
 }
  
 
-
+/* ******************************************* */
 // function Movie Details & Credits search
-
+/* ******************************************* */
 function MovieDtlCrdSearch() {
 //Grab the value from local storage for the movieid variable 
 var movieid = localStorage.getItem("movieIdPass");
@@ -301,8 +301,8 @@ document.getElementById("movieid").innerHTML = "<br><strong>Id</strong><br>" + m
 document.getElementById("budget").style.display = "block";
 document.getElementById("budget").innerHTML = "<br><strong>Budget</strong><br>" + msg.budget;
 
-document.getElementById("imdb_id").style.display = "none";
-document.getElementById("imdb_id").innerHTML = "<br><strong>imdb id: </strong><br>" + msg.imdb_id;
+document.getElementById("imdb_id").style.display = "block";
+document.getElementById("imdb_id").innerHTML = "<p>Find out more about <a href='https://www.imdb.com/title/" + msg.imdb_id + "/' target='_blank'>" + msg.title + "</a> on IMDb.</p>";
 
 document.getElementById("original_language").style.display = "none";
 document.getElementById("original_language").innerHTML = "<br><strong>Original language</strong><br>" + msg.original_language;
@@ -587,8 +587,8 @@ document.getElementById("place_of_birth").style.display = "block";
 document.getElementById("place_of_birth").innerHTML = "<br><strong>Place of birth</strong><br>" + msg.place_of_birth;
 document.getElementById("gender").style.display = "none";
 document.getElementById("gender").innerHTML = "<br><strong>Gender</strong><br>" + msg.gender;
-document.getElementById("imdb_id").style.display = "none";
-document.getElementById("imdb_id").innerHTML = "<br><strong>IMDB Id</strong><br>" + msg.imdb_id;
+document.getElementById("imdb_id").style.display = "block";
+document.getElementById("imdb_id").innerHTML = "<p>Find out more about <a href='https://www.imdb.com/name/" + msg.imdb_id + "/' target='_blank'>" + msg.name + "</a> on IMDb.</p>"; 
 /* Some persons don't have a biography eg San Chin*/
 if (msg.biography != "") {
 document.getElementById("biography").style.display = "block";
