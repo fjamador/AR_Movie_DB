@@ -4,10 +4,10 @@
 (function ($) {
   $.fn.listnav = function (options) {
     var opts = $.extend({}, $.fn.listnav.defaults, options),
-        letters = ['_', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '-'],
-        firstClick = false,
-        clickEventType = '';
-
+      letters = ['_', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '-'],
+      firstClick = false,
+      clickEventType = '';
+	  
     //detect if you are on a touch device easily.
     if (document.ontouchstart !== null) {
       clickEventType = 'click';
@@ -23,13 +23,13 @@
 
     return this.each(function () {
       var $wrapper, $letters, $letterCount, left, width, count,
-          id = this.id,
-          $list = $(this),
-          counts = {},
-          allCount = 0, fullCount = 0,
-          isAll = true,
-          prevLetter = '';
-
+        id = this.id,
+        $list = $(this),
+        counts = {},
+        allCount = 0, fullCount = 0,
+        isAll = true,
+        prevLetter = '';
+	    
       if ( !$('#' + id + '-nav').length ) {
         $('<div id="' + id + '-nav" class="listNav"/>').insertBefore($list);
         // Insert the nav if its not been inserted already (preferred method)

@@ -1,119 +1,112 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Arkansas Movie Database</title>
-    <meta name="description" content="Your Description">
-    <meta name="keywords" content="Your, Key, Words">
-    <meta name="author" content="Fernando J Amador">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="assets/style/arMovieDatabase.css">
-	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu">
-	<link rel="shortcut icon" href="assets/images/arflag3favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Arkansas Movie Database</title>
+  <meta name="description" content="Your Description">
+  <meta name="keywords" content="Your, Key, Words">
+  <meta name="author" content="Fernando J Amador">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/style/arMovieDatabase.css">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu">
+  <link rel="shortcut icon" href="assets/images/arflag3favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-
 <body>
-    <div id="container">
-        <!-- Breadcrumb Pagination -->
-		<ul class="breadcrumb">
-		  <li><a href="#" onclick="openRedirect('index.html')">Home</a></li>
-		  <li><a href="#">About</a></li>
-		</ul>
-		<!-- Begin Tab Buttons Section -->
-        <!-- Responsive TopNav -->
-		<!-- Load an icon library to show a hamburger menu (bars) on small screens -->
-		<!-- SubNavBar Dropdown Menu -->
-		<!-- Create A Responsive Topnav with Dropdown -->
-		<div class="topnav" id="myTopnav">
-			<a href="#"><img class="websiteLogo" src="assets/images/websiteLogo4.png" alt="Arkansas Movie Database"></a>
-			<a href="#home" onclick="openRedirect('index.html')"><i class="fa fa-home"></i> Home</a>
-			<div class="dropdown">
-				<button class="dropbtn">Browse by Name<i class="fa fa-caret-down"></i></button>
-				<div class="dropdown-content">
-				  <a href="#" onclick="openRedirect('browse_movies.html')">Browse Movies</a>
-				  <a href="#" onclick="openRedirect('browse_celebrities_men.html')">Browse Celebrities Men</a>
-				  <a href="#" onclick="openRedirect('browse_celebrities_women.html')">Browse Celebrities Women</a>
-				</div>
-			</div>
-			<div class="dropdown">
-				<button class="dropbtn">Search<i class="fa fa-caret-down"></i></button>
-				<div class="dropdown-content">
-				  <a href="#" onclick="openRedirect('advMovieSearch.html')">Advanced Search Movies</a>
-				  <a href="#" onclick="openRedirect('advPersonSearch.html')">Advanced Search Celebrities</a>
-				</div>
-			 </div>
-		  <a href="#about" class="active" id="AboutBtn" onclick="openRedirect('about.html')">About</a>
-		  <a href="#contact" id="CntcMdlBtn">Contact</a>
-		  <a href="https://www.themoviedb.org/" class="rightTMDBlogo">powered by <img src="assets/images/blue_short-TMDB_logo.svg" alt="The Movie Database" style="width:90px"></a>
-		  <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
-		</div>
-		<br>
-        <h2 id="pagetitle">About Page</h2>
-
-<h1>Disclaimer for Arkansas Movie Data Base</h1>
-
-<p>If you require any more information or have any questions about our site's disclaimer, please feel free to contact us by email at abcd@gmail.com. Our Disclaimer was generated with the help of the <a href="https://www.disclaimergenerator.net/">Disclaimer Generator</a>.</p>
-
-<h2>Disclaimers for Arkansas Movie Data Base</h2>
-
-<p>All the information on this website - https://fjamador.github.io/AR_Movie_DB/ - is published in good faith and for general information purpose only. Arkansas Movie Data Base does not make any warranties about the completeness, reliability and accuracy of this information. Any action you take upon the information you find on this website (Arkansas Movie Data Base), is strictly at your own risk. Arkansas Movie Data Base will not be liable for any losses and/or damages in connection with the use of our website.</p>
-
-<p>From our website, you can visit other websites by following hyperlinks to such external sites. While we strive to provide only quality links to useful and ethical websites, we have no control over the content and nature of these sites. These links to other websites do not imply a recommendation for all the content found on these sites. Site owners and content may change without notice and may occur before we have the opportunity to remove a link which may have gone 'bad'.</p>
-
-<p>Please be also aware that when you leave our website, other sites may have different privacy policies and terms which are beyond our control. Please be sure to check the Privacy Policies of these sites as well as their "Terms of Service" before engaging in any business or uploading any information. Our Privacy Policy was created by <a href="https://www.generateprivacypolicy.com/">the Privacy Policy Generator</a>.</p>
-
-<h2>Consent</h2>
-
-<p>By using our website, you hereby consent to our disclaimer and agree to its terms.</p>
-
-<h2>Update</h2>
-
-<p>Should we update, amend or make any changes to this document, those changes will be prominently posted here.</p>
-
-This website has been designed for educational purposes
-This website uses the TMDb API but is not endorsed or certified by TMDb.
-The TMDb logo identifies the use of the TMDb APIs.
-This website complies with the current TMDb Terms of Use at http://www.themoviedb.org/terms-of-use
-TMDb:  https://www.themoviedb.org/
-
-This website uses hyperlinks to IMDb so the user can discover more information.
-This website does not copy and paste content from IMDb nor uses IMDb APIs.
-IMDb: https://www.imdb.com/
-
-  <!-- Modal box for contact info -->
-  <div id="CntcModal" class="cntc-modal">
-    <!-- Modal content -->
-    <div class="cntc-modal-content">
-    <span class="modal-close">&times;</span>
-    <h2>Contact</h2>
-    <p>
-        <p>The Arkansas Movie Data Base</p>
-		<p>Fernando Amador</p>
-		<p>IFSC 4398 Capstone ProjectII</p>
-		<p>fjamador@ualr.edu</p>
-		
-		<p>Find out more about Fernando in his <a href="https://fjamador.github.io/portfolio/" style="color: blue;" target='_blank'>portfolio.</a></p>
-    </p>
+  <div id="container">
+    <!-- hitwebcounter -->
+    <div class="hitWebcounter" id="">
+      <a class="visitCounter" href="https://www.hitwebcounter.com" target="_blank">visits
+      <img src="https://hitwebcounter.com/counter/counter.php?page=7707347&style=0006&nbdigits=5&type=page&initCount=0" title="Total Website Hits" Alt="Web Hits" />
+      </a>  
     </div>
-  </div>      
-   	 </div>	
-	<footer>
-         
-    </footer>
-    
-    <script src="assets/scripts/index.js"></script>
-    <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <!-- jQuery slideToggle() Method  -->
-    <script> 
-		$(document).ready(function(){
-		  $("#flip").click(function(){
-			$("#panel").slideToggle("slow");
-		  });
-		});
-    </script>
+    <!-- Breadcrumb Pagination -->
+	<ul class="breadcrumb">
+	  <li><a href="index.html">Home</a></li>
+	  <li><a href="#">About</a></li>
+	</ul>
+	<!-- Create A Responsive Topnav with Dropdown SubNavBar Menu -->
+	<div class="topnav" id="dbTopnav">
+	  <a href="#"><img class="websiteLogo" src="assets/images/websiteLogo4.png" alt="Arkansas Movie Database"></a>
+	  <a href="#home" onclick="openRedirect('index.html')"><i class="fa fa-home"></i> Home</a>
+	  <div class="dropdown">
+	    <button class="dropbtn">Browse by Name<i class="fa fa-caret-down"></i></button>
+		<div class="dropdown-content">
+		  <a href="browse_movies.html">Browse Movies</a>
+		  <a href="browse_celebrities_men.html">Browse Celebrities Men</a>
+		  <a href="browse_celebrities_women.html">Browse Celebrities Women</a>
+		</div>
+	  </div>
+	  <div class="dropdown">
+		<button class="dropbtn">Search<i class="fa fa-caret-down"></i></button>
+		<div class="dropdown-content">
+		  <a href="advMovieSearch.html">Advanced Search Movies</a>
+		  <a href="advPersonSearch.html">Advanced Search Celebrities</a>
+	    </div>
+	  </div>
+	  <a href="usefulLinks.html">Links</a>
+      <a href="about.html" class="active">About</a>
+      <!-- Trigger/Open The Modal -->
+      <a href="#contact" id="CntcMdlBtn">Contact</a>
+      <a href="https://www.themoviedb.org/" target="_blank" class="rightTMDBlogo">powered by <img src="assets/images/blue_short-TMDB_logo.svg" alt="The Movie Database" style="width:90px"></a>
+      <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+	  <a href="javascript:void(0);" class="icon" onclick="topNavIconClk()">&#9776;</a>
+	</div>
+	<br>
+	<div class="about_container">
+	  <h1 id="pagetitle">About Page</h1>
+      <h1>Disclaimer for Arkansas Movie Data Base</h1>
+      <p>If you require any more information or have any questions about our site's disclaimer. Our Disclaimer was generated with the help of the <a href="https://www.disclaimergenerator.net/" target="_blank">Disclaimer Generator</a>.</p>
+      <h2>Disclaimers for Arkansas Movie Data Base</h2>
+      <p>All the information on this website - https://fjamador.github.io/AR_Movie_DB/ - is published in good faith and for general information purpose only. Arkansas Movie Data Base does not make any warranties about the completeness, reliability and accuracy of this information. Any action you take upon the information you find on this website (Arkansas Movie Data Base), is strictly at your own risk. Arkansas Movie Data Base will not be liable for any losses and/or damages in connection with the use of our website.</p>
+      <p>From our website, you can visit other websites by following hyperlinks to such external sites. While we strive to provide only quality links to useful and ethical websites, we have no control over the content and nature of these sites. These links to other websites do not imply a recommendation for all the content found on these sites. Site owners and content may change without notice and may occur before we have the opportunity to remove a link which may have gone 'bad'.</p>
+      <p>Please be also aware that when you leave our website, other sites may have different privacy policies and terms which are beyond our control. Please be sure to check the Privacy Policies of these sites as well as their "Terms of Service" before engaging in any business or uploading any information. Our Privacy Policy was created by <a href="https://www.generateprivacypolicy.com/" target="_blank">the Privacy Policy Generator</a>.</p>
+      <h2>Consent</h2>
+      <p>By using our website, you hereby consent to our disclaimer and agree to its terms.</p>
+      <h2>Update</h2>
+      <p>Should we update, amend or make any changes to this document, those changes will be prominently posted here.</p>
+      <h3>This site strives to be user-friendly for all audiences.</h3>
+      <h1>Attribution</h1>
+      <p>This website has been designed for educational purposes.</p>
+      <p>This website uses the TMDb API but is not endorsed or certified by TMDb.</p>
+      <p>The TMDb logo identifies the use of the TMDb APIs.</p>
+      <p>This website complies with the current TMDb Terms of Use at <a href="http://www.themoviedb.org/terms-of-use." target="_blank">www.themoviedb.org/terms-of-use</a></p>
+      <p>Official TMDb website link: <a href="https://www.themoviedb.org/" target="_blank">www.themoviedb.org</a></p>
+      <p>IMDb is the premier source of global entertainment content.</p>
+      <p>This website uses hyperlinks to IMDb so the user can discover more information.</p>
+      <p>This website does not copy and paste content from IMDb nor uses IMDb APIs.</p>
+      <p>The links to IMDb follow IMDb's linking guide and does not portray IMDb, its services in a false, misleading, derogatory, or otherwise offensive matter.</p>
+      <p>Official IMDb website link: <a href="https://www.imdb.com/" target="_blank">www.imdb.com</a></p>
+    </div> 
+	<!-- Modal box for contact info -->
+    <div id="CntcModal" class="cntc-modal">
+      <!-- Modal content -->
+      <div class="cntc-modal-content">
+        <span class="modal-close">&times;</span>
+        <h2>Contact</h2>
+        <p>
+          <p>The Arkansas Movie Data Base</p>
+          <p>Fernando Amador</p>
+          <p>IFSC 4398 Capstone ProjectII</p>
+          <p>fjamador@ualr.edu</p>
+          <p>Find out more about Fernando in his <a href="https://fjamador.github.io/portfolio/" style="color: blue;" target='_blank'>portfolio.</a></p>
+        </p>
+      </div>
+    </div>      
+  </div>	
+  <footer>
+  </footer>
+  <script src="assets/scripts/index.js"></script>
+  <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- jQuery slideToggle() Method  -->
+  <script> 
+    $(document).ready(function(){
+      $("#flip").click(function(){
+    	$("#panel").slideToggle("slow");
+      });
+    });
+  </script>
 </body>
 </html>

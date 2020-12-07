@@ -8,15 +8,17 @@
   <meta name="keywords" content="Your, Key, Words">
   <meta name="author" content="Fernando J Amador">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- External CSS Files -->
   <link rel="stylesheet" href="assets/style/arMovieDatabase.css">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu">
-  <link rel="shortcut icon" href="assets/images/arflag3favicon.ico" type="image/x-icon" />
-  <!-- Add icon library -->
+  <!-- External CSS icon library -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Add website favicon -->
+  <link rel="shortcut icon" href="assets/images/arflag3favicon.ico" type="image/x-icon" />
 </head>
 <body>
   <div id="container">
-    <!-- hitwebcounter Code START -->
+    <!-- hitwebcounter -->
     <div class="hitWebcounter" id="">
       <a class="visitCounter" href="https://www.hitwebcounter.com" target="_blank">visits
       <img src="https://hitwebcounter.com/counter/counter.php?page=7707347&style=0006&nbdigits=5&type=page&initCount=0" title="Total Website Hits" Alt="Web Hits" />
@@ -25,137 +27,128 @@
     <!-- Breadcrumb Pagination -->
     <div class="breadContnr" id="">
       <ul class="breadcrumb">
-        <li><a href="#" onclick="openRedirect('index.html')">Home</a></li>
+        <li><a href="index.html">Home</a></li>
       </ul>
     </div>
-    <!-- Responsive TopNav -->
-    <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
-    <!-- SubNavBar Dropdown Menu -->
-    <!-- Create A Responsive Topnav with Dropdown -->
+    <!-- Responsive Topnav with Dropdown SubNavBar Menu -->
     <div class="topnav" id="dbTopnav"> 
       <a href="#"><img class="websiteLogo" src="assets/images/websiteLogo4.png" alt="Arkansas Movie Database"></a>
 	  <a href="#" class="active"><i class="fa fa-home"></i> Home</a>
       <div class="dropdown">
         <button class="dropbtn">Browse by Name<i class="fa fa-caret-down"></i></button>
         <div class="dropdown-content">
-          <a href="browse_movies.html" onclick="openRedirect('')">Browse Movies</a>
-          <a href="#" onclick="openRedirect('browse_celebrities_men.html')">Browse Celebrities Men</a>
-          <a href="#" onclick="openRedirect('browse_celebrities_women.html')">Browse Celebrities Women</a>
+          <a href="browse_movies.html">Browse Movies</a>
+          <a href="browse_celebrities_men.html">Browse Celebrities Men</a>
+          <a href="browse_celebrities_women.html">Browse Celebrities Women</a>
         </div>
       </div>
       <div class="dropdown">
         <button class="dropbtn">Search<i class="fa fa-caret-down"></i></button>
         <div class="dropdown-content">
-          <a href="#" onclick="openRedirect('advMovieSearch.html')">Advanced Search Movies</a>
-          <a href="#" onclick="openRedirect('advPersonSearch.html')">Advanced Search Celebrities</a>
+          <a href="advMovieSearch.html">Advanced Search Movies</a>
+          <a href="advPersonSearch.html">Advanced Search Celebrities</a>
         </div>
       </div>
-      <a href="#about" id="AboutBtn" onclick="openRedirect('about.html')">About</a>
+	  <a href="usefulLinks.html">Links</a>
+      <a href="about.html">About</a>
       <!-- Trigger/Open The Modal -->
       <a href="#contact" id="CntcMdlBtn">Contact</a>
-      <a href="https://www.themoviedb.org/" class="rightTMDBlogo">powered by <img src="assets/images/blue_short-TMDB_logo.svg" alt="The Movie Database" style="width:90px"></a>
-      <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+      <a href="https://www.themoviedb.org/" target="_blank" class="rightTMDBlogo">powered by <img src="assets/images/blue_short-TMDB_logo.svg" alt="The Movie Database" style="width:90px"></a>
+      <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+	  <a href="javascript:void(0);" class="icon" onclick="topNavIconClk()">&#9776;</a>
     </div>
   </div> 
-  <!-- Hero Image -->
-  <div class="armdb_hero_image">
-    <div class="armdb_hero_text">
-      <h1>The Arkansas Movie Database</h1>
+  <!-- Hero Image-->
+  <a  href="http://nlrpr.org/parks/old_mill" target="_blank">
+    <div class="armdb_hero_image">
+      <div class="armdb_hero_text_center">
+        <h1>The Arkansas Movie Database</h1>
+	  </div>
+	  <div class="armdb_hero_text_block">
+	    <p>The Old Mill,</p>
+	    <p>believed to be the only remaining </p>
+	    <p>structure from "Gone With the Wind".</p>
+	  </div>
     </div>
-  </div>
-
-
-
-
+  </a>
   <div id="container">
-  <!--	Lightbox (Modal Image Gallery)	   -->
-  <!-- Images used to open the lightbox -->
-  <div class="rowLightbox">
-  <div class="columnLightbox">
-    <img src="assets/images/bronco_billys_promise_1912_600400.jpg" style="width:100%" onclick="openModalLightbox();currentSlideLightbox(1)" class="hoverShadowLightbox cursorLightbox">
-  </div>
-  <div class="columnLightbox">
-    <img src="assets/images/chrystal600400.jpg" style="width:100%" onclick="openModalLightbox();currentSlideLightbox(2)" class="hoverShadowLightbox cursorLightbox">
-  </div>
-  <div class="columnLightbox">
-    <img src="assets/images/MarySteenburgen600400.jpg" style="width:100%" onclick="openModalLightbox();currentSlideLightbox(3)" class="hoverShadowLightbox cursorLightbox">
-  </div>
-  <div class="columnLightbox">
-    <img src="assets/images/mudPiggly600400.jpg" style="width:100%" onclick="openModalLightbox();currentSlideLightbox(4)" class="hoverShadowLightbox cursorLightbox">
-  </div>
-  </div>
-  
-  <!-- The Modal/Lightbox -->
-  <div id="myModalLightbox" class="modalLightbox">
-  <span class="closeLightbox cursorLightbox" onclick="closeModalLightbox()">&times;</span>
-  <div class="modalContentLightbox">
-  
-  <div class="mySlidesLightbox">
-    <div class="numbertextLightbox">1 / 4</div>
-    <img src="assets/images/bronco_billys_promise_1912_600400.jpg" style="width:100%">
-  </div>
-  
-  <div class="mySlidesLightbox">
-    <div class="numbertextLightbox">2 / 4</div>
-    <img src="assets/images/chrystal600400.jpg" style="width:100%">
-  </div>
-  
-  <div class="mySlidesLightbox">
-    <div class="numbertextLightbox">3 / 4</div>
-    <img src="assets/images/MarySteenburgen600400.jpg" style="width:100%">
-  </div>
-  
-  <div class="mySlidesLightbox">
-    <div class="numbertextLightbox">4 / 4</div>
-    <img src="assets/images/mudPiggly600400.jpg" style="width:100%">
-  </div>
-  
-  <!-- Next/previous controls -->
-  <a class="prevLightbox" onclick="plusSlidesLightbox(-1)">&#10094;</a>
-  <a class="nextLightbox" onclick="plusSlidesLightbox(1)">&#10095;</a>
-  <!-- Caption text -->
-  <div class="captionContainerLightbox">
-    <p id="captionLightbox"></p>
-  </div>
-  <!-- Thumbnail image controls -->
-  
-  <div class="columnLightbox">
-    <img class="lightboxModal cursorLightbox" src="assets/images/bronco_billys_promise_1912_600400.jpg" style="width:100%" onclick="currentSlideLightbox(1)" alt="bronco_billys_promise_1912">
-  </div>
-  <div class="columnLightbox">
-    <img class="lightboxModal cursorLightbox" src="assets/images/chrystal600400.jpg" style="width:100%" onclick="currentSlideLightbox(2)" alt="chrystal">
-  </div>
-  <div class="columnLightbox">
-    <img class="lightboxModal cursorLightbox" src="assets/images/MarySteenburgen600400.jpg" style="width:100%" onclick="currentSlideLightbox(3)" alt="Mary Steenburgen">
-  </div>
-  <div class="columnLightbox">
-    <img class="lightboxModal cursorLightbox" src="assets/images/mudPiggly600400.jpg" style="width:100%" onclick="currentSlideLightbox(4)" alt="Mud's Piggly Wiggly">
-  </div>
-  </div>
-  </div>
-  <!-- Modal box for contact info -->
-  <div id="CntcModal" class="cntc-modal">
-    <!-- Modal content -->
-    <div class="cntc-modal-content">
-    <span class="modal-close">&times;</span>
-    <h2>Contact</h2>
-    <p>
-        <p>The Arkansas Movie Data Base</p>
-		<p>Fernando Amador</p>
-		<p>IFSC 4398 Capstone ProjectII</p>
-		<p>fjamador@ualr.edu</p>
-		
-		<p>Find out more about Fernando in his <a href="https://fjamador.github.io/portfolio/" style="color: blue;" target='_blank'>portfolio.</a></p>
-    </p>
+    <!--	Lightbox (Modal Image Gallery)	   -->
+    <!-- Images used to open the lightbox -->
+    <div class="rowLightbox">
+      <div class="columnLightbox">
+        <img src="assets/images/bronco_billys_promise_1912_600x350.jpg" style="width:100%" onclick="openModalLightbox();currentSlideLightbox(1)" class="hoverShadowLightbox cursorLightbox">
+      </div>
+      <div class="columnLightbox">
+        <img src="assets/images/chrystal600x350.jpg" style="width:100%" onclick="openModalLightbox();currentSlideLightbox(2)" class="hoverShadowLightbox cursorLightbox">
+      </div>
+      <div class="columnLightbox">
+        <img src="assets/images/MarySteenburgen600x350.jpg" style="width:100%" onclick="openModalLightbox();currentSlideLightbox(3)" class="hoverShadowLightbox cursorLightbox">
+      </div>
+      <div class="columnLightbox">
+        <img src="assets/images/mud600x350.jpg" style="width:100%" onclick="openModalLightbox();currentSlideLightbox(4)" class="hoverShadowLightbox cursorLightbox">
+      </div>
     </div>
-  </div>     
-  
+    <!-- The Modal/Lightbox -->
+    <div id="theModalLightbox" class="modalLightbox">
+      <span class="closeLightbox cursorLightbox" onclick="closeModalLightbox()">&times;</span>
+      <div class="modalContentLightbox">
+        <div class="theSlidesLightbox">
+          <div class="numbertextLightbox">1 / 4</div>
+          <a href="https://www.ualrpublicradio.org/post/broncho-billy-anderson-arkansass-first-movie-star" target="_blank"><img src="assets/images/bronco_billys_promise_1912_600x350.jpg" style="width:100%"></a>
+        </div>
+        <div class="theSlidesLightbox">
+          <div class="numbertextLightbox">2 / 4</div>
+          <a href="https://encyclopediaofarkansas.net/entries/chrystal-movie-4284/" target="_blank"><img src="assets/images/chrystal600x350.jpg" style="width:100%"></a>
+        </div>
+        <div class="theSlidesLightbox">
+          <div class="numbertextLightbox">3 / 4</div>
+          <a href="https://encyclopediaofarkansas.net/entries/mary-nell-steenburgen-29/" target="_blank"><img src="assets/images/MarySteenburgen600x350.jpg" style="width:100%"></a>
+        </div>
+        <div class="theSlidesLightbox">
+          <div class="numbertextLightbox">4 / 4</div>
+          <a href="https://www.locationshub.com/blog/2014/1/16/jeff-nichols-mud-celebrates-the-real-arkansas" target="_blank"><img src="assets/images/mud600x350.jpg" style="width:100%"></a>
+        </div>
+        <!-- Next/previous controls -->
+        <a class="prevLightbox" onclick="plusSlidesLightbox(-1)">&#10094;</a>
+        <a class="nextLightbox" onclick="plusSlidesLightbox(1)">&#10095;</a>
+        <!-- Caption text -->
+        <div class="captionContainerLightbox">
+          <p id="captionLightbox"></p>
+        </div>
+        <!-- Thumbnail image controls -->
+        <div class="columnLightbox">
+          <img class="lightboxModal cursorLightbox" src="assets/images/bronco_billys_promise_1912_600x350.jpg" style="width:100%" onclick="currentSlideLightbox(1)" alt="<a href='https://www.ualrpublicradio.org/post/broncho-billy-anderson-arkansass-first-movie-star' target='_blank'>Bronco Billy Anderson</a>">
+        </div>
+        <div class="columnLightbox">
+          <img class="lightboxModal cursorLightbox" src="assets/images/chrystal600x350.jpg" style="width:100%" onclick="currentSlideLightbox(2)" alt="<a href='https://encyclopediaofarkansas.net/entries/chrystal-movie-4284/' target='_blank'>'Chrystal'</a>">
+        </div>
+        <div class="columnLightbox">
+          <img class="lightboxModal cursorLightbox" src="assets/images/MarySteenburgen600x350.jpg" style="width:100%" onclick="currentSlideLightbox(3)" alt="<a href='https://encyclopediaofarkansas.net/entries/mary-nell-steenburgen-29/' target='_blank'>Mary Nell Steenburgen</a>">
+        </div>
+        <div class="columnLightbox">
+          <img class="lightboxModal cursorLightbox" src="assets/images/mud600x350.jpg" style="width:100%" onclick="currentSlideLightbox(4)" alt="<a href='https://www.locationshub.com/blog/2014/1/16/jeff-nichols-mud-celebrates-the-real-arkansas' target='_blank'>'Mud'</a>">
+        </div>
+      </div>
+    </div>
+    <!-- Modal box for contact info -->
+    <div id="CntcModal" class="cntc-modal">
+      <!-- Modal content -->
+      <div class="cntc-modal-content">
+      <span class="modal-close">&times;</span>
+      <h2>Contact</h2>
+      <p>
+        <p>The Arkansas Movie Data Base</p>
+	  	<p>Fernando Amador</p>
+	  	<p>IFSC 4398 Capstone ProjectII</p>
+	  	<p>fjamador@ualr.edu</p>
+	  	<p>Find out more about Fernando in his <a href="https://fjamador.github.io/portfolio/" style="color: blue;" target='_blank'>portfolio.</a></p>
+      </p>
+      </div>
+    </div>
   </div>
- 
   <footer>
-  	"This product uses the TMDb API but is not endorsed or certified by TMDb."
+  	<p style="text-align: right; color: #333;">"This product uses the TMDb API but is not endorsed or certified by TMDb."</p>
   </footer>
-  
   <script src="assets/scripts/index.js"></script>
 </body>
 </html>

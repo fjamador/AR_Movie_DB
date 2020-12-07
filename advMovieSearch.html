@@ -1,591 +1,582 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>Arkansas Movie Database</title>
-<meta name="description" content="Your Description">
-<meta name="keywords" content="Your, Key, Words">
-<meta name="author" content="Fernando J Amador">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="assets/style/arMovieDatabase.css">
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu">
-<link rel="shortcut icon" href="assets/images/arflag3favicon.ico" type="image/x-icon" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Arkansas Movie Database</title>
+  <meta name="description" content="Your Description">
+  <meta name="keywords" content="Your, Key, Words">
+  <meta name="author" content="Fernando J Amador">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- External CSS Files -->
+  <link rel="stylesheet" href="assets/style/arMovieDatabase.css">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu">
+  <!-- External CSS icon library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Add website favicon -->
+  <link rel="shortcut icon" href="assets/images/arflag3favicon.ico" type="image/x-icon" />
 </head>
 <body>
-<div id="container">
-
-<!-- Breadcrumb Pagination -->
-<ul class="breadcrumb">
-<li><a href="#" onclick="openRedirect('index.html')">Home</a></li>
-<li><a href="#">Search</a></li>
-<li><a href="#">Advanced Search Movies</a></li>
-</ul>
-<!-- Begin Tab Buttons Section -->
-<!-- Responsive TopNav -->
-<!-- Load an icon library to show a hamburger menu (bars) on small screens -->
-<!-- SubNavBar Dropdown Menu -->
-<!-- Create A Responsive Topnav with Dropdown -->
-<div class="topnav" id="myTopnav">
-<a href="#"><img class="websiteLogo" src="assets/images/websiteLogo4.png" alt="Arkansas Movie Database"></a>
-<a href="#home" onclick="openRedirect('index.html')"><i class="fa fa-home"></i> Home</a>
-<div class="dropdown">
-<button class="dropbtn">Browse by Name<i class="fa fa-caret-down"></i></button>
-<div class="dropdown-content">
-<a href="#" onclick="openRedirect('browse_movies.html')">Browse Movies</a>
-<a href="#" onclick="openRedirect('browse_celebrities_men.html')">Browse Celebrities Men</a>
-<a href="#" onclick="openRedirect('browse_celebrities_women.html')">Browse Celebrities Women</a>
-
-</div>
-</div>
-<div class="dropdown">
-<button class="dropbtn">Search<i class="fa fa-caret-down"></i></button>
-<div class="dropdown-content">
-<a href="#" class="active" onclick="openRedirect('advMovieSearch.html')">Advanced Search Movies</a>
-<a href="#" onclick="openRedirect('advPersonSearch.html')">Advanced Search Celebrities</a>
-</div>
-</div>
-<a href="#about" id="AboutBtn" onclick="openRedirect('about.html')">About</a>
-<a href="#contact" id="CntcMdlBtn">Contact</a>
-<a href="https://www.themoviedb.org/" class="rightTMDBlogo">powered by <img src="assets/images/blue_short-TMDB_logo.svg" alt="The Movie Database" style="width:90px"></a>
-<a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
-</div>
-<h2 id="pagetitle">Movie Search</h2>
-<div class="SearchBar">
-<div class="search-container">
-<input id="moviename" type="text" placeholder="Enter Movie Name..." name="search">
-<button id="SrchMovBtn" onclick="MovieSearch()" type="submit"><i class="fa fa-search"></i></button>
-</div>
-</div>
-
-<div id="url1"></div><br>
-
-<!-- Responsive MTT Section -->
-<div class="mttSection">
-  <div class="mttRow">
-    <div class="mttColumn">
-      <div class="mttCard">
-  	  <img id="poster_path0">
-  	  <div class="mttContainer">
-  	    <div class="txtshadow" id="title0"></div>
-  		<div id="release_date0"></div>
-  		<div id="overview0"></div>
-  		<div id="popularity0"></div>
-  		<div id="movie_id0"></div>
-  		<div id="adult_content0"></div>
-  		<div id="original_language0"></div>
-  		<img  id="backdrop_path0">
-  	  </div>
+  <div id="container">
+    <!-- Breadcrumb Pagination -->
+    <ul class="breadcrumb">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#">Search</a></li>
+      <li><a href="#">Advanced Search Movies</a></li>
+    </ul>
+    <!-- Responsive Topnav with Dropdown SubNavBar Menu -->
+    <div class="topnav" id="dbTopnav">
+      <a href="#"><img class="websiteLogo" src="assets/images/websiteLogo4.png" alt="Arkansas Movie Database"></a>
+      <a href="#home" onclick="openRedirect('index.html')"><i class="fa fa-home"></i> Home</a>
+      <div class="dropdown">
+        <button class="dropbtn">Browse by Name<i class="fa fa-caret-down"></i></button>
+        <div class="dropdown-content">
+          <a href="browse_movies.html">Browse Movies</a>
+          <a href="browse_celebrities_men.html">Browse Celebrities Men</a>
+          <a href="browse_celebrities_women.html">Browse Celebrities Women</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Search<i class="fa fa-caret-down"></i></button>
+        <div class="dropdown-content">
+          <a href="#" class="active" onclick="openRedirect('advMovieSearch.html')">Advanced Search Movies</a>
+          <a href="advPersonSearch.html">Advanced Search Celebrities</a>
+        </div>
+      </div>
+      <a href="usefulLinks.html">Links</a>
+      <a href="about.html">About</a>
+      <!-- Trigger/Open The Modal -->
+      <a href="#contact" id="CntcMdlBtn">Contact</a>
+      <a href="https://www.themoviedb.org/" target="_blank" class="rightTMDBlogo">powered by <img src="assets/images/blue_short-TMDB_logo.svg" alt="The Movie Database" style="width:90px"></a>
+      <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+	  <a href="javascript:void(0);" class="icon" onclick="topNavIconClk()">&#9776;</a>
+    </div>
+    <h2 id="pagetitle">Movie Search</h2>
+	<!-- Search Bar -->
+    <div class="SearchBar">
+      <div class="search-container">
+        <input id="moviename" type="text" placeholder="Enter Movie Name..." name="search">
+        <button id="SrchMovBtn" onclick="MovieSearch()" type="submit"><i class="fa fa-search"></i></button>
       </div>
     </div>
-    <div class="mttColumn">
-      <div class="mttCard">
-  	  <img id="poster_path1">
-  	  <div class="mttContainer">
-  		<div class="txtshadow" id="title1"></div>
-  		<div id="release_date1"></div>
-  		<img id="backdrop_path1">
-  		<div id="popularity1"></div>
-  		<div id="adult_content1"></div>
-  		<div id="movie_id1"></div>
-  		<div id="original_language1"></div>
-  		<div id="overview1"></div>
-  	  </div>
+	<!-- To display the URL on the page go to index.js and follow the directions -->
+    <div id="url1"></div><br>
+    <!-- Responsive MTT Section -->
+	<!-- Search Results -->
+    <div class="mttSection">
+      <div class="mttRow">
+        <div class="mttColumn">
+          <div class="mttCard">
+      	  <img id="poster_path0">
+      	  <div class="mttContainer">
+      	    <div class="txtshadow" id="title0"></div>
+      		<div id="release_date0"></div>
+      		<div id="overview0"></div>
+      		<div id="popularity0"></div>
+      		<div id="movie_id0"></div>
+      		<div id="adult_content0"></div>
+      		<div id="original_language0"></div>
+      		<img  id="backdrop_path0">
+      	  </div>
+          </div>
+        </div>
+        <div class="mttColumn">
+          <div class="mttCard">
+      	  <img id="poster_path1">
+      	  <div class="mttContainer">
+      		<div class="txtshadow" id="title1"></div>
+      		<div id="release_date1"></div>
+      		<img id="backdrop_path1">
+      		<div id="popularity1"></div>
+      		<div id="adult_content1"></div>
+      		<div id="movie_id1"></div>
+      		<div id="original_language1"></div>
+      		<div id="overview1"></div>
+      	  </div>
+          </div>
+        </div>
+        <div class="mttColumn">
+          <div class="mttCard">
+      	  <img id="poster_path2">
+      	  <div class="mttContainer">
+      	    <div class="txtshadow" id="title2"></div>
+      		<div id="release_date2"></div>
+      		<img id="backdrop_path2">
+      		<div id="popularity2"></div>
+      		<div id="adult_content2"></div>
+      		<div id="movie_id2"></div>
+      		<div id="original_language2"></div>
+      		<div id="overview2"></div>
+      	  </div>
+          </div>
+        </div>
+        <div class="mttColumn">
+          <div class="mttCard">
+      	  <img id="poster_path3">
+      	  <div class="mttContainer">
+      	    <div class="txtshadow" id="title3"></div>
+      		<div id="release_date3"></div>
+      		<img id="backdrop_path3">
+      		<div id="popularity3"></div>
+      		<div id="adult_content3"></div>
+      		<div id="movie_id3"></div>
+      		<div id="original_language3"></div>
+      		<div id="overview3"></div>
+      	  </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="mttColumn">
-      <div class="mttCard">
-  	  <img id="poster_path2">
-  	  <div class="mttContainer">
-  	    <div class="txtshadow" id="title2"></div>
-  		<div id="release_date2"></div>
-  		<img id="backdrop_path2">
-  		<div id="popularity2"></div>
-  		<div id="adult_content2"></div>
-  		<div id="movie_id2"></div>
-  		<div id="original_language2"></div>
-  		<div id="overview2"></div>
-  	  </div>
+      <div class="mttRow">
+        <div class="mttColumn">
+          <div class="mttCard">
+      	  <img id="poster_path4">
+      	  <div class="mttContainer">
+      	    <div class="txtshadow" id="title4"></div>
+      		<div id="release_date4"></div>
+      		<img id="backdrop_path4">
+      		<div id="popularity4"></div>
+      		<div id="adult_content4"></div>
+      		<div id="movie_id4"></div>
+      		<div id="original_language4"></div>
+      		<div id="overview4"></div>
+      	  </div>
+          </div>
+        </div>
+        <div class="mttColumn">
+          <div class="mttCard">
+      	  <img id="poster_path5">
+      	  <div class="mttContainer">
+      	    <div class="txtshadow" id="title5"></div>
+      		<div id="release_date5"></div>
+      		<img id="backdrop_path5">
+      		<div id="popularity5"></div>
+      		<div id="adult_content5"></div>
+      		<div id="movie_id5"></div>
+      		<div id="original_language5"></div>
+      		<div id="overview5"></div>
+      	  </div>
+          </div>
+        </div>
+        <div class="mttColumn">
+          <div class="mttCard">
+      	  <img id="poster_path6">
+      	  <div class="mttContainer">
+      	    <div class="txtshadow" id="title6"></div>
+      		<div id="release_date6"></div>
+      		<img id="backdrop_path6">
+      		<div id="popularity6"></div>
+      		<div id="adult_content6"></div>
+      		<div id="movie_id6"></div>
+      		<div id="original_language6"></div>
+      		<div id="overview6"></div>
+      	  </div>
+          </div>
+        </div>
+        <div class="mttColumn">
+          <div class="mttCard">
+      	  <img id="poster_path7">
+      	  <div class="mttContainer">
+      	    <div class="txtshadow" id="title7"></div>
+      		<div id="release_date7"></div>
+      		<img id="backdrop_path7">
+      		<div id="popularity7"></div>
+      		<div id="adult_content7"></div>
+      		<div id="movie_id7"></div>
+      		<div id="original_language7"></div>
+      		<div id="overview7"></div>
+      	  </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="mttColumn">
-      <div class="mttCard">
-  	  <img id="poster_path3">
-  	  <div class="mttContainer">
-  	    <div class="txtshadow" id="title3"></div>
-  		<div id="release_date3"></div>
-  		<img id="backdrop_path3">
-  		<div id="popularity3"></div>
-  		<div id="adult_content3"></div>
-  		<div id="movie_id3"></div>
-  		<div id="original_language3"></div>
-  		<div id="overview3"></div>
-  	  </div>
+      <div class="mttRow">
+        <div class="mttColumn">
+          <div class="mttCard">
+      	  <img id="poster_path8">
+      	  <div class="mttContainer">
+      	    <div class="txtshadow" id="title8"></div>
+      		<div id="release_date8"></div>
+      		<img id="backdrop_path8">
+      		<div id="popularity8"></div>
+      		<div id="adult_content8"></div>
+      		<div id="movie_id8"></div>
+      		<div id="original_language8"></div>
+      		<div id="overview8"></div>
+      	  </div>
+          </div>
+        </div>
+        <div class="mttColumn">
+          <div class="mttCard">
+      	  <img id="poster_path9">
+      	  <div class="mttContainer">
+      	    <div class="txtshadow" id="title9"></div>
+      		<div id="release_date9"></div>
+      		<img id="backdrop_path9">
+      		<div id="popularity9"></div>
+      		<div id="adult_content9"></div>
+      		<div id="movie_id9"></div>
+      		<div id="original_language9"></div>
+      		<div id="overview9"></div>
+      	  </div>
+          </div>
+        </div>
+        <div class="mttColumn">
+          <div class="mttCard">
+      	  <img id="poster_path10">
+      	  <div class="mttContainer">
+      	    <div class="txtshadow" id="title10"></div>
+      		<div id="release_date10"></div>
+      		<img id="backdrop_path10">
+      		<div id="popularity10"></div>
+      		<div id="adult_content10"></div>
+      		<div id="movie_id10"></div>
+      		<div id="original_language10"></div>
+      		<div id="overview10"></div>
+      	  </div>
+          </div>
+        </div>
+        <div class="mttColumn">
+          <div class="mttCard">
+      	  <img id="poster_path11">
+      	  <div class="mttContainer">
+      	    <div class="txtshadow" id="title11"></div>
+      		<div id="release_date11"></div>
+      		<img id="backdrop_path11">
+      		<div id="popularity11"></div>
+      		<div id="adult_content11"></div>
+      		<div id="movie_id11"></div>
+      		<div id="original_language11"></div>
+      		<div id="overview11"></div>
+      	  </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="mttRow">
-    <div class="mttColumn">
-      <div class="mttCard">
-  	  <img id="poster_path4">
-  	  <div class="mttContainer">
-  	    <div class="txtshadow" id="title4"></div>
-  		<div id="release_date4"></div>
-  		<img id="backdrop_path4">
-  		<div id="popularity4"></div>
-  		<div id="adult_content4"></div>
-  		<div id="movie_id4"></div>
-  		<div id="original_language4"></div>
-  		<div id="overview4"></div>
-  	  </div>
+      <div class="mttRow">
+        <div class="mttColumn">
+          <div class="mttCard">
+      	  <img id="poster_path12">
+      	  <div class="mttContainer">
+      	    <div class="txtshadow" id="title12"></div>
+      		<div id="release_date12"></div>
+      		<img id="backdrop_path12">
+      		<div id="popularity12"></div>
+      		<div id="adult_content12"></div>
+      		<div id="movie_id12"></div>
+      		<div id="original_language12"></div>
+      		<div id="overview12"></div>
+      	  </div>
+          </div>
+        </div>
+        <div class="mttColumn">
+          <div class="mttCard">
+      	  <img id="poster_path13">
+      	  <div class="mttContainer">
+      	    <div class="txtshadow" id="title13"></div>
+      		<div id="release_date13"></div>
+      		<img id="backdrop_path13">
+      		<div id="popularity13"></div>
+      		<div id="adult_content13"></div>
+      		<div id="movie_id13"></div>
+      		<div id="original_language13"></div>
+      		<div id="overview13"></div>
+      	  </div>
+          </div>
+        </div>
+        <div class="mttColumn">
+          <div class="mttCard">
+      	  <img id="poster_path14">
+      	  <div class="mttContainer">
+      	    <div class="txtshadow" id="title14"></div>
+      		<div id="release_date14"></div>
+      		<img id="backdrop_path14">
+      		<div id="popularity14"></div>
+      		<div id="adult_content14"></div>
+      		<div id="movie_id14"></div>
+      		<div id="original_language14"></div>
+      		<div id="overview14"></div>
+      	  </div>
+          </div>
+        </div>
+        <div class="mttColumn">
+          <div class="mttCard">
+      	  <img id="poster_path15">
+      	  <div class="mttContainer">
+      	    <div class="txtshadow" id="title15"></div>
+      		<div id="release_date15"></div>
+      		<img id="backdrop_path15">
+      		<div id="popularity15"></div>
+      		<div id="adult_content15"></div>
+      		<div id="movie_id15"></div>
+      		<div id="original_language15"></div>
+      		<div id="overview15"></div>
+      	  </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="mttColumn">
-      <div class="mttCard">
-  	  <img id="poster_path5">
-  	  <div class="mttContainer">
-  	    <div class="txtshadow" id="title5"></div>
-  		<div id="release_date5"></div>
-  		<img id="backdrop_path5">
-  		<div id="popularity5"></div>
-  		<div id="adult_content5"></div>
-  		<div id="movie_id5"></div>
-  		<div id="original_language5"></div>
-  		<div id="overview5"></div>
-  	  </div>
+      <div class="mttRow">
+        <div class="mttColumn">
+          <div class="mttCard">
+      	  <img id="poster_path16">
+      	  <div class="mttContainer">
+      	    <div class="txtshadow" id="title16"></div>
+      		<div id="release_date16"></div>
+      		<img id="backdrop_path16">
+      		<div id="popularity16"></div>
+      		<div id="adult_content16"></div>
+      		<div id="movie_id16"></div>
+      		<div id="original_language16"></div>
+      		<div id="overview16"></div>
+      	  </div>
+          </div>
+        </div>
+        <div class="mttColumn">
+          <div class="mttCard">
+      	  <img id="poster_path17">
+      	  <div class="mttContainer">
+      	    <div class="txtshadow" id="title17"></div>
+      		<div id="release_date17"></div>
+      		<img id="backdrop_path17">
+      		<div id="popularity17"></div>
+      		<div id="adult_content17"></div>
+      		<div id="movie_id17"></div>
+      		<div id="original_language17"></div>
+      		<div id="overview17"></div>
+      	  </div>
+          </div>
+        </div>
+        <div class="mttColumn">
+          <div class="mttCard">
+      	  <img id="poster_path18">
+      	  <div class="mttContainer">
+      	    <div class="txtshadow" id="title18"></div>
+      		<div id="release_date18"></div>
+      		<img id="backdrop_path18">
+      		<div id="popularity18"></div>
+      		<div id="adult_content18"></div>
+      		<div id="movie_id18"></div>
+      		<div id="original_language18"></div>
+      		<div id="overview18"></div>
+      	  </div>
+          </div>
+        </div>
+        <div class="mttColumn">
+          <div class="mttCard">
+      	  <img id="poster_path19">
+      	  <div class="mttContainer">
+      	    <div class="txtshadow" id="title19"></div>
+      		<div id="release_date19"></div>
+      		<img id="backdrop_path19">
+      		<div id="popularity19"></div>
+      		<div id="adult_content19"></div>
+      		<div id="movie_id19"></div>
+      		<div id="original_language19"></div>
+      		<div id="overview19"></div>
+      	  </div>
+          </div>
+        </div>
       </div>
+      <div class="mttRow">
+        <div class="mttColumn">
+          <div class="mttCard">
+      	  <img id="poster_path20">
+      	  <div class="mttContainer">
+      	    <div class="txtshadow" id="title20"></div>
+      		<div id="release_date20"></div>
+      		<img id="backdrop_path20">
+      		<div id="popularity20"></div>
+      		<div id="adult_content20"></div>
+      		<div id="movie_id20"></div>
+      		<div id="original_language20"></div>
+      		<div id="overview20"></div>
+      	  </div>
+          </div>
+        </div>
+        <div class="mttColumn">
+          <div class="mttCard">
+      	  <img id="poster_path21">
+      	  <div class="mttContainer">
+      	    <div class="txtshadow" id="title21"></div>
+      		<div id="release_date21"></div>
+      		<img id="backdrop_path21">
+      		<div id="popularity21"></div>
+      		<div id="adult_content21"></div>
+      		<div id="movie_id21"></div>
+      		<div id="original_language21"></div>
+      		<div id="overview21"></div>
+      	  </div>
+          </div>
+        </div>
+        <div class="mttColumn">
+          <div class="mttCard">
+      	  <img id="poster_path22">
+      	  <div class="mttContainer">
+      	    <div class="txtshadow" id="title22"></div>
+      		<div id="release_date22"></div>
+      		<img id="backdrop_path22">
+      		<div id="popularity22"></div>
+      		<div id="adult_content22"></div>
+      		<div id="movie_id22"></div>
+      		<div id="original_language22"></div>
+      		<div id="overview22"></div>
+      	  </div>
+          </div>
+        </div>
+        <div class="mttColumn">
+          <div class="mttCard">
+      	  <img id="poster_path23">
+      	  <div class="mttContainer">
+      	    <div class="txtshadow" id="title23"></div>
+      		<div id="release_date23"></div>
+      		<img id="backdrop_path23">
+      		<div id="popularity23"></div>
+      		<div id="adult_content23"></div>
+      		<div id="movie_id23"></div>
+      		<div id="original_language23"></div>
+      		<div id="overview23"></div>
+      	  </div>
+          </div>
+        </div>
+      </div> 
     </div>
-    <div class="mttColumn">
-      <div class="mttCard">
-  	  <img id="poster_path6">
-  	  <div class="mttContainer">
-  	    <div class="txtshadow" id="title6"></div>
-  		<div id="release_date6"></div>
-  		<img id="backdrop_path6">
-  		<div id="popularity6"></div>
-  		<div id="adult_content6"></div>
-  		<div id="movie_id6"></div>
-  		<div id="original_language6"></div>
-  		<div id="overview6"></div>
-  	  </div>
-      </div>
-    </div>
-    <div class="mttColumn">
-      <div class="mttCard">
-  	  <img id="poster_path7">
-  	  <div class="mttContainer">
-  	    <div class="txtshadow" id="title7"></div>
-  		<div id="release_date7"></div>
-  		<img id="backdrop_path7">
-  		<div id="popularity7"></div>
-  		<div id="adult_content7"></div>
-  		<div id="movie_id7"></div>
-  		<div id="original_language7"></div>
-  		<div id="overview7"></div>
-  	  </div>
-      </div>
-    </div>
-  </div>
-  <div class="mttRow">
-    <div class="mttColumn">
-      <div class="mttCard">
-  	  <img id="poster_path8">
-  	  <div class="mttContainer">
-  	    <div class="txtshadow" id="title8"></div>
-  		<div id="release_date8"></div>
-  		<img id="backdrop_path8">
-  		<div id="popularity8"></div>
-  		<div id="adult_content8"></div>
-  		<div id="movie_id8"></div>
-  		<div id="original_language8"></div>
-  		<div id="overview8"></div>
-  	  </div>
-      </div>
-    </div>
-    <div class="mttColumn">
-      <div class="mttCard">
-  	  <img id="poster_path9">
-  	  <div class="mttContainer">
-  	    <div class="txtshadow" id="title9"></div>
-  		<div id="release_date9"></div>
-  		<img id="backdrop_path9">
-  		<div id="popularity9"></div>
-  		<div id="adult_content9"></div>
-  		<div id="movie_id9"></div>
-  		<div id="original_language9"></div>
-  		<div id="overview9"></div>
-  	  </div>
-      </div>
-    </div>
-    <div class="mttColumn">
-      <div class="mttCard">
-  	  <img id="poster_path10">
-  	  <div class="mttContainer">
-  	    <div class="txtshadow" id="title10"></div>
-  		<div id="release_date10"></div>
-  		<img id="backdrop_path10">
-  		<div id="popularity10"></div>
-  		<div id="adult_content10"></div>
-  		<div id="movie_id10"></div>
-  		<div id="original_language10"></div>
-  		<div id="overview10"></div>
-  	  </div>
-      </div>
-    </div>
-    <div class="mttColumn">
-      <div class="mttCard">
-  	  <img id="poster_path11">
-  	  <div class="mttContainer">
-  	    <div class="txtshadow" id="title11"></div>
-  		<div id="release_date11"></div>
-  		<img id="backdrop_path11">
-  		<div id="popularity11"></div>
-  		<div id="adult_content11"></div>
-  		<div id="movie_id11"></div>
-  		<div id="original_language11"></div>
-  		<div id="overview11"></div>
-  	  </div>
-      </div>
-    </div>
-  </div>
-  <div class="mttRow">
-    <div class="mttColumn">
-      <div class="mttCard">
-  	  <img id="poster_path12">
-  	  <div class="mttContainer">
-  	    <div class="txtshadow" id="title12"></div>
-  		<div id="release_date12"></div>
-  		<img id="backdrop_path12">
-  		<div id="popularity12"></div>
-  		<div id="adult_content12"></div>
-  		<div id="movie_id12"></div>
-  		<div id="original_language12"></div>
-  		<div id="overview12"></div>
-  	  </div>
-      </div>
-    </div>
-    <div class="mttColumn">
-      <div class="mttCard">
-  	  <img id="poster_path13">
-  	  <div class="mttContainer">
-  	    <div class="txtshadow" id="title13"></div>
-  		<div id="release_date13"></div>
-  		<img id="backdrop_path13">
-  		<div id="popularity13"></div>
-  		<div id="adult_content13"></div>
-  		<div id="movie_id13"></div>
-  		<div id="original_language13"></div>
-  		<div id="overview13"></div>
-  	  </div>
-      </div>
-    </div>
-    <div class="mttColumn">
-      <div class="mttCard">
-  	  <img id="poster_path14">
-  	  <div class="mttContainer">
-  	    <div class="txtshadow" id="title14"></div>
-  		<div id="release_date14"></div>
-  		<img id="backdrop_path14">
-  		<div id="popularity14"></div>
-  		<div id="adult_content14"></div>
-  		<div id="movie_id14"></div>
-  		<div id="original_language14"></div>
-  		<div id="overview14"></div>
-  	  </div>
-      </div>
-    </div>
-    <div class="mttColumn">
-      <div class="mttCard">
-  	  <img id="poster_path15">
-  	  <div class="mttContainer">
-  	    <div class="txtshadow" id="title15"></div>
-  		<div id="release_date15"></div>
-  		<img id="backdrop_path15">
-  		<div id="popularity15"></div>
-  		<div id="adult_content15"></div>
-  		<div id="movie_id15"></div>
-  		<div id="original_language15"></div>
-  		<div id="overview15"></div>
-  	  </div>
-      </div>
-    </div>
-  </div>
-  <div class="mttRow">
-    <div class="mttColumn">
-      <div class="mttCard">
-  	  <img id="poster_path16">
-  	  <div class="mttContainer">
-  	    <div class="txtshadow" id="title16"></div>
-  		<div id="release_date16"></div>
-  		<img id="backdrop_path16">
-  		<div id="popularity16"></div>
-  		<div id="adult_content16"></div>
-  		<div id="movie_id16"></div>
-  		<div id="original_language16"></div>
-  		<div id="overview16"></div>
-  	  </div>
-      </div>
-    </div>
-    <div class="mttColumn">
-      <div class="mttCard">
-  	  <img id="poster_path17">
-  	  <div class="mttContainer">
-  	    <div class="txtshadow" id="title17"></div>
-  		<div id="release_date17"></div>
-  		<img id="backdrop_path17">
-  		<div id="popularity17"></div>
-  		<div id="adult_content17"></div>
-  		<div id="movie_id17"></div>
-  		<div id="original_language17"></div>
-  		<div id="overview17"></div>
-  	  </div>
-      </div>
-    </div>
-    <div class="mttColumn">
-      <div class="mttCard">
-  	  <img id="poster_path18">
-  	  <div class="mttContainer">
-  	    <div class="txtshadow" id="title18"></div>
-  		<div id="release_date18"></div>
-  		<img id="backdrop_path18">
-  		<div id="popularity18"></div>
-  		<div id="adult_content18"></div>
-  		<div id="movie_id18"></div>
-  		<div id="original_language18"></div>
-  		<div id="overview18"></div>
-  	  </div>
-      </div>
-    </div>
-    <div class="mttColumn">
-      <div class="mttCard">
-  	  <img id="poster_path19">
-  	  <div class="mttContainer">
-  	    <div class="txtshadow" id="title19"></div>
-  		<div id="release_date19"></div>
-  		<img id="backdrop_path19">
-  		<div id="popularity19"></div>
-  		<div id="adult_content19"></div>
-  		<div id="movie_id19"></div>
-  		<div id="original_language19"></div>
-  		<div id="overview19"></div>
-  	  </div>
-      </div>
-    </div>
-  </div>
-  <div class="mttRow">
-    <div class="mttColumn">
-      <div class="mttCard">
-  	  <img id="poster_path20">
-  	  <div class="mttContainer">
-  	    <div class="txtshadow" id="title20"></div>
-  		<div id="release_date20"></div>
-  		<img id="backdrop_path20">
-  		<div id="popularity20"></div>
-  		<div id="adult_content20"></div>
-  		<div id="movie_id20"></div>
-  		<div id="original_language20"></div>
-  		<div id="overview20"></div>
-  	  </div>
-      </div>
-    </div>
-    <div class="mttColumn">
-      <div class="mttCard">
-  	  <img id="poster_path21">
-  	  <div class="mttContainer">
-  	    <div class="txtshadow" id="title21"></div>
-  		<div id="release_date21"></div>
-  		<img id="backdrop_path21">
-  		<div id="popularity21"></div>
-  		<div id="adult_content21"></div>
-  		<div id="movie_id21"></div>
-  		<div id="original_language21"></div>
-  		<div id="overview21"></div>
-  	  </div>
-      </div>
-    </div>
-    <div class="mttColumn">
-      <div class="mttCard">
-  	  <img id="poster_path22">
-  	  <div class="mttContainer">
-  	    <div class="txtshadow" id="title22"></div>
-  		<div id="release_date22"></div>
-  		<img id="backdrop_path22">
-  		<div id="popularity22"></div>
-  		<div id="adult_content22"></div>
-  		<div id="movie_id22"></div>
-  		<div id="original_language22"></div>
-  		<div id="overview22"></div>
-  	  </div>
-      </div>
-    </div>
-    <div class="mttColumn">
-      <div class="mttCard">
-  	  <img id="poster_path23">
-  	  <div class="mttContainer">
-  	    <div class="txtshadow" id="title23"></div>
-  		<div id="release_date23"></div>
-  		<img id="backdrop_path23">
-  		<div id="popularity23"></div>
-  		<div id="adult_content23"></div>
-  		<div id="movie_id23"></div>
-  		<div id="original_language23"></div>
-  		<div id="overview23"></div>
-  	  </div>
-      </div>
-    </div>
-  </div> 
-</div>
-
-
-  <!-- Modal box for contact info -->
-  <div id="CntcModal" class="cntc-modal">
-    <!-- Modal content -->
-    <div class="cntc-modal-content">
-    <span class="modal-close">&times;</span>
-    <h2>Contact</h2>
-    <p>
+    <!-- Modal box for contact info -->
+    <div id="CntcModal" class="cntc-modal">
+      <!-- Modal content -->
+      <div class="cntc-modal-content">
+      <span class="modal-close">&times;</span>
+      <h2>Contact</h2>
+      <p>
         <p>The Arkansas Movie Data Base</p>
-		<p>Fernando Amador</p>
-		<p>IFSC 4398 Capstone ProjectII</p>
-		<p>fjamador@ualr.edu</p>
-		
-		<p>Find out more about Fernando in his <a href="https://fjamador.github.io/portfolio/" style="color: blue;" target='_blank'>portfolio.</a></p>
-    </p>
+	  	<p>Fernando Amador</p>
+	  	<p>IFSC 4398 Capstone ProjectII</p>
+	  	<p>fjamador@ualr.edu</p>
+	  	<p>Find out more about Fernando in his <a href="https://fjamador.github.io/portfolio/" style="color: blue;" target='_blank'>portfolio.</a></p>
+      </p>
+      </div>
     </div>
-  </div>  
-
-</div>
-
-
-
-<footer>
+  </div>
+  <footer>
 	
-</footer>
-
-<script>
-/* Trigger Button Click on Enter */
-var input = document.getElementById("moviename");
-input.addEventListener("keyup", function(event) {
-if (event.keyCode === 13) {
-event.preventDefault();
-document.getElementById("SrchMovBtn").click();
-}
-});
-// event listener to grab click on movie poster and call fuction MovieIDSearch
-document.getElementById("poster_path0").addEventListener("click", function() {MovieIDSearch(0)});
-document.getElementById("backdrop_path0").addEventListener("click", function() {MovieIDSearch(0)});
-document.getElementById("title0").addEventListener("click", function() {MovieIDSearch(0)});
-document.getElementById("poster_path1").addEventListener("click", function() {MovieIDSearch(1)});
-document.getElementById("backdrop_path1").addEventListener("click", function() {MovieIDSearch(1)});
-document.getElementById("title1").addEventListener("click", function() {MovieIDSearch(1)});
-document.getElementById("poster_path2").addEventListener("click", function() {MovieIDSearch(2)});
-document.getElementById("backdrop_path2").addEventListener("click", function() {MovieIDSearch(2)});
-document.getElementById("title2").addEventListener("click", function() {MovieIDSearch(2)});
-document.getElementById("poster_path3").addEventListener("click", function() {MovieIDSearch(3)});
-document.getElementById("backdrop_path3").addEventListener("click", function() {MovieIDSearch(3)});
-document.getElementById("title3").addEventListener("click", function() {MovieIDSearch(3)});
-document.getElementById("poster_path4").addEventListener("click", function() {MovieIDSearch(4)});
-document.getElementById("backdrop_path4").addEventListener("click", function() {MovieIDSearch(4)});
-document.getElementById("title4").addEventListener("click", function() {MovieIDSearch(4)});
-document.getElementById("poster_path5").addEventListener("click", function() {MovieIDSearch(5)});
-document.getElementById("backdrop_path5").addEventListener("click", function() {MovieIDSearch(5)});
-document.getElementById("title5").addEventListener("click", function() {MovieIDSearch(5)});
-document.getElementById("poster_path6").addEventListener("click", function() {MovieIDSearch(6)});
-document.getElementById("backdrop_path6").addEventListener("click", function() {MovieIDSearch(6)});
-document.getElementById("title6").addEventListener("click", function() {MovieIDSearch(6)});
-document.getElementById("poster_path7").addEventListener("click", function() {MovieIDSearch(7)});
-document.getElementById("backdrop_path7").addEventListener("click", function() {MovieIDSearch(7)});
-document.getElementById("title7").addEventListener("click", function() {MovieIDSearch(7)});
-document.getElementById("poster_path8").addEventListener("click", function() {MovieIDSearch(8)});
-document.getElementById("backdrop_path8").addEventListener("click", function() {MovieIDSearch(8)});
-document.getElementById("title8").addEventListener("click", function() {MovieIDSearch(8)});
-document.getElementById("poster_path9").addEventListener("click", function() {MovieIDSearch(9)});
-document.getElementById("backdrop_path9").addEventListener("click", function() {MovieIDSearch(9)});
-document.getElementById("title9").addEventListener("click", function() {MovieIDSearch(9)});
-document.getElementById("poster_path10").addEventListener("click", function() {MovieIDSearch(10)});
-document.getElementById("backdrop_path10").addEventListener("click", function() {MovieIDSearch(10)});
-document.getElementById("title10").addEventListener("click", function() {MovieIDSearch(10)});
-document.getElementById("poster_path11").addEventListener("click", function() {MovieIDSearch(11)});
-document.getElementById("backdrop_path11").addEventListener("click", function() {MovieIDSearch(11)});
-document.getElementById("title11").addEventListener("click", function() {MovieIDSearch(11)});
-document.getElementById("poster_path12").addEventListener("click", function() {MovieIDSearch(12)});
-document.getElementById("backdrop_path12").addEventListener("click", function() {MovieIDSearch(12)});
-document.getElementById("title12").addEventListener("click", function() {MovieIDSearch(12)});
-document.getElementById("poster_path13").addEventListener("click", function() {MovieIDSearch(13)});
-document.getElementById("backdrop_path13").addEventListener("click", function() {MovieIDSearch(13)});
-document.getElementById("title13").addEventListener("click", function() {MovieIDSearch(13)});
-document.getElementById("poster_path14").addEventListener("click", function() {MovieIDSearch(14)});
-document.getElementById("backdrop_path14").addEventListener("click", function() {MovieIDSearch(14)});
-document.getElementById("title14").addEventListener("click", function() {MovieIDSearch(14)});
-document.getElementById("poster_path15").addEventListener("click", function() {MovieIDSearch(15)});
-document.getElementById("backdrop_path15").addEventListener("click", function() {MovieIDSearch(15)});
-document.getElementById("title15").addEventListener("click", function() {MovieIDSearch(15)});
-document.getElementById("poster_path16").addEventListener("click", function() {MovieIDSearch(16)});
-document.getElementById("backdrop_path16").addEventListener("click", function() {MovieIDSearch(16)});
-document.getElementById("title16").addEventListener("click", function() {MovieIDSearch(16)});
-document.getElementById("poster_path17").addEventListener("click", function() {MovieIDSearch(17)});
-document.getElementById("backdrop_path17").addEventListener("click", function() {MovieIDSearch(17)});
-document.getElementById("title17").addEventListener("click", function() {MovieIDSearch(17)});
-document.getElementById("poster_path18").addEventListener("click", function() {MovieIDSearch(18)});
-document.getElementById("backdrop_path18").addEventListener("click", function() {MovieIDSearch(18)});
-document.getElementById("title18").addEventListener("click", function() {MovieIDSearch(18)});
-document.getElementById("poster_path19").addEventListener("click", function() {MovieIDSearch(19)});
-document.getElementById("backdrop_path19").addEventListener("click", function() {MovieIDSearch(19)});
-document.getElementById("title19").addEventListener("click", function() {MovieIDSearch(19)});
-document.getElementById("poster_path20").addEventListener("click", function() {MovieIDSearch(20)});
-document.getElementById("backdrop_path20").addEventListener("click", function() {MovieIDSearch(20)});
-document.getElementById("title20").addEventListener("click", function() {MovieIDSearch(20)});
-document.getElementById("poster_path21").addEventListener("click", function() {MovieIDSearch(21)});
-document.getElementById("backdrop_path21").addEventListener("click", function() {MovieIDSearch(21)});
-document.getElementById("title21").addEventListener("click", function() {MovieIDSearch(21)});
-document.getElementById("poster_path22").addEventListener("click", function() {MovieIDSearch(22)});
-document.getElementById("backdrop_path22").addEventListener("click", function() {MovieIDSearch(22)});
-document.getElementById("title22").addEventListener("click", function() {MovieIDSearch(22)});
-document.getElementById("poster_path23").addEventListener("click", function() {MovieIDSearch(23)});
-document.getElementById("backdrop_path23").addEventListener("click", function() {MovieIDSearch(23)});
-document.getElementById("title23").addEventListener("click", function() {MovieIDSearch(23)});
-
-
-		// fuction MovieIDSearch will pull the movie id and opens a new window that calls function MovieDtlCrdSearch on load to display the movie details
-		function MovieIDSearch(imageNbr) {
-		var MovIdIndex = imageNbr
-			/* Get the movie name for the form */
-			var moviename = document.getElementById("moviename").value;
-				/* Build up the parameters for the URL */
-			var api_key = "e5e088b9fdaef1249c47887b5e5eef39";
-			var language = "en-US";
-			var page = "1";
-			var include_adult = "false";
-			var query = encodeURI(moviename);  /* encode the Moviename since it might have blanks */  
-			var myURL = "https://api.themoviedb.org/3/search/movie?api_key=" + api_key + "&language=" + language + "&query=" + query + "&page="  + page + "&include_adult=" + include_adult;
-				/* Display the URL */
-			document.getElementById("url1").innerHTML = myURL;
-				/* AJAX Method - Use GET since the parameters are in the URL */
-			var myMethod = "GET";
-				/* Make sure the document is ready */
-			$(document).ready(function() { 
-				/* Perform AJAX call - Pass to it the Method (GET) and the URL*/
-			$.ajax({
-			  method: myMethod,
-			  url: myURL
-			})
-				/* AJAX complete - result is in msg */
-			.done(function(msg) {
-				//Move the movie id to variable onloadMovieId
-			var onloadMovieId = msg.results[MovIdIndex].id;	
-				//localStorage object stores data with no expiration date. 
-				//The data will not be deleted when the browser is closed, and will be available the next day, week, or year
-			localStorage.setItem("movieIdPass", onloadMovieId);
-				//The open() method opens a new browser window, or a new tab
-			window.open("advMovieSearchDetailsCredits.html", "_self");
-				});
-			});
-		}
-	</script>
-	<!-- Include JQuery to simplify AJAX call  -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="assets/scripts/index.js"></script>
+  </footer>
+  <script>
+    /* Trigger Button Click on Enter */
+    var input = document.getElementById("moviename");
+    input.addEventListener("keyup", function(event) {
+      if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("SrchMovBtn").click();
+      }
+    });
+    // event listener to grab click on poster_path and call fuction MovieIDSearch
+    document.getElementById("poster_path0").addEventListener("click", function() {MovieIDSearch(0)});
+    document.getElementById("backdrop_path0").addEventListener("click", function() {MovieIDSearch(0)});
+    document.getElementById("title0").addEventListener("click", function() {MovieIDSearch(0)});
+    document.getElementById("poster_path1").addEventListener("click", function() {MovieIDSearch(1)});
+    document.getElementById("backdrop_path1").addEventListener("click", function() {MovieIDSearch(1)});
+    document.getElementById("title1").addEventListener("click", function() {MovieIDSearch(1)});
+    document.getElementById("poster_path2").addEventListener("click", function() {MovieIDSearch(2)});
+    document.getElementById("backdrop_path2").addEventListener("click", function() {MovieIDSearch(2)});
+    document.getElementById("title2").addEventListener("click", function() {MovieIDSearch(2)});
+    document.getElementById("poster_path3").addEventListener("click", function() {MovieIDSearch(3)});
+    document.getElementById("backdrop_path3").addEventListener("click", function() {MovieIDSearch(3)});
+    document.getElementById("title3").addEventListener("click", function() {MovieIDSearch(3)});
+    document.getElementById("poster_path4").addEventListener("click", function() {MovieIDSearch(4)});
+    document.getElementById("backdrop_path4").addEventListener("click", function() {MovieIDSearch(4)});
+    document.getElementById("title4").addEventListener("click", function() {MovieIDSearch(4)});
+    document.getElementById("poster_path5").addEventListener("click", function() {MovieIDSearch(5)});
+    document.getElementById("backdrop_path5").addEventListener("click", function() {MovieIDSearch(5)});
+    document.getElementById("title5").addEventListener("click", function() {MovieIDSearch(5)});
+    document.getElementById("poster_path6").addEventListener("click", function() {MovieIDSearch(6)});
+    document.getElementById("backdrop_path6").addEventListener("click", function() {MovieIDSearch(6)});
+    document.getElementById("title6").addEventListener("click", function() {MovieIDSearch(6)});
+    document.getElementById("poster_path7").addEventListener("click", function() {MovieIDSearch(7)});
+    document.getElementById("backdrop_path7").addEventListener("click", function() {MovieIDSearch(7)});
+    document.getElementById("title7").addEventListener("click", function() {MovieIDSearch(7)});
+    document.getElementById("poster_path8").addEventListener("click", function() {MovieIDSearch(8)});
+    document.getElementById("backdrop_path8").addEventListener("click", function() {MovieIDSearch(8)});
+    document.getElementById("title8").addEventListener("click", function() {MovieIDSearch(8)});
+    document.getElementById("poster_path9").addEventListener("click", function() {MovieIDSearch(9)});
+    document.getElementById("backdrop_path9").addEventListener("click", function() {MovieIDSearch(9)});
+    document.getElementById("title9").addEventListener("click", function() {MovieIDSearch(9)});
+    document.getElementById("poster_path10").addEventListener("click", function() {MovieIDSearch(10)});
+    document.getElementById("backdrop_path10").addEventListener("click", function() {MovieIDSearch(10)});
+    document.getElementById("title10").addEventListener("click", function() {MovieIDSearch(10)});
+    document.getElementById("poster_path11").addEventListener("click", function() {MovieIDSearch(11)});
+    document.getElementById("backdrop_path11").addEventListener("click", function() {MovieIDSearch(11)});
+    document.getElementById("title11").addEventListener("click", function() {MovieIDSearch(11)});
+    document.getElementById("poster_path12").addEventListener("click", function() {MovieIDSearch(12)});
+    document.getElementById("backdrop_path12").addEventListener("click", function() {MovieIDSearch(12)});
+    document.getElementById("title12").addEventListener("click", function() {MovieIDSearch(12)});
+    document.getElementById("poster_path13").addEventListener("click", function() {MovieIDSearch(13)});
+    document.getElementById("backdrop_path13").addEventListener("click", function() {MovieIDSearch(13)});
+    document.getElementById("title13").addEventListener("click", function() {MovieIDSearch(13)});
+    document.getElementById("poster_path14").addEventListener("click", function() {MovieIDSearch(14)});
+    document.getElementById("backdrop_path14").addEventListener("click", function() {MovieIDSearch(14)});
+    document.getElementById("title14").addEventListener("click", function() {MovieIDSearch(14)});
+    document.getElementById("poster_path15").addEventListener("click", function() {MovieIDSearch(15)});
+    document.getElementById("backdrop_path15").addEventListener("click", function() {MovieIDSearch(15)});
+    document.getElementById("title15").addEventListener("click", function() {MovieIDSearch(15)});
+    document.getElementById("poster_path16").addEventListener("click", function() {MovieIDSearch(16)});
+    document.getElementById("backdrop_path16").addEventListener("click", function() {MovieIDSearch(16)});
+    document.getElementById("title16").addEventListener("click", function() {MovieIDSearch(16)});
+    document.getElementById("poster_path17").addEventListener("click", function() {MovieIDSearch(17)});
+    document.getElementById("backdrop_path17").addEventListener("click", function() {MovieIDSearch(17)});
+    document.getElementById("title17").addEventListener("click", function() {MovieIDSearch(17)});
+    document.getElementById("poster_path18").addEventListener("click", function() {MovieIDSearch(18)});
+    document.getElementById("backdrop_path18").addEventListener("click", function() {MovieIDSearch(18)});
+    document.getElementById("title18").addEventListener("click", function() {MovieIDSearch(18)});
+    document.getElementById("poster_path19").addEventListener("click", function() {MovieIDSearch(19)});
+    document.getElementById("backdrop_path19").addEventListener("click", function() {MovieIDSearch(19)});
+    document.getElementById("title19").addEventListener("click", function() {MovieIDSearch(19)});
+    document.getElementById("poster_path20").addEventListener("click", function() {MovieIDSearch(20)});
+    document.getElementById("backdrop_path20").addEventListener("click", function() {MovieIDSearch(20)});
+    document.getElementById("title20").addEventListener("click", function() {MovieIDSearch(20)});
+    document.getElementById("poster_path21").addEventListener("click", function() {MovieIDSearch(21)});
+    document.getElementById("backdrop_path21").addEventListener("click", function() {MovieIDSearch(21)});
+    document.getElementById("title21").addEventListener("click", function() {MovieIDSearch(21)});
+    document.getElementById("poster_path22").addEventListener("click", function() {MovieIDSearch(22)});
+    document.getElementById("backdrop_path22").addEventListener("click", function() {MovieIDSearch(22)});
+    document.getElementById("title22").addEventListener("click", function() {MovieIDSearch(22)});
+    document.getElementById("poster_path23").addEventListener("click", function() {MovieIDSearch(23)});
+    document.getElementById("backdrop_path23").addEventListener("click", function() {MovieIDSearch(23)});
+    document.getElementById("title23").addEventListener("click", function() {MovieIDSearch(23)});
+    // Fuction MovieIDSearch will pull the movie id and opens a new window that calls function MovieDtlCrdSearch on load to display the movie details
+    function MovieIDSearch(imageNbr) {
+      var MovIdIndex = imageNbr
+      /* Get the movie name for the form */
+      var moviename = document.getElementById("moviename").value;
+      /* Build up the parameters for the URL */
+      var api_key = "e5e088b9fdaef1249c47887b5e5eef39";
+      var language = "en-US";
+      var page = "1";
+      var include_adult = "false";
+      var query = encodeURI(moviename);  /* encode the Moviename since it might have blanks */  
+      var myURL = "https://api.themoviedb.org/3/search/movie?api_key=" + api_key + "&language=" + language + "&query=" + query + "&page="  + page + "&include_adult=" + include_adult;
+      /* Display the URL */
+      document.getElementById("url1").innerHTML = myURL;
+      /* AJAX Method - Use GET since the parameters are in the URL */
+      var myMethod = "GET";
+      /* Make sure the document is ready */
+      $(document).ready(function() { 
+        /* Perform AJAX call - Pass to it the Method (GET) and the URL*/
+        $.ajax({
+        method: myMethod,
+        url: myURL
+        })
+        /* AJAX complete - result is in msg */
+        .done(function(msg) {
+        //Move the movie id to variable onloadMovieId
+        var onloadMovieId = msg.results[MovIdIndex].id;	
+        //localStorage object stores data with no expiration date. 
+        //The data will not be deleted when the browser is closed, and will be available the next day, week, or year
+        localStorage.setItem("movieIdPass", onloadMovieId);
+        //The open() method opens a new browser window, or a new tab
+        window.open("advMovieSearchDetailsCredits.html", "_self");
+        });
+      });
+    }
+  </script>
+  <!--  External Script Files  -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="assets/scripts/index.js"></script>
 </body>
 </html>
   

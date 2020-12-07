@@ -1,148 +1,140 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Arkansas Movie Database</title>
-    <meta name="description" content="Your Description">
-    <meta name="keywords" content="Your, Key, Words">
-    <meta name="author" content="Fernando J Amador">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="assets/style/arMovieDatabase.css">
-	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu">
-	<link rel="shortcut icon" href="assets/images/arflag3favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Arkansas Movie Database</title>
+  <meta name="description" content="Your Description">
+  <meta name="keywords" content="Your, Key, Words">
+  <meta name="author" content="Fernando J Amador">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <!-- External CSS Files -->
+  <link rel="stylesheet" href="assets/style/arMovieDatabase.css">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu">
+  <!-- External CSS icon library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Add website favicon -->
+  <link rel="shortcut icon" href="assets/images/arflag3favicon.ico" type="image/x-icon" />
 </head>
 <body>
-	<div id="container">
-        <!-- Breadcrumb Pagination -->
-		<ul class="breadcrumb">
-		  <li><a href="#" onclick="openRedirect('index.html')">Home</a></li>
-		  <li><a href="#">Browse by Name</a></li>
-		  <li><a href="#">Browse Celebrities Men</a></li>
-		</ul>
-		<!-- Begin Tab Buttons Section -->
-        <!-- Responsive TopNav -->
-		<!-- Load an icon library to show a hamburger menu (bars) on small screens -->
-		<!-- SubNavBar Dropdown Menu -->
-		<!-- Create A Responsive Topnav with Dropdown -->
-		<div class="topnav" id="myTopnav">
-			<a href="#"><img class="websiteLogo" src="assets/images/websiteLogo4.png" alt="Arkansas Movie Database"></a>
-			<a href="#home" onclick="openRedirect('index.html')"><i class="fa fa-home"></i> Home</a>
-			<div class="dropdown">
-				<button class="dropbtn">Browse by Name<i class="fa fa-caret-down"></i></button>
-				<div class="dropdown-content">
-				  <a href="#" onclick="openRedirect('browse_movies.html')">Browse Movies</a>
-				  <a href="#" class="active" onclick="openRedirect('browse_celebrities_men.html')">Browse Celebrities Men</a>
-				  <a href="#" onclick="openRedirect('browse_celebrities_women.html')">Browse Celebrities Women</a>
-				  
-				</div>
-			</div>
-			<div class="dropdown">
-				<button class="dropbtn">Search<i class="fa fa-caret-down"></i></button>
-				<div class="dropdown-content">
-				  <a href="#" onclick="openRedirect('advMovieSearch.html')">Advanced Search Movies</a>
-				  <a href="#" onclick="openRedirect('advPersonSearch.html')">Advanced Search Celebrities</a>
-				</div>
-			 </div>
-		  <a href="#about" id="AboutBtn" onclick="openRedirect('about.html')">About</a>
-		  <a href="#contact" id="CntcMdlBtn">Contact</a>
-		  <a href="https://www.themoviedb.org/" class="rightTMDBlogo">powered by <img src="assets/images/blue_short-TMDB_logo.svg" alt="The Movie Database" style="width:90px"></a>
-		  <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
-		</div>
-		<br>
-		<h2 id="pagetitle">
-			Browse Celebrities Men
-		</h2>
-
-	<div id="main_content_wrap" class="outer">
-		<section id="main_content" class="inner">
-	 
-				<ul id="listTwo" class="demoTwo demo">
-					<!-- <li><a href="#" onclick="someFunction(); return false;">LINK</a></li> -->
-					<li><a href="#" onclick="browseCelebId(44879)">Billy, Broncho</a></li>
-					<li><a href="#" onclick="browseCelebId(110204)">Bardette, Trevor</a></li>
-					<li><a href="#" onclick="browseCelebId(8210)">Bentley, Wes</a></li>
-					<li><a href="#" onclick="browseCelebId(70615)">Bumpass, Rodger</a></li>
-					<li><a href="#" onclick="browseCelebId(1053791)">Burns, Bob</a></li>
-					<li><a href="#" onclick="browseCelebId(86110)">Campbell, Glen</a></li>
-					<li><a href="#" onclick="browseCelebId(60196)">Carter, John</a></li>
-					<li><a href="#" onclick="browseCelebId(84678)">Cash, Johnny</a></li>
-					<li><a href="#" onclick="browseCelebId(1591212)">Cornett, Matt</a></li>
-					<li><a href="#" onclick="browseCelebId(1479957)">Cowdery, Josh</a></li>
-					<li><a href="#" onclick="browseCelebId(177765)">Davis, Daniel</a></li>
-					<li><a href="#" onclick="browseCelebId(1932177)">Dickey, Ben</a></li>
-					<li><a href="#" onclick="browseCelebId(54729)">Duke, Clark</a></li>
-					<li><a href="#" onclick="browseCelebId(14420)">Farley, James</a></li>
-					<li><a href="#" onclick="browseCelebId(105605)">Fong, Leo</a></li>
-					<li><a href="#" onclick="browseCelebId(79742)">Hancock, John</a></li>
-					<li><a href="#" onclick="browseCelebId(76136)">Helm, Levon</a></li>
-					<li><a href="#" onclick="browseCelebId(12313)">Holliman, Earl</a></li>
-					<li><a href="#" onclick="browseCelebId(50971)">Hunnicutt, Arthur</a></li>
-					<li><a href="#" onclick="browseCelebId(149829)">Keener, Brandon</a></li>
-					<li><a href="#" onclick="browseCelebId(30510)">Ladd, Alan</a></li>
-					<li><a href="#" onclick="browseCelebId(2077)">Luckinbill, Laurence</a></li>
-					<li><a href="#" onclick="browseCelebId(125933)">May, Ralphie</a></li>
-					<li><a href="#" onclick="browseCelebId(11499)">Polk, Oscar</a></li>
-					<li><a href="#" onclick="browseCelebId(19328)">Powell, Dick</a></li>
-					<li><a href="#" onclick="browseCelebId(31467)">Ragsdale, William</a></li>
-					<li><a href="#" onclick="browseCelebId(1196615)">Reeves, Scott</a></li>
-					<li><a href="#" onclick="browseCelebId(879)">Thornton, Billy Bob</a></li>
-					<li><a href="#" onclick="browseCelebId(153410)">Van Dyke, Jerry</a></li>
-					<li><a href="#" onclick="browseCelebId(30279)">Watson, Minor</a></li>
- 				</ul>
-				
-			<p id="demo"></p>
-
-		</section>
-	</div>
-  <!-- Modal box for contact info -->
-  <div id="CntcModal" class="cntc-modal">
-    <!-- Modal content -->
-    <div class="cntc-modal-content">
-    <span class="modal-close">&times;</span>
-    <h2>Contact</h2>
-    <p>
-        <p>The Arkansas Movie Data Base</p>
-		<p>Fernando Amador</p>
-		<p>IFSC 4398 Capstone ProjectII</p>
-		<p>fjamador@ualr.edu</p>
-		
-		<p>Find out more about Fernando in his <a href="https://fjamador.github.io/portfolio/" style="color: blue;" target='_blank'>portfolio.</a></p>
-    </p>
+  <div id="container">
+    <!-- Breadcrumb Pagination -->
+    <ul class="breadcrumb">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#">Browse by Name</a></li>
+      <li><a href="#">Browse Celebrities Men</a></li>
+    </ul>
+  	<!-- Responsive Topnav with Dropdown SubNavBar Menu -->
+  	<div class="topnav" id="dbTopnav">
+  	  <a href="#"><img class="websiteLogo" src="assets/images/websiteLogo4.png" alt="Arkansas Movie Database"></a>
+  	  <a href="#home" onclick="openRedirect('index.html')"><i class="fa fa-home"></i> Home</a>
+  	  <div class="dropdown">
+  	    <button class="dropbtn">Browse by Name<i class="fa fa-caret-down"></i></button>
+  	    <div class="dropdown-content">
+  	      <a href="browse_movies.html">Browse Movies</a>
+  	      <a href="#" class="active" onclick="openRedirect('browse_celebrities_men.html')">Browse Celebrities Men</a>
+  	      <a href="browse_celebrities_women.html">Browse Celebrities Women</a>
+  	    </div>
+  	  </div>
+  	  <div class="dropdown">
+  	    <button class="dropbtn">Search<i class="fa fa-caret-down"></i></button>
+  	    <div class="dropdown-content">
+  	      <a href="advMovieSearch.html">Advanced Search Movies</a>
+  	      <a href="advPersonSearch.html">Advanced Search Celebrities</a>
+  	    </div>
+  	  </div>
+  	  <a href="usefulLinks.html">Links</a>
+      <a href="about.html">About</a>
+      <!-- Trigger/Open The Modal -->
+      <a href="#contact" id="CntcMdlBtn">Contact</a>
+      <a href="https://www.themoviedb.org/" target="_blank" class="rightTMDBlogo">powered by <img src="assets/images/blue_short-TMDB_logo.svg" alt="The Movie Database" style="width:90px"></a>
+      <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+	  <a href="javascript:void(0);" class="icon" onclick="topNavIconClk()">&#9776;</a>
+  	</div>
+  	<br>
+  	<h2 id="pagetitle">Browse Celebrities Men</h2>
+	
+	<!--  --><!-- ***********************************************************-->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <ul id="listTwo" class="demoTwo demo"> <!-- ***********************************************************-->
+          <li><a href="#" onclick="browseCelebId(44879)">Billy, Broncho</a></li>
+          <li><a href="#" onclick="browseCelebId(110204)">Bardette, Trevor</a></li>
+          <li><a href="#" onclick="browseCelebId(8210)">Bentley, Wes</a></li>
+          <li><a href="#" onclick="browseCelebId(70615)">Bumpass, Rodger</a></li>
+          <li><a href="#" onclick="browseCelebId(1053791)">Burns, Bob</a></li>
+          <li><a href="#" onclick="browseCelebId(86110)">Campbell, Glen</a></li>
+          <li><a href="#" onclick="browseCelebId(60196)">Carter, John</a></li>
+          <li><a href="#" onclick="browseCelebId(84678)">Cash, Johnny</a></li>
+          <li><a href="#" onclick="browseCelebId(1591212)">Cornett, Matt</a></li>
+          <li><a href="#" onclick="browseCelebId(1479957)">Cowdery, Josh</a></li>
+          <li><a href="#" onclick="browseCelebId(177765)">Davis, Daniel</a></li>
+          <li><a href="#" onclick="browseCelebId(1932177)">Dickey, Ben</a></li>
+          <li><a href="#" onclick="browseCelebId(54729)">Duke, Clark</a></li>
+          <li><a href="#" onclick="browseCelebId(14420)">Farley, James</a></li>
+          <li><a href="#" onclick="browseCelebId(105605)">Fong, Leo</a></li>
+          <li><a href="#" onclick="browseCelebId(79742)">Hancock, John</a></li>
+          <li><a href="#" onclick="browseCelebId(76136)">Helm, Levon</a></li>
+          <li><a href="#" onclick="browseCelebId(12313)">Holliman, Earl</a></li>
+          <li><a href="#" onclick="browseCelebId(50971)">Hunnicutt, Arthur</a></li>
+          <li><a href="#" onclick="browseCelebId(149829)">Keener, Brandon</a></li>
+          <li><a href="#" onclick="browseCelebId(30510)">Ladd, Alan</a></li>
+          <li><a href="#" onclick="browseCelebId(2077)">Luckinbill, Laurence</a></li>
+          <li><a href="#" onclick="browseCelebId(125933)">May, Ralphie</a></li>
+          <li><a href="#" onclick="browseCelebId(11499)">Polk, Oscar</a></li>
+          <li><a href="#" onclick="browseCelebId(19328)">Powell, Dick</a></li>
+          <li><a href="#" onclick="browseCelebId(31467)">Ragsdale, William</a></li>
+          <li><a href="#" onclick="browseCelebId(1196615)">Reeves, Scott</a></li>
+          <li><a href="#" onclick="browseCelebId(879)">Thornton, Billy Bob</a></li>
+          <li><a href="#" onclick="browseCelebId(153410)">Van Dyke, Jerry</a></li>
+          <li><a href="#" onclick="browseCelebId(30279)">Watson, Minor</a></li>
+        </ul>
+        <p id="demo"></p><!-- ****************                          *******************************************-->
+      </section>
     </div>
-  </div>  
-	</div>
-	<footer>
-	
-	</footer>
-	
-	<!-- Include JQuery to simplify AJAX call -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<!-- Specify the URL of external script files -->
-	<script src="assets/scripts/index.js"></script>
-	<script src="assets/scripts/jquery-listnav.js"></script>
-	<script>
-			// fuction PersonIDSearch will pull the 
-		//person id and opens a new window that calls function PersonDtlCrdSearch on load to display the person details
-		function browseCelebId(idNbr) {
-			var onloadPersonId = idNbr;	
-				//localStorage object stores data with no expiration date. 
-				//The data will not be deleted when the browser is closed, and will be available the next day, week, or year
-			localStorage.setItem("personIdPass", onloadPersonId);
-				//The open() method opens a new browser window, or a new tab
-			window.open("advPersonSearchDetailsCredits.html", "_self");
-			}
-		//custom message for letters with no matching results
-		$(function(){
-			$('.demoTwo').listnav({
-				includeAll: false,
-				noMatchText: 'There are no matching entries.'
-			});
-				$('.demo a').click(function(e) {
-				e.preventDefault();
-			});
-		});
-	</script>
+    <!-- Modal box for contact info -->
+    <div id="CntcModal" class="cntc-modal">
+      <!-- Modal content -->
+      <div class="cntc-modal-content">
+        <span class="modal-close">&times;</span>
+        <h2>Contact</h2>
+        <p>
+          <p>The Arkansas Movie Data Base</p>
+          <p>Fernando Amador</p>
+          <p>IFSC 4398 Capstone ProjectII</p>
+          <p>fjamador@ualr.edu</p>
+          <p>Find out more about Fernando in his <a href="https://fjamador.github.io/portfolio/" style="color: blue;" target='_blank'>portfolio.</a></p>
+        </p>
+      </div>
+    </div>
+  </div>
+  <footer>
+  
+  </footer>
+  <!--  External Script Files  -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="assets/scripts/index.js"></script>
+  <script src="assets/scripts/jquery-listnav.js"></script>
+  <script>
+    // Fuction PersonIDSearch will pull the person id and opens a new window that calls function PersonDtlCrdSearch on load to display the person details
+    function browseCelebId(idNbr) {
+      var onloadPersonId = idNbr;	
+      //localStorage object stores data with no expiration date. 
+      //The data will not be deleted when the browser is closed, and will be available the next day, week, or year
+      localStorage.setItem("personIdPass", onloadPersonId);
+      //The open() method opens a new browser window, or a new tab
+      window.open("advPersonSearchDetailsCredits.html", "_self");
+    }
+    //custom message for letters with no matching results
+    $(function(){
+      $('.demoTwo').listnav({
+        includeAll: false,
+        noMatchText: 'There are no matching entries.'
+	    });
+      $('.demo a').click(function(e) {
+        e.preventDefault();
+      });
+    });
+  </script>
 </body>
 </html>

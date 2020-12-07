@@ -1,549 +1,531 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>Arkansas Movie Database</title>
-<meta name="description" content="Your Description">
-<meta name="keywords" content="Your, Key, Words">
-<meta name="author" content="Fernando J Amador">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="assets/style/arMovieDatabase.css">
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu">
-<link rel="shortcut icon" href="assets/images/arflag3favicon.ico" type="image/x-icon" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<!-- Include JQuery to simplify AJAX call -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="assets/scripts/index.js"></script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Arkansas Movie Database</title>
+  <meta name="description" content="Your Description">
+  <meta name="keywords" content="Your, Key, Words">
+  <meta name="author" content="Fernando J Amador">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- External CSS Files -->
+  <link rel="stylesheet" href="assets/style/arMovieDatabase.css">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu">
+  <!-- External CSS icon library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Add website favicon -->
+  <link rel="shortcut icon" href="assets/images/arflag3favicon.ico" type="image/x-icon" />
+  <!-- External Script Files -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="assets/scripts/index.js"></script>
 </head>
 <body>
-<!-- Execute a JavaScript immediately after a page has been loaded -->
-<!-- passing the value of the variable onloadMovieId  from the localStorage object-->
-<body onload="MovieDtlCrdSearch()">
-<div id="container">	
-<!-- Breadcrumb Pagination -->
-<ul class="breadcrumb">
-<li><a href="#" onclick="openRedirect('index.html')">Home</a></li>
-<li><a href="#" onclick="openRedirect('advMovieSearch.html')">Advanced Search Movies</a></li>
-<li><a href="#">Movies Details & Credits</a></li>
-</ul>
-
-<!-- Begin Tab Buttons Section -->
-<!-- Responsive TopNav -->
-<!-- Load an icon library to show a hamburger menu (bars) on small screens -->
-<!-- SubNavBar Dropdown Menu -->
-<!-- Create A Responsive Topnav with Dropdown -->
-<div class="topnav" id="myTopnav">
-<a href="#"><img class="websiteLogo" src="assets/images/websiteLogo4.png" alt="Arkansas Movie Database"></a>
-<a href="#home" onclick="openRedirect('index.html')"><i class="fa fa-home"></i> Home</a>
-<div class="dropdown">
-<button class="dropbtn">Browse by Name<i class="fa fa-caret-down"></i></button>
-<div class="dropdown-content">
-<a href="#" onclick="openRedirect('browse_movies.html')">Browse Movies</a>
-<a href="#" onclick="openRedirect('browse_celebrities_men.html')">Browse Celebrities Men</a>
-<a href="#" onclick="openRedirect('browse_celebrities_women.html')">Browse Celebrities Women</a>
-
-</div>
-</div>
-<div class="dropdown">
-<button class="dropbtn">Search<i class="fa fa-caret-down"></i></button>
-<div class="dropdown-content">
-<a href="#" onclick="openRedirect('advMovieSearch.html')">Advanced Search Movies</a>
-<a href="#" onclick="openRedirect('advPersonSearch.html')">Advanced Search Celebrities</a>
-</div>
- </div>
-<a href="#about" id="AboutBtn" onclick="openRedirect('about.html')">About</a>
-<a href="#contact" id="CntcMdlBtn">Contact</a>
-<a href="https://www.themoviedb.org/" class="rightTMDBlogo">powered by <img src="assets/images/blue_short-TMDB_logo.svg" alt="The Movie Database" style="width:90px"></a>
-<a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
-</div>
-<br>
-<h2 id="pagetitle">Movie Details & Credits</h2>
-
-<!--
-<p>Enter Movie ID: <input type="text" id="movieid"></p>
-
--- Run the MovieSearch function when the button is clicked - See https://www.w3schools.com/js/js_events.asp--
-<p><button id="myBtn" onclick="MovieDtlCrdSearch()">Search for Movie Details & Credits</button></p>
--->
-
-<div id="url1"></div><br>
-
-<!-- two unequal columns  -->
-<div class="tucRow">
-  <div class="tucColumn tucLeft"> 
-    <img  id="poster_path">
-	<h3>Movie details</h3>
-	<div id="homepage"></div>
-	<div id="movieid"></div>
-	<div id="original_language"></div>
-	<div id="original_title"></div>
-	<div id="popularity"></div>
-	<div id="release_date"></div>
-	<div id="budget"></div>
-	<div id="revenue"></div>
-	<div id="runtime"></div>
-	<strong>Genres</strong>
-	<div class="movgenres">
-	  <div id="genres0"></div>
-	  <div id="genres1"></div>
-	  <div id="genres2"></div>
-	  <div id="genres3"></div>
-	  <div id="genres4"></div>
-	  <div id="genres5"></div>
-	  <div id="genres6"></div>
-	</div>
-	<div id="status"></div>
-	<div id="tagline"></div>
-	<div id="vote_average"></div>
-	<div id="vote_count"></div>
-	<div id="video"></div>
-  </div>
-  <div class="tucColumn tucRight">
-    <div id="title"></div>
-	<h3>Overview</h3>
-	<div id="overview" style="text-indent: 50px; line-height: 1.3"></div>
-	<div id="imdb_id"></div>
-  </div>
-</div>  
- 
-
-<!--<div class="results_content">-->
- 
-<!-- Responsive Credits MTT Section -->	
-<div class="mttSection">
-<div class="mttRow">	
-  <div class="mttColumn">
-    <div class="mttCard">	
-	  <img id="profilepath0">
-	  <div class="mttContainer">
-		<div class="txtshadow" id="name0"></div>
-		<div class="mttTitle" id="character0"></div>
-		<div id="cast_id0"></div>
-		<div id="order0"></div>
-		<div id="credit_id0"></div>
-		<div id="gender0"></div>
-	  </div>
+  <!-- Execute a JavaScript immediately after a page has been loaded -->
+  <!-- passing the value of the variable onloadMovieId  from the localStorage object-->
+  <body onload="MovieDtlCrdSearch()">
+  <div id="container">	
+    <!-- Breadcrumb Pagination -->
+    <ul class="breadcrumb">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="advMovieSearch.html">Advanced Search Movies</a></li>
+      <li><a href="#">Movies Details & Credits</a></li>
+    </ul>
+	<!-- Responsive Topnav with Dropdown SubNavBar Menu -->
+    <div class="topnav" id="dbTopnav">
+      <a href="#"><img class="websiteLogo" src="assets/images/websiteLogo4.png" alt="Arkansas Movie Database"></a>
+      <a href="#home" onclick="openRedirect('index.html')"><i class="fa fa-home"></i> Home</a>
+      <div class="dropdown">
+        <button class="dropbtn">Browse by Name<i class="fa fa-caret-down"></i></button>
+        <div class="dropdown-content">
+          <a href="browse_movies.html">Browse Movies</a>
+          <a href="browse_celebrities_men.html">Browse Celebrities Men</a>
+          <a href="browse_celebrities_women.html">Browse Celebrities Women</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Search<i class="fa fa-caret-down"></i></button>
+        <div class="dropdown-content">
+          <a href="advMovieSearch.html">Advanced Search Movies</a>
+          <a href="advPersonSearch.html">Advanced Search Celebrities</a>
+        </div>
+      </div>
+      <a href="usefulLinks.html">Links</a>
+      <a href="about.html">About</a>
+      <!-- Trigger/Open The Modal -->
+      <a href="#contact" id="CntcMdlBtn">Contact</a>
+      <a href="https://www.themoviedb.org/" target="_blank" class="rightTMDBlogo">powered by <img src="assets/images/blue_short-TMDB_logo.svg" alt="The Movie Database" style="width:90px"></a>
+      <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+	  <a href="javascript:void(0);" class="icon" onclick="topNavIconClk()">&#9776;</a>
     </div>
-  </div>
-  <div class="mttColumn">
-    <div class="mttCard">	
-		<img id="profilepath1">
-		<div class="mttContainer">
-		<div class="txtshadow" id="name1"></div>
-		<div class="mttTitle" id="character1"></div>
-		<div id="cast_id1"></div>
-		<div id="order1"></div>
-		<div id="credit_id1"></div>
-		<div id="gender1"></div>
-	  </div>
+    <br>
+    <h2 id="pagetitle">Movie Details & Credits</h2>
+    <!-- To display the URL on the page go to index.js and follow the directions -->
+    <div id="url1"></div><br>
+    <!-- Display the Results  -->
+    <!-- Two unequal columns for movie details and overview  -->
+    <div class="tucRow">
+      <div class="tucColumn tucLeft"> 
+        <img  id="poster_path">
+    	  <h3>Movie details</h3>
+    	  <div id="homepage"></div>
+    	  <div id="movieid"></div>
+    	  <div id="original_language"></div>
+    	  <div id="original_title"></div>
+    	  <div id="popularity"></div>
+    	  <div id="release_date"></div>
+    	  <div id="budget"></div>
+    	  <div id="revenue"></div>
+    	  <div id="runtime"></div>
+    	  <strong>Genres</strong>
+    	  <div class="movgenres">
+    	    <div id="genres0"></div>
+    	    <div id="genres1"></div>
+    	    <div id="genres2"></div>
+    	    <div id="genres3"></div>
+    	    <div id="genres4"></div>
+    	    <div id="genres5"></div>
+    	    <div id="genres6"></div>
+    	  </div>
+    	  <div id="status"></div>
+    	  <div id="tagline"></div>
+    	  <div id="vote_average"></div>
+    	  <div id="vote_count"></div>
+    	  <div id="video"></div>
+      </div>
+      <div class="tucColumn tucRight">
+        <div id="title"></div>
+    	  <h3>Overview</h3>
+    	  <div id="overview" style="text-indent: 50px; line-height: 1.3"></div>
+    	  <div id="imdb_id"></div>
+      </div>
     </div>
-  </div>
-  <div class="mttColumn">
-    <div class="mttCard">	
-		<img id="profilepath2">
-		<div class="mttContainer">
-		<div class="txtshadow" id="name2"></div>
-		<div class="mttTitle" id="character2"></div>
-		<div id="cast_id2"></div>
-		<div id="order2"></div>
-		<div id="credit_id2"></div>
-		<div id="gender2"></div>
-	  </div>
+    <!-- Responsive Credits Results Tiled MTT Section -->	
+    <div class="mttSection">
+      <div class="mttRow">	
+        <div class="mttColumn">
+          <div class="mttCard">	
+      	  <img id="profilepath0">
+      	  <div class="mttContainer">
+      		<div class="txtshadow" id="name0"></div>
+      		<div class="mttTitle" id="character0"></div>
+      		<div id="cast_id0"></div>
+      		<div id="order0"></div>
+      		<div id="credit_id0"></div>
+      		<div id="gender0"></div>
+      	  </div>
+          </div>
+        </div>
+        <div class="mttColumn">
+          <div class="mttCard">	
+      	  <img id="profilepath1">
+      	  <div class="mttContainer">
+      		<div class="txtshadow" id="name1"></div>
+      		<div class="mttTitle" id="character1"></div>
+      		<div id="cast_id1"></div>
+      		<div id="order1"></div>
+      		<div id="credit_id1"></div>
+      		<div id="gender1"></div>
+      	  </div>
+          </div>
+        </div>
+        <div class="mttColumn">
+          <div class="mttCard">	
+      	  <img id="profilepath2">
+      	  <div class="mttContainer">
+      		<div class="txtshadow" id="name2"></div>
+      		<div class="mttTitle" id="character2"></div>
+      		<div id="cast_id2"></div>
+      		<div id="order2"></div>
+      		<div id="credit_id2"></div>
+      		<div id="gender2"></div>
+      	  </div>
+          </div>
+        </div>
+        <div class="mttColumn">
+          <div class="mttCard">	
+      	  <img id="profilepath3">
+      	  <div class="mttContainer">
+      		<div class="txtshadow" id="name3"></div>
+      		<div class="mttTitle" id="character3"></div>
+      		<div id="cast_id3"></div>
+      		<div id="order3"></div>
+      		<div id="credit_id3"></div>
+      		<div id="gender3"></div>
+      	  </div>
+          </div>
+        </div>
+      </div>
+      <div class="mttRow">
+        <div class="mttColumn">
+          <div class="mttCard">
+      		<img id="profilepath4">
+      		<div class="mttContainer">
+      		  <div class="txtshadow" id="name4"></div>
+      		  <div class="mttTitle" id="character4"></div>
+      		  <div id="cast_id4"></div>
+      		  <div id="order4"></div>
+      		  <div id="credit_id4"></div>
+      		  <div id="gender4"></div>
+      	    </div>
+          </div>
+        </div>
+        <div class="mttColumn">
+          <div class="mttCard">	
+      		<img id="profilepath5">
+      		<div class="mttContainer">
+      		  <div class="txtshadow" id="name5"></div>
+      		  <div class="mttTitle" id="character5"></div>
+      		  <div id="cast_id5"></div>
+      		  <div id="order5"></div>
+      		  <div id="credit_id5"></div>
+      		  <div id="gender5"></div>
+      	    </div>
+          </div>
+        </div>
+        <div class="mttColumn">
+          <div class="mttCard">	
+      		<img id="profilepath6">
+      		<div class="mttContainer">
+      		  <div class="txtshadow" id="name6"></div>
+      		  <div class="mttTitle" id="character6"></div>
+      		  <div id="cast_id6"></div>
+      		  <div id="order6"></div>
+      		  <div id="credit_id6"></div>
+      		  <div id="gender6"></div>
+      	    </div>
+          </div>
+        </div>
+        <div class="mttColumn">
+          <div class="mttCard">	
+      		<img id="profilepath7">
+      		<div class="mttContainer">
+      		  <div class="txtshadow" id="name7"></div>
+      		  <div class="mttTitle" id="character7"></div>
+      		  <div id="cast_id7"></div>
+      		  <div id="order7"></div>
+      		  <div id="credit_id7"></div>
+      		  <div id="gender7"></div>
+      	    </div>
+          </div>
+        </div>
+      </div>
+      <div class="mttRow">
+        <div class="mttColumn">
+          <div class="mttCard">	
+      		<img id="profilepath8">
+      		<div class="mttContainer">
+      		  <div class="txtshadow" id="name8"></div>
+      		  <div class="mttTitle" id="character8"></div>
+      		  <div id="cast_id8"></div>
+      		  <div id="order8"></div>
+      		  <div id="credit_id8"></div>
+      		  <div id="gender8"></div>
+      	    </div>
+          </div>
+        </div>
+        <div class="mttColumn">
+          <div class="mttCard">	
+      		<img id="profilepath9">
+      		<div class="mttContainer">
+      		  <div class="txtshadow" id="name9"></div>
+      		  <div class="mttTitle" id="character9"></div>
+      		  <div id="cast_id9"></div>
+      		  <div id="order9"></div>
+      		  <div id="credit_id9"></div>
+      		  <div id="gender9"></div>
+      	    </div>
+          </div>
+        </div>
+        <div class="mttColumn">
+          <div class="mttCard">	
+      		<img id="profilepath10">
+      		<div class="mttContainer">
+      		  <div class="txtshadow" id="name10"></div>
+      		  <div class="mttTitle" id="character10"></div>
+      		  <div id="cast_id10"></div>
+      		  <div id="order10"></div>
+      		  <div id="credit_id10"></div>
+      		  <div id="gender10"></div>
+      	    </div>
+          </div>
+        </div>
+        <div class="mttColumn">
+          <div class="mttCard">	
+      		<img id="profilepath11">
+      		<div class="mttContainer">
+      		  <div class="txtshadow" id="name11"></div>
+      		  <div class="mttTitle" id="character11"></div>
+      		  <div id="cast_id11"></div>
+      		  <div id="order11"></div>
+      		  <div id="credit_id11"></div>
+      		  <div id="gender11"></div>
+      	    </div>
+          </div>
+        </div>
+      </div>
+      <div class="mttRow">
+        <div class="mttColumn">
+          <div class="mttCard">	
+      		<img id="profilepath12">
+      		<div class="mttContainer">
+      		  <div class="txtshadow" id="name12"></div>
+      		  <div class="mttTitle" id="character12"></div>
+      		  <div id="cast_id12"></div>
+      		  <div id="order12"></div>
+      		  <div id="credit_id12"></div>
+      		  <div id="gender12"></div>
+      	    </div>
+          </div>
+        </div>
+        <div class="mttColumn">
+          <div class="mttCard">	
+      		<img id="profilepath13">
+      		<div class="mttContainer">
+      		  <div class="txtshadow" id="name13"></div>
+      		  <div class="mttTitle" id="character13"></div>
+      		  <div id="cast_id13"></div>
+      		  <div id="order13"></div>
+      		  <div id="credit_id13"></div>
+      		  <div id="gender13"></div>
+      	    </div>
+          </div>
+        </div>
+        <div class="mttColumn">
+          <div class="mttCard">	
+      		<img id="profilepath14">
+      		<div class="mttContainer">
+      		  <div class="txtshadow" id="name14"></div>
+      		  <div class="mttTitle" id="character14"></div>
+      		  <div id="cast_id14"></div>
+      		  <div id="order14"></div>
+      		  <div id="credit_id14"></div>
+      		  <div id="gender14"></div>
+      	    </div>
+          </div>
+        </div>
+        <div class="mttColumn">
+          <div class="mttCard">	
+      		<img id="profilepath15">
+      		<div class="mttContainer">
+      		  <div class="txtshadow" id="name15"></div>
+      		  <div class="mttTitle" id="character15"></div>
+      		  <div id="cast_id15"></div>
+      		  <div id="order15"></div>
+      		  <div id="credit_id15"></div>
+      		  <div id="gender15"></div>
+      	    </div>
+          </div>
+        </div>
+      </div>
+      <div class="mttRow">
+        <div class="mttColumn">
+          <div class="mttCard">	
+      		<img id="profilepath16">
+      		<div class="mttContainer">
+      		  <div class="txtshadow" id="name16"></div>
+      		  <div class="mttTitle" id="character16"></div>
+      		  <div id="cast_id16"></div>
+      		  <div id="order16"></div>
+      		  <div id="credit_id16"></div>
+      		  <div id="gender16"></div>
+      	    </div>
+          </div>
+        </div>
+        <div class="mttColumn">
+          <div class="mttCard">	
+      		<img id="profilepath17">
+      		<div class="mttContainer">
+      		  <div class="txtshadow" id="name17"></div>
+      		  <div class="mttTitle" id="character17"></div>
+      		  <div id="cast_id17"></div>
+      		  <div id="order17"></div>
+      		  <div id="credit_id17"></div>
+      		  <div id="gender17"></div>
+      	    </div>
+          </div>
+        </div>
+        <div class="mttColumn">
+          <div class="mttCard">	
+      		<img id="profilepath18">
+      		<div class="mttContainer">
+      		  <div class="txtshadow" id="name18"></div>
+      		  <div class="mttTitle" id="character18"></div>
+      		  <div id="cast_id18"></div>
+      		  <div id="order18"></div>
+      		  <div id="credit_id18"></div>
+      		  <div id="gender18"></div>
+      	    </div>
+          </div>
+        </div>
+        <div class="mttColumn">
+          <div class="mttCard">	
+      		<img id="profilepath19">
+      		<div class="mttContainer">
+      		  <div class="txtshadow" id="name19"></div>
+      		  <div class="mttTitle" id="character19"></div>
+      		  <div id="cast_id19"></div>
+      		  <div id="order19"></div>
+      		  <div id="credit_id19"></div>
+      		  <div id="gender19"></div>
+      	    </div>
+          </div>
+        </div>
+      </div>
+      <div class="mttRow">
+        <div class="mttColumn">
+          <div class="mttCard">
+      	  <img id="profilepath20">
+      	    <div class="mttContainer">
+      		  <div class="txtshadow" id="name20"></div>
+      		  <div class="mttTitle" id="character20"></div>
+      		  <div id="cast_id20"></div>
+      		  <div id="order20"></div>
+      		  <div id="credit_id20"></div>
+      		  <div id="gender20"></div>
+      	    </div>
+          </div>
+        </div>
+        <div class="mttColumn">
+          <div class="mttCard">
+      	  <img id="profilepath21">
+      	    <div class="mttContainer">
+      		  <div class="txtshadow" id="name21"></div>
+      		  <div class="mttTitle" id="character21"></div>
+      		  <div id="cast_id21"></div>
+      		  <div id="order21"></div>
+      		  <div id="credit_id21"></div>
+      		  <div id="gender21"></div>
+      	    </div>
+          </div>
+        </div>
+        <div class="mttColumn">
+          <div class="mttCard">
+      	  <img id="profilepath22">
+      	    <div class="mttContainer">
+      		  <div class="txtshadow" id="name22"></div>
+      		  <div class="mttTitle" id="character22"></div>
+      		  <div id="cast_id22"></div>
+      		  <div id="order22"></div>
+      		  <div id="credit_id22"></div>
+      		  <div id="gender22"></div>
+      	    </div>
+          </div>
+        </div>
+        <div class="mttColumn">
+          <div class="mttCard">
+            <img id="profilepath23">
+      	    <div class="mttContainer">
+      		  <div class="txtshadow" id="name23"></div>
+      		  <div class="mttTitle" id="character23"></div>
+      		  <div id="cast_id23"></div>
+      		  <div id="order23"></div>
+      		  <div id="credit_id23"></div>
+      		  <div id="gender23"></div>
+      	    </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="mttColumn">
-    <div class="mttCard">	
-		<img id="profilepath3">
-		<div class="mttContainer">
-		<div class="txtshadow" id="name3"></div>
-		<div class="mttTitle" id="character3"></div>
-		<div id="cast_id3"></div>
-		<div id="order3"></div>
-		<div id="credit_id3"></div>
-		<div id="gender3"></div>
-	  </div>
-    </div>
-  </div>
-</div>
-<div class="mttRow">
-  <div class="mttColumn">
-    <div class="mttCard">
-		<img id="profilepath4">
-		<div class="mttContainer">
-		<div class="txtshadow" id="name4"></div>
-		<div class="mttTitle" id="character4"></div>
-		<div id="cast_id4"></div>
-		<div id="order4"></div>
-		<div id="credit_id4"></div>
-		<div id="gender4"></div>
-	  </div>
-    </div>
-  </div>
-  <div class="mttColumn">
-    <div class="mttCard">	
-		<img id="profilepath5">
-		<div class="mttContainer">
-		<div class="txtshadow" id="name5"></div>
-		<div class="mttTitle" id="character5"></div>
-		<div id="cast_id5"></div>
-		<div id="order5"></div>
-		<div id="credit_id5"></div>
-		<div id="gender5"></div>
-	  </div>
-    </div>
-  </div>
-  <div class="mttColumn">
-    <div class="mttCard">	
-		<img id="profilepath6">
-		<div class="mttContainer">
-		<div class="txtshadow" id="name6"></div>
-		<div class="mttTitle" id="character6"></div>
-		<div id="cast_id6"></div>
-		<div id="order6"></div>
-		<div id="credit_id6"></div>
-		<div id="gender6"></div>
-	  </div>
-    </div>
-  </div>
-  <div class="mttColumn">
-    <div class="mttCard">	
-		<img id="profilepath7">
-		<div class="mttContainer">
-		<div class="txtshadow" id="name7"></div>
-		<div class="mttTitle" id="character7"></div>
-		<div id="cast_id7"></div>
-		<div id="order7"></div>
-		<div id="credit_id7"></div>
-		<div id="gender7"></div>
-	  </div>
-    </div>
-  </div>
-</div>
-<div class="mttRow">
-  <div class="mttColumn">
-    <div class="mttCard">	
-		<img id="profilepath8">
-		<div class="mttContainer">
-		<div class="txtshadow" id="name8"></div>
-		<div class="mttTitle" id="character8"></div>
-		<div id="cast_id8"></div>
-		<div id="order8"></div>
-		<div id="credit_id8"></div>
-		<div id="gender8"></div>
-	  </div>
-    </div>
-  </div>
-  <div class="mttColumn">
-    <div class="mttCard">	
-		<img id="profilepath9">
-		<div class="mttContainer">
-		<div class="txtshadow" id="name9"></div>
-		<div class="mttTitle" id="character9"></div>
-		<div id="cast_id9"></div>
-		<div id="order9"></div>
-		<div id="credit_id9"></div>
-		<div id="gender9"></div>
-	  </div>
-    </div>
-  </div>
-  <div class="mttColumn">
-    <div class="mttCard">	
-		<img id="profilepath10">
-		<div class="mttContainer">
-		<div class="txtshadow" id="name10"></div>
-		<div class="mttTitle" id="character10"></div>
-		<div id="cast_id10"></div>
-		<div id="order10"></div>
-		<div id="credit_id10"></div>
-		<div id="gender10"></div>
-	  </div>
-    </div>
-  </div>
-  <div class="mttColumn">
-    <div class="mttCard">	
-		<img id="profilepath11">
-		<div class="mttContainer">
-		<div class="txtshadow" id="name11"></div>
-		<div class="mttTitle" id="character11"></div>
-		<div id="cast_id11"></div>
-		<div id="order11"></div>
-		<div id="credit_id11"></div>
-		<div id="gender11"></div>
-	  </div>
-    </div>
-  </div>
-</div>
-<div class="mttRow">
-  <div class="mttColumn">
-    <div class="mttCard">	
-		<img id="profilepath12">
-		<div class="mttContainer">
-		<div class="txtshadow" id="name12"></div>
-		<div class="mttTitle" id="character12"></div>
-		<div id="cast_id12"></div>
-		<div id="order12"></div>
-		<div id="credit_id12"></div>
-		<div id="gender12"></div>
-	  </div>
-    </div>
-  </div>
-  <div class="mttColumn">
-    <div class="mttCard">	
-		<img id="profilepath13">
-		<div class="mttContainer">
-		<div class="txtshadow" id="name13"></div>
-		<div class="mttTitle" id="character13"></div>
-		<div id="cast_id13"></div>
-		<div id="order13"></div>
-		<div id="credit_id13"></div>
-		<div id="gender13"></div>
-	  </div>
-    </div>
-  </div>
-  <div class="mttColumn">
-    <div class="mttCard">	
-		<img id="profilepath14">
-		<div class="mttContainer">
-		<div class="txtshadow" id="name14"></div>
-		<div class="mttTitle" id="character14"></div>
-		<div id="cast_id14"></div>
-		<div id="order14"></div>
-		<div id="credit_id14"></div>
-		<div id="gender14"></div>
-	  </div>
-    </div>
-  </div>
-  <div class="mttColumn">
-    <div class="mttCard">	
-		<img id="profilepath15">
-		<div class="mttContainer">
-		<div class="txtshadow" id="name15"></div>
-		<div class="mttTitle" id="character15"></div>
-		<div id="cast_id15"></div>
-		<div id="order15"></div>
-		<div id="credit_id15"></div>
-		<div id="gender15"></div>
-	  </div>
-    </div>
-  </div>
-</div>
-<div class="mttRow">
-  <div class="mttColumn">
-    <div class="mttCard">	
-		<img id="profilepath16">
-		<div class="mttContainer">
-		<div class="txtshadow" id="name16"></div>
-		<div class="mttTitle" id="character16"></div>
-		<div id="cast_id16"></div>
-		<div id="order16"></div>
-		<div id="credit_id16"></div>
-		<div id="gender16"></div>
-	  </div>
-    </div>
-  </div>
-  <div class="mttColumn">
-    <div class="mttCard">	
-		<img id="profilepath17">
-		<div class="mttContainer">
-		<div class="txtshadow" id="name17"></div>
-		<div class="mttTitle" id="character17"></div>
-		<div id="cast_id17"></div>
-		<div id="order17"></div>
-		<div id="credit_id17"></div>
-		<div id="gender17"></div>
-	  </div>
-    </div>
-  </div>
-  <div class="mttColumn">
-    <div class="mttCard">	
-		<img id="profilepath18">
-		<div class="mttContainer">
-		<div class="txtshadow" id="name18"></div>
-		<div class="mttTitle" id="character18"></div>
-		<div id="cast_id18"></div>
-		<div id="order18"></div>
-		<div id="credit_id18"></div>
-		<div id="gender18"></div>
-	  </div>
-    </div>
-  </div>
-  <div class="mttColumn">
-    <div class="mttCard">	
-		<img id="profilepath19">
-		<div class="mttContainer">
-		<div class="txtshadow" id="name19"></div>
-		<div class="mttTitle" id="character19"></div>
-		<div id="cast_id19"></div>
-		<div id="order19"></div>
-		<div id="credit_id19"></div>
-		<div id="gender19"></div>
-	  </div>
-    </div>
-  </div>
-</div>
-<div class="mttRow">
-  <div class="mttColumn">
-    <div class="mttCard">
-	  <img id="profilepath20">
-	  <div class="mttContainer">
-		<div class="txtshadow" id="name20"></div>
-		<div class="mttTitle" id="character20"></div>
-		<div id="cast_id20"></div>
-		<div id="order20"></div>
-		<div id="credit_id20"></div>
-		<div id="gender20"></div>
-	  </div>
-    </div>
-  </div>
-  <div class="mttColumn">
-    <div class="mttCard">
-	  <img id="profilepath21">
-	  <div class="mttContainer">
-		<div class="txtshadow" id="name21"></div>
-		<div class="mttTitle" id="character21"></div>
-		<div id="cast_id21"></div>
-		<div id="order21"></div>
-		<div id="credit_id21"></div>
-		<div id="gender21"></div>
-	  </div>
-    </div>
-  </div>
-  <div class="mttColumn">
-    <div class="mttCard">
-	  <img id="profilepath22">
-	  <div class="mttContainer">
-		<div class="txtshadow" id="name22"></div>
-		<div class="mttTitle" id="character22"></div>
-		<div id="cast_id22"></div>
-		<div id="order22"></div>
-		<div id="credit_id22"></div>
-		<div id="gender22"></div>
-	  </div>
-    </div>
-  </div>
-  <div class="mttColumn">
-    <div class="mttCard">
-      <img id="profilepath23">
-	  <div class="mttContainer">
-		<div class="txtshadow" id="name23"></div>
-		<div class="mttTitle" id="character23"></div>
-		<div id="cast_id23"></div>
-		<div id="order23"></div>
-		<div id="credit_id23"></div>
-		<div id="gender23"></div>
-	  </div>
-    </div>
-  </div>
-</div>
-</div>	
-
-  <!-- Modal box for contact info -->
-  <div id="CntcModal" class="cntc-modal">
-    <!-- Modal content -->
-    <div class="cntc-modal-content">
-    <span class="modal-close">&times;</span>
-    <h2>Contact</h2>
-    <p>
+    <!-- Modal box for contact info -->
+    <div id="CntcModal" class="cntc-modal">
+      <!-- Modal content -->
+      <div class="cntc-modal-content">
+      <span class="modal-close">&times;</span>
+      <h2>Contact</h2>
+      <p>
         <p>The Arkansas Movie Data Base</p>
-		<p>Fernando Amador</p>
-		<p>IFSC 4398 Capstone ProjectII</p>
-		<p>fjamador@ualr.edu</p>
-		
-		<p>Find out more about Fernando in his <a href="https://fjamador.github.io/portfolio/" style="color: blue;" target='_blank'>portfolio.</a></p>
-    </p>
-    </div>
-  </div>  
-</div>
-<script>
-// event listener to grab click on movie poster and call fuction MovieIDSearch
-document.getElementById("profilepath0").addEventListener("click", function() {PersonIDSearch(0)});
-document.getElementById("name0").addEventListener("click", function() {PersonIDSearch(0)});
-document.getElementById("profilepath1").addEventListener("click", function() {PersonIDSearch(1)});
-document.getElementById("name1").addEventListener("click", function() {PersonIDSearch(1)});
-document.getElementById("profilepath2").addEventListener("click", function() {PersonIDSearch(2)});
-document.getElementById("name2").addEventListener("click", function() {PersonIDSearch(2)});
-document.getElementById("profilepath3").addEventListener("click", function() {PersonIDSearch(3)});
-document.getElementById("name3").addEventListener("click", function() {PersonIDSearch(3)});
-document.getElementById("profilepath4").addEventListener("click", function() {PersonIDSearch(4)});
-document.getElementById("name4").addEventListener("click", function() {PersonIDSearch(4)});
-document.getElementById("profilepath5").addEventListener("click", function() {PersonIDSearch(5)});
-document.getElementById("name5").addEventListener("click", function() {PersonIDSearch(5)});
-document.getElementById("profilepath6").addEventListener("click", function() {PersonIDSearch(6)});
-document.getElementById("name6").addEventListener("click", function() {PersonIDSearch(6)});
-document.getElementById("profilepath7").addEventListener("click", function() {PersonIDSearch(7)});
-document.getElementById("name7").addEventListener("click", function() {PersonIDSearch(7)});
-document.getElementById("profilepath8").addEventListener("click", function() {PersonIDSearch(8)});
-document.getElementById("name8").addEventListener("click", function() {PersonIDSearch(8)});
-document.getElementById("profilepath9").addEventListener("click", function() {PersonIDSearch(9)});
-document.getElementById("name9").addEventListener("click", function() {PersonIDSearch(9)});
-document.getElementById("profilepath10").addEventListener("click", function() {PersonIDSearch(10)});
-document.getElementById("name10").addEventListener("click", function() {PersonIDSearch(10)});
-document.getElementById("profilepath11").addEventListener("click", function() {PersonIDSearch(11)});
-document.getElementById("name11").addEventListener("click", function() {PersonIDSearch(11)});
-document.getElementById("profilepath12").addEventListener("click", function() {PersonIDSearch(12)});
-document.getElementById("name12").addEventListener("click", function() {PersonIDSearch(12)});
-document.getElementById("profilepath13").addEventListener("click", function() {PersonIDSearch(13)});
-document.getElementById("name13").addEventListener("click", function() {PersonIDSearch(13)});
-document.getElementById("profilepath14").addEventListener("click", function() {PersonIDSearch(14)});
-document.getElementById("name14").addEventListener("click", function() {PersonIDSearch(14)});
-document.getElementById("profilepath15").addEventListener("click", function() {PersonIDSearch(15)});
-document.getElementById("name15").addEventListener("click", function() {PersonIDSearch(15)});
-document.getElementById("profilepath16").addEventListener("click", function() {PersonIDSearch(16)});
-document.getElementById("name16").addEventListener("click", function() {PersonIDSearch(16)});
-document.getElementById("profilepath17").addEventListener("click", function() {PersonIDSearch(17)});
-document.getElementById("name17").addEventListener("click", function() {PersonIDSearch(17)});
-document.getElementById("profilepath18").addEventListener("click", function() {PersonIDSearch(18)});
-document.getElementById("name18").addEventListener("click", function() {PersonIDSearch(18)});
-document.getElementById("profilepath19").addEventListener("click", function() {PersonIDSearch(19)});
-document.getElementById("name19").addEventListener("click", function() {PersonIDSearch(19)});
-document.getElementById("profilepath20").addEventListener("click", function() {PersonIDSearch(20)});
-document.getElementById("name20").addEventListener("click", function() {PersonIDSearch(20)});
-document.getElementById("profilepath21").addEventListener("click", function() {PersonIDSearch(21)});
-document.getElementById("name21").addEventListener("click", function() {PersonIDSearch(21)});
-document.getElementById("profilepath22").addEventListener("click", function() {PersonIDSearch(22)});
-document.getElementById("name22").addEventListener("click", function() {PersonIDSearch(22)});
-document.getElementById("profilepath23").addEventListener("click", function() {PersonIDSearch(23)});
-document.getElementById("name23").addEventListener("click", function() {PersonIDSearch(23)});
-
-
-function PersonIDSearch(profilepathNbr) {
-var PrsnIdIndex = profilepathNbr
-/* Build up the parameters for the URL */
-//Grab the value from local storage for the movieid variable 
-var movieid = localStorage.getItem("movieIdPass");
-/* Build up the parameters for the URL */
-var txt
-var api_key = "e5e088b9fdaef1249c47887b5e5eef39";
-var language = "en-US";
-var page = "1";
-var include_adult = "false";
-var query = movieid;  /* encode the movename since it might have blanks */  
-var myURL = "https://api.themoviedb.org/3/movie/" + query + "?api_key=" + api_key + "&language=" + language + "&append_to_response=credits";
-/* AJAX Method - Use GET since the parameters are in the URL */
-var myMethod = "GET";
-/* Make sure the document is ready */
-$(document).ready(function() { 
-/* Perform AJAX call - Pass to it the Method (GET) and the URL*/
-$.ajax({
-method: myMethod,
-url: myURL})
-/* AJAX complete - result is in msg */
-.done(function(msg) {
-//Move the person id from movie credits to variable onloadPersonId
-var onloadPersonId = msg.credits.cast[PrsnIdIndex].id;	
-//localStorage object stores data with no expiration date. 
-//The data will not be deleted when the browser is closed, and will be available the next day, week, or year
-localStorage.setItem("personIdPass", onloadPersonId);
-//The open() method opens a new browser window, or a new tab
-window.open("advPersonSearchDetailsCredits.html", "_self");});
-});
-}
-
-
-
-</script>
-
+	  	<p>Fernando Amador</p>
+	  	<p>IFSC 4398 Capstone ProjectII</p>
+	  	<p>fjamador@ualr.edu</p>
+	  	<p>Find out more about Fernando in his <a href="https://fjamador.github.io/portfolio/" style="color: blue;" target='_blank'>portfolio.</a></p>
+      </p>
+      </div>
+    </div>  
+  </div>
+  <script>
+    // event listener to grab click on profilepath and call fuction PersonIDSearch
+    document.getElementById("profilepath0").addEventListener("click", function() {PersonIDSearch(0)});
+    document.getElementById("name0").addEventListener("click", function() {PersonIDSearch(0)});
+    document.getElementById("profilepath1").addEventListener("click", function() {PersonIDSearch(1)});
+    document.getElementById("name1").addEventListener("click", function() {PersonIDSearch(1)});
+    document.getElementById("profilepath2").addEventListener("click", function() {PersonIDSearch(2)});
+    document.getElementById("name2").addEventListener("click", function() {PersonIDSearch(2)});
+    document.getElementById("profilepath3").addEventListener("click", function() {PersonIDSearch(3)});
+    document.getElementById("name3").addEventListener("click", function() {PersonIDSearch(3)});
+    document.getElementById("profilepath4").addEventListener("click", function() {PersonIDSearch(4)});
+    document.getElementById("name4").addEventListener("click", function() {PersonIDSearch(4)});
+    document.getElementById("profilepath5").addEventListener("click", function() {PersonIDSearch(5)});
+    document.getElementById("name5").addEventListener("click", function() {PersonIDSearch(5)});
+    document.getElementById("profilepath6").addEventListener("click", function() {PersonIDSearch(6)});
+    document.getElementById("name6").addEventListener("click", function() {PersonIDSearch(6)});
+    document.getElementById("profilepath7").addEventListener("click", function() {PersonIDSearch(7)});
+    document.getElementById("name7").addEventListener("click", function() {PersonIDSearch(7)});
+    document.getElementById("profilepath8").addEventListener("click", function() {PersonIDSearch(8)});
+    document.getElementById("name8").addEventListener("click", function() {PersonIDSearch(8)});
+    document.getElementById("profilepath9").addEventListener("click", function() {PersonIDSearch(9)});
+    document.getElementById("name9").addEventListener("click", function() {PersonIDSearch(9)});
+    document.getElementById("profilepath10").addEventListener("click", function() {PersonIDSearch(10)});
+    document.getElementById("name10").addEventListener("click", function() {PersonIDSearch(10)});
+    document.getElementById("profilepath11").addEventListener("click", function() {PersonIDSearch(11)});
+    document.getElementById("name11").addEventListener("click", function() {PersonIDSearch(11)});
+    document.getElementById("profilepath12").addEventListener("click", function() {PersonIDSearch(12)});
+    document.getElementById("name12").addEventListener("click", function() {PersonIDSearch(12)});
+    document.getElementById("profilepath13").addEventListener("click", function() {PersonIDSearch(13)});
+    document.getElementById("name13").addEventListener("click", function() {PersonIDSearch(13)});
+    document.getElementById("profilepath14").addEventListener("click", function() {PersonIDSearch(14)});
+    document.getElementById("name14").addEventListener("click", function() {PersonIDSearch(14)});
+    document.getElementById("profilepath15").addEventListener("click", function() {PersonIDSearch(15)});
+    document.getElementById("name15").addEventListener("click", function() {PersonIDSearch(15)});
+    document.getElementById("profilepath16").addEventListener("click", function() {PersonIDSearch(16)});
+    document.getElementById("name16").addEventListener("click", function() {PersonIDSearch(16)});
+    document.getElementById("profilepath17").addEventListener("click", function() {PersonIDSearch(17)});
+    document.getElementById("name17").addEventListener("click", function() {PersonIDSearch(17)});
+    document.getElementById("profilepath18").addEventListener("click", function() {PersonIDSearch(18)});
+    document.getElementById("name18").addEventListener("click", function() {PersonIDSearch(18)});
+    document.getElementById("profilepath19").addEventListener("click", function() {PersonIDSearch(19)});
+    document.getElementById("name19").addEventListener("click", function() {PersonIDSearch(19)});
+    document.getElementById("profilepath20").addEventListener("click", function() {PersonIDSearch(20)});
+    document.getElementById("name20").addEventListener("click", function() {PersonIDSearch(20)});
+    document.getElementById("profilepath21").addEventListener("click", function() {PersonIDSearch(21)});
+    document.getElementById("name21").addEventListener("click", function() {PersonIDSearch(21)});
+    document.getElementById("profilepath22").addEventListener("click", function() {PersonIDSearch(22)});
+    document.getElementById("name22").addEventListener("click", function() {PersonIDSearch(22)});
+    document.getElementById("profilepath23").addEventListener("click", function() {PersonIDSearch(23)});
+    document.getElementById("name23").addEventListener("click", function() {PersonIDSearch(23)});
+    // Fuction PersonIDSearch will pull the celebrity id and opens a new window that calls function PersonDtlCrdSearch on load to display the celebrity details
+    function PersonIDSearch(profilepathNbr) {
+      var PrsnIdIndex = profilepathNbr
+      /* Build up the parameters for the URL */
+      //Grab the value from local storage for the movieid variable 
+      var movieid = localStorage.getItem("movieIdPass");
+      /* Build up the parameters for the URL */
+      var txt
+      var api_key = "e5e088b9fdaef1249c47887b5e5eef39";
+      var language = "en-US";
+      var page = "1";
+      var include_adult = "false";
+      var query = movieid;  /* encode the movename since it might have blanks */  
+      var myURL = "https://api.themoviedb.org/3/movie/" + query + "?api_key=" + api_key + "&language=" + language + "&append_to_response=credits";
+      /* AJAX Method - Use GET since the parameters are in the URL */
+      var myMethod = "GET";
+      /* Make sure the document is ready */
+      $(document).ready(function() { 
+        /* Perform AJAX call - Pass to it the Method (GET) and the URL*/
+        $.ajax({
+          method: myMethod,
+          url: myURL})
+        /* AJAX complete - result is in msg */
+        .done(function(msg) {
+         //Move the person id from movie credits to variable onloadPersonId
+         var onloadPersonId = msg.credits.cast[PrsnIdIndex].id;	
+         //localStorage object stores data with no expiration date. 
+         //The data will not be deleted when the browser is closed, and will be available the next day, week, or year
+         localStorage.setItem("personIdPass", onloadPersonId);
+         //The open() method opens a new browser window, or a new tab
+         window.open("advPersonSearchDetailsCredits.html", "_self");});
+      });
+    }
+  </script>
 </body>
 </html>
 
