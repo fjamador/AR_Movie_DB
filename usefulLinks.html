@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>ARMDB</title>
+  <meta name="description" content="Website is intended to promote the film industry in Arkansas by attracting filmmakers and actors to the state.">
+  <meta name="keywords" content="arkansas, film, movie, actors, celebrities, film festival">
+  <meta name="author" content="Fernando J Amador">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/style/arMovieDatabase.css">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu">
+  <link rel="shortcut icon" href="assets/images/arflag3favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <div id="container">
+    <!-- hitwebcounter -->
+    <div class="hitWebcounter">
+      <a class="visitCounter" href="https://www.hitwebcounter.com" target="_blank">visits
+      <img src="https://hitwebcounter.com/counter/counter.php?page=7707347&style=0006&nbdigits=5&type=page&initCount=0" title="Total Website Hits" Alt="Web Hits" />
+      </a>  
+    </div>
+    <!-- Breadcrumb Pagination -->
+	<ul class="breadcrumb">
+	  <li><a href="index.html">Home</a></li>
+	  <li><a href="#">Links</a></li>
+	</ul>
+	<!-- Create A Responsive Topnav with Dropdown SubNavBar Menu -->
+	<div class="topnav" id="dbTopnav">
+	  <a href="#"><img class="websiteLogo" src="assets/images/websiteLogo4.png" alt="Arkansas Movie Database"></a>
+	  <a href="#home" onclick="openRedirect('index.html')"><i class="fa fa-home"></i> Home</a>
+	  <div class="dropdown">
+	    <button class="dropbtn">Browse by Name<i class="fa fa-caret-down"></i></button>
+		<div class="dropdown-content">
+		  <a href="browse_movies.html">Browse Movies</a>
+		  <a href="browse_celebrities_men.html">Browse Celebrities Men</a>
+		  <a href="browse_celebrities_women.html">Browse Celebrities Women</a>
+		</div>
+	  </div>
+	  <div class="dropdown">
+		<button class="dropbtn">Search<i class="fa fa-caret-down"></i></button>
+		<div class="dropdown-content">
+		  <a href="advMovieSearch.html">Advanced Search Movies</a>
+		  <a href="advPersonSearch.html">Advanced Search Celebrities</a>
+	    </div>
+	  </div>
+	  <a href="usefulLinks.html" class="active">Links</a>
+      <a href="about.html">About</a>
+      <!-- Trigger/Open The Modal -->
+      <a href="#contact" id="CntcMdlBtn">Contact</a>
+      <a href="https://www.themoviedb.org/" target="_blank" class="rightTMDBlogo">powered by <img src="assets/images/blue_short-TMDB_logo.svg" alt="The Movie Database" style="width:90px"></a>
+      <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+	  <a href="javascript:void(0);" class="icon" onclick="topNavIconClk()">&#9776;</a>
+	</div>
+	<br>
+	<h1 id="pagetitle">Useful Links</h1>
+    <div class="usefulLinks">	
+    <h3>ARKANSAS ECONOMIC DEVELOPMENT COMMISSION<br>Little Rock, AR</h3>
+    <p>AEDC's mission is to create economic opportunity by attracting higher paying jobs, expanding and diversifying our state and local economies, increasing incomes and investment, and generating positive growth throughout Arkansas.</p>
+    <a class="linksAnchor" href="https://www.arkansasedc.com/" target="_blank">AEDC</a>
+    </div>
+    <div class="usefulLinks">	
+    <h3>ACS FILMLAND<br>Little Rock, AR</h3>
+    <p>The Arkansas Cinema Society's Filmland is a curated annual celebration of cinema with a mission to nurture and inspire filmmakers in Arkansas by exposing Arkansans to filmmakers and their art.</p>
+    <a class="linksAnchor" href="https://www.arkansascinemasociety.org/" target="_blank">Arkansas Cinema Society</a>
+    </div>
+    <div class="usefulLinks">	
+    <h3>ARKANSAS SHORTS- A NIGHT OF SHORT FILM<br>Hot Springs, AR</h3>
+    <p>Arkansas Shorts is a showcase of short films created by natives and current residents of Arkansas. Shorts films are 10 minutes or less and span all genres including narrative, documentary, music video and experimental films. Sometimes called the “Jewel of January,” it is one of the most fun and anticipated events of the year. Filmmakers and film lovers often wear their Hollywood best!</p>
+    <a class="linksAnchor" href="https://www.facebook.com/arkansasshorts/" target="_blank">Arkansas Shorts - A Night of Short Films</a>
+    </div>
+    <div class="usefulLinks">	
+    <h3>BENTONVILLE FILM FESTIVAL<br>Bentonville, AR</h3>
+    <p>Bentonville Film Festival is a one of a kind event that champions inclusion in all forms of media. Co-founded by Academy Award® winner Geena Davis & Inclusion Companies CEO Trevor Drinkwater, BFF is a year-long platform culminating with an annual festival in partnership with founding sponsor Walmart and presenting sponsor Coca-Cola.</p>
+    <a class="linksAnchor" href="https://bentonvillefilm.org/" target="_blank">Bentonville Film Festival</a>
+    </div>	
+    <div class="usefulLinks">	
+    <h3>CONWAY FILM FESTIVAL<br>Conway, AR</h3>
+    <p>The Conway Film Festival is a venue of local, national, and international independent filmmaking. In conjunction with ArtsFest, located in downtown Conway, AR.</p>
+    <a class="linksAnchor" href="https://www.facebook.com/eldofilmfest" target="_blank">Conway Film Festival</a>
+    </div>
+    <div class="usefulLinks">	
+    <h3>EL DORADO FILM FESTIVAL<br>El Dorado, AR</h3>
+    <p>The El Dorado Film Festival offers a curated selection of independent cinema to audiences in El Dorado, Arkansas: a small town with a unique history in the arts.</p>
+    <a class="linksAnchor" href="https://www.facebook.com/eldofilmfest" target="_blank">El Dorado Film Festival</a>
+    </div>	
+    <div class="usefulLinks">	
+    <h3>FAYETTEVILLE FILM FEST<br>Fayetteville, AR</h3>
+    <p>The Fayetteville Film Fest is a cultural leader in our region, bringing world class film to our state, developing meaningful relationships with filmmakers, and nurturing the art of filmmaking by uniting a community of creators and supporters.</p>
+    <a class="linksAnchor" href="https://www.fayettevillefilmfest.org/" target="_blank">Fayetteville Film Fest</a>
+    </div>
+    <div class="usefulLinks">	
+    <h3>HOT SPRINGS DOCUMENTARY FILM FESTIVAL<br>Hot Springs, AR</h3>
+    <p>The Hot Springs Documentary Film Festival is the oldest non-fiction festival in North America. HSDFF offers multiple awards categories, and is a designated Academy-Award© -qualifying festival for the Academy of Motion Picture Arts and Sciences in Documentary Short Subject.</p>
+    <a class="linksAnchor" href="https://www.facebook.com/eldofilmfest" target="_blank">Hot Springs Documentary Film Festival</a>
+    </div>	
+    <div class="usefulLinks">	
+    <h3>HOT SPRINGS INTERNATIONAL HORROR FILM FESTIVAL<br>Hot Springs, AR</h3>
+    <p>Our mission is to inspire, educate, & promote talented artists & filmmakers around the world. The institute provides opportunities for networking, exhibition, education, screenings and more. The historic Central Theater offers a unique venue for the public to experience films on the “Big Screen” often with the filmmakers artists or celebrities available to answer questions and share their insights.</p>
+    <a class="linksAnchor" href="https://hotspringshorrorfilmfestival.com/" target="_blank">Hot Springs International Horror Film Festival</a>
+    </div>
+    <div class="usefulLinks">	
+    <h3>HOT SPRINGS INTERNATIONAL WOMEN’S FILM FESTIVAL<br>Hot Springs, AR</h3>
+    <p>The Hot Springs International Women’s Film Festival (HSWFF) is presented by the Hot Springs Arts & Film Institute. The festival celebrates women filmmakers and artists by providing a historic theàter venue and networking forum in Hot Springs National Park, AR. USA.</p>
+    <a class="linksAnchor" href="https://www.facebook.com/eldofilmfest" target="_blank">Hot Springs International Women’s Film Festival</a>
+    </div>	
+    <div class="usefulLinks">	
+    <h3>LITTLE ROCK 48 HOUR FILM PROJECT<br>Little Rock, AR</h3>
+    <p>Filmmakers from all over the Little Rock area will compete to see who can make the best short film in only 48 hours.</p>
+    <a class="linksAnchor" href="https://www.48hourfilm.com/littlerock" target="_blank">Little Rock 48HFP</a>
+    </div>
+    <div class="usefulLinks">	
+    <h3>MADE IN ARKANSAS FILM FESTIVAL<br>Little Rock, AR</h3>
+    <p>The annual Made in Arkansas Film Festival hosted by CALS Ron Robinson Theater is devoted to showcasing films made in The Natural State from a wide variety of filmmakers in all corners of the state and to giving local filmmakers the opportunity to have their films shown at the beautiful state-of-the-art CALS Ron Robinson Theater.</p>
+    <a class="linksAnchor" href="https://www.facebook.com/eldofilmfest" target="_blank">Made in Arkansas Film Festival</a>
+    </div>	
+    <div class="usefulLinks">	
+    <h3>OZARK FOOTHILLS FILMFEST<br>Batesville, AR</h3>
+    <p>Ozark Foothills FilmFest, Inc. is a 501(c)(3) educational non-profit organization dedicated to excellence and accessibility in the media arts. We present the annual Ozark Foothills FilmFest each spring and the T Tauri Movie Camp Youth Summer Residency Program each July and have been actively involved in advancing film culture in Arkansas for seventeen years.</p>
+    <a class="linksAnchor" href="https://www.facebook.com/eldofilmfest" target="_blank">Ozark Foothills FilmFest</a>
+    </div>	
+	<!-- Modal box for contact info -->
+    <div id="CntcModal" class="cntc-modal">
+      <!-- Modal content -->
+      <div class="cntc-modal-content">
+          <span class="modal-close">&times;</span>
+          <h2>Contact</h2>
+          <p>Arkansas Economic Development Commission </p>
+          <p>1 Commerce Way Suite 601</p>
+          <p>Little Rock, AR 72202</p>
+          <p>(501) 682-1121</p>
+          <p>Find out more about at <a href="https://www.arkansasedc.com/" style="color: blue;" target='_blank'>www.arkansasedc.com</a></p>
+        </div>
+    </div>      
+  </div>	
+  <footer>
+  </footer>
+  <script src="assets/scripts/index.js"></script>
+  <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- jQuery slideToggle() Method  -->
+  <script> 
+    $(document).ready(function(){
+      $("#flip").click(function(){
+    	$("#panel").slideToggle("slow");
+      });
+    });
+  </script>
+</body>
+</html>	
+	
+	
+	

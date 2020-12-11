@@ -34,6 +34,35 @@ window.onclick = function(event) {
   }
 }
 
+/* **************************************** 
+			Map Animated Modal  
+***************************************** */   
+// Get the modal
+var mamModal = document.getElementById("mamModalId");
+
+// Get the button that opens the modal
+var btn = document.getElementById("mamBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("mamClose")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  mamModal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  mamModal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == mamModal) {
+    mamModal.style.display = "none";
+  }
+}
+
 /* ********************************************** 
 		Responsive Topnav with Dropdown	 
 *********************************************** */
@@ -115,6 +144,54 @@ function showSlides(n) {
   captionText.innerHTML = dots[slideIndex-1].alt;
 }
 
+
+
+  
+const cookieValue = document.cookie
+        .split('; ')
+        .find(row => row.startsWith('placeofbirth'))
+        .split('=')[1]; 
+      
+    function alertCookieValue() {
+      document.getElementById("place_of_birth").style.display = "block";
+              document.getElementById("place_of_birth").innerHTML = cookieValue;
+      
+        
+      }  
+  
+  
+  // Google Map with Geocoding
+function initMap() {
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 10,
+      center: { lat: 39.8283, lng: -98.5795 },
+    });
+    const geocoder = new google.maps.Geocoder();
+      geocodeAddress(geocoder, map);
+  }
+
+function geocodeAddress(geocoder, resultsMap) {
+
+  const address = document.cookie
+        .split('; ')
+        .find(row => row.startsWith('placeofbirth'))
+        .split('=')[1];;
+	
+  geocoder.geocode({ address: address }, (results, status) => {
+    if (status === "OK") {
+      resultsMap.setCenter(results[0].geometry.location);
+      new google.maps.Marker({
+        map: resultsMap,
+        position: results[0].geometry.location,
+      });
+    } else {
+      alert(
+        "Geocode was not successful for the following reason: " + status
+      );
+    }
+  });
+}
+  
 
 /* ********************************************** 
 				Function MovieSearch	 
@@ -556,6 +633,7 @@ function PersonDtlCrdSearch() {
 	  
       document.getElementById("place_of_birth").style.display = "block";
       document.getElementById("place_of_birth").innerHTML = "<br><strong>Place of birth</strong><br>" + msg.place_of_birth;
+	  document.cookie = "placeofbirth=" + msg.place_of_birth;
 	  
       document.getElementById("gender").style.display = "none";
       document.getElementById("gender").innerHTML = "<br><strong>Gender</strong><br>" + msg.gender;

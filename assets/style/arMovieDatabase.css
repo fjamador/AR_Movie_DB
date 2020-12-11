@@ -17,7 +17,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-#container {
+#container, #containerB {
   max-width: 1000px;/* will improve the browser's handling of small windows, won't add a horizontal scrollbar to the page. */
   margin-right: auto;
   margin-left: auto;
@@ -114,48 +114,6 @@ p {
 @keyframes fadeEffect {
   from {opacity: 0;}
   to {opacity: 1;}
-}
-
-/* ***********************************
-			Contact Modal
-************************************ */
-/* The Modal (background) */
-.cntc-modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content/Box */
-.cntc-modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button */
-.modal-close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.modal-close:hover,
-.modal-close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
 }
 
 /* ***********************************
@@ -872,12 +830,12 @@ dl p {
   position: absolute;
   bottom: 20px;
   right: 20px;
-  background-color: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  background-color: rgba(0, 0, 0, 0);
   color: white;
   padding-left: 20px;
   padding-right: 20px;
   text-align: right;
-  font-weight: 550;  
+  font-weight: 500;  
 }
 
 
@@ -898,83 +856,129 @@ dl p {
   /*background-color: #4CAF50;*/ /* button green */
 }
 
+/* ***********************************
+			Contact Modal
+************************************ */
+/* The Modal (background) */
+.cntc-modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.cntc-modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%; /* Could be more or less, depending on screen size */
+  text-align: center;
+}
+
+/* The Close Button */
+.modal-close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 /***************************************
 			Map Animated Modal
 ************************************** */
-	/*  Map Animated Modal	*/
-	
-    /* The Modal (background) */
-    .mamModalCls {
-      display: none; /* Hidden by default */
-      position: fixed; /* Stay in place */
-      z-index: 1; /* Sit on top */
-      padding-top: 100px; /* Location of the box */
-      left: 0;
-      top: 0;
-      width: 100%; /* Full width */
-      height: 100%; /* Full height */
-      overflow: auto; /* Enable scroll if needed */
-      background-color: rgb(0,0,0); /* Fallback color */
-      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    }
-    
-    /* Modal Content */
-    .mamModalCls-content {
-      position: relative;
-      background-color: #fefefe;
-      margin: auto;
-      padding: 0;
-      border: 1px solid #888;
-      width: 80%;
-      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-      -webkit-animation-name: animatetop;
-      -webkit-animation-duration: 0.4s;
-      animation-name: animatetop;
-      animation-duration: 0.4s
-    }
-    
-    /* Add Animation */
-    @-webkit-keyframes animatetop {
-      from {top:-300px; opacity:0} 
-      to {top:0; opacity:1}
-    }
-    
-    @keyframes animatetop {
-      from {top:-300px; opacity:0}
-      to {top:0; opacity:1}
-    }
-    
-    /* The Close Button */
-    .mamClose {
-      color: white;
-      float: right;
-      font-size: 40px;
-      font-weight: bold;
-    }
-    
-    .mamClose:hover,
-    .mamClose:focus {
-      color: #000;
-      text-decoration: none;
-      cursor: pointer;
-    }
-    
-    .mamModalCls-header {
-      padding: 2px 16px;
-      background-color: #5cb85c;
-      color: white;
-    }
-    
-    .mamModalCls-body {padding: 2px 16px;}
-    
-    .mamModalCls-footer {
-      padding: 20px 16px;
-      background-color: #5cb85c;
-      color: white;
-    }
-	
-	#map {
-      width:100%;
-	  height:600px;
-    }
-	
+/*  Map Animated Modal	*/
+
+/* The Modal (background) */
+.mamModalCls {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 30px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.mamModalCls-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.mamClose {
+  color: white;
+  float: right;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.mamClose:hover,
+.mamClose:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mamModalCls-header {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+.mamModalCls-body {padding: 2px 16px;}
+
+.mamModalCls-footer {
+  padding: 20px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+ 
+#map {
+  width:100%;
+  height:620px;
+}
+
+
+
+
